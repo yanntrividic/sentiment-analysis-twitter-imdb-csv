@@ -2,6 +2,8 @@
 
 L3AA1 is a program run in Python that provides sentiment analysis for corpuses of text in french and in english. Those corpuses can be extracted from Twitter or IMDb, or be read from one of your CSV files.
 
+![Main window of the app](https://github.com/yanntrividic/sentiment-analysis-twitter-imdb-csv/main/mainwindow.png)
+
 ## Installation
 
 For the installation process, please refer to the document *Manuel d'installation* provided with the source code (in french).
@@ -23,7 +25,7 @@ A Python problem? Reach any of the above!
 
 ## Authors and acknowledgment
 
-This project was developped by Johan Lagorge, Messie Tanriverdi, Jacky Thay and Yann Trividic in the context of the "Projet Tutoré" course at the Université de Paris. Our main supervisor was Dr. Nicoleta Rogovschi and the professor of the course was Pr. David Janiszek.
+This project was developped by Johan Lagorge, Messie Tanriverdi, Jacky Thay and Yann Trividic in the context of the "Projet Tutoré" course at the Université de Paris. Our main supervisor was Dr. Nicoleta Rogovschi and the professor of the course was Dr. David Janiszek.
 
 ## License
 
