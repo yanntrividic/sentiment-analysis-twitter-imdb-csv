@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>src.model.translator API documentation</title>
+<meta name="description" content="Created on Apr 1, 2021 …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.model.translator</code></h1>
+</header>
+<section id="section-intro">
+<p>Created on Apr 1, 2021</p>
+<p>@author: yann</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+Created on Apr 1, 2021
+
+@author: yann
+&#39;&#39;&#39;
+
+import requests
+from urllib3.exceptions import NewConnectionError, MaxRetryError, TimeoutError, ConnectionError
+
+from googletrans.client import Translator
+
+from config import DETECT_LANGUAGE_KEY
+import googletrans as gt
+import numpy as np
+import pandas as pd
+
+try:  #  when not connected to internet
+    import deep_translator as dt
+except requests.exceptions.ConnectionError:
+    pass
+
+SUPPORTED_TARGET_LANGUAGES = gt.LANGUAGES
+
+
+def is_lang_valid(data, valid_langs: list):
+    &#34;&#34;&#34;Detects the language of the sentences passed as arguments using the detect_language API
+    and returns data based on the type of input given.
+    For now, with the current key, we can get up to 1000 requests/day or 1 MB/day
+
+    valid_langs -- list of str that contains the admitted languages
+    data can be a str, and a single boolean will be returned
+    data can be a list, and a list of tuples will be returned, the first entry is the original index
+    of the data, and the second one is the valid language detected for this data
+    &#34;&#34;&#34;
+    try:
+        dt
+    except NameError:  #  if not connected to the internet
+        try:
+            import deep_translator as dt
+        except requests.exceptions.ConnectionError:
+            raise AttributeError(&#34;You are not connected to the Internet.&#34;)
+
+    try:
+        if isinstance(data, str):
+            lang = dt.single_detection(data, api_key=DETECT_LANGUAGE_KEY)
+            return lang in valid_langs
+        if isinstance(data, list):
+            langs = dt.batch_detection(data, api_key=DETECT_LANGUAGE_KEY)
+            return [(i, langs[i]) for i in range(len(data)) if langs[i] in valid_langs]
+
+    except (AttributeError, MaxRetryError, NewConnectionError, TimeoutError, ConnectionError):
+        raise AttributeError(&#34;No more API credits available for language detection today.&#34;)
+
+    #  when the dt import worked but there is still a connection issue
+    except requests.exceptions.ConnectionError:
+        raise AttributeError(&#34;You were disconnected from the Internet.&#34;)
+
+
+def translate_google(data, target, src=&#34;auto&#34;, googletrans=True):
+    &#34;&#34;&#34; Wrapper for the GoogleTranslate API. Make sure a recent version is installed, as the previous
+    ones are buggy (pip install googletrans==3.1.0a0 is fine).
+    For now, without a key, we can get up to 1000 requests/hour, 5000 chars per request
+
+    If it&#39;s not enough, we could use a proxy to augment this ceiling. Or pay for a private key.
+    Concurrent requests gets you blocked if no timeout is implemented.
+
+    data -- either a string or a list of strings
+    target -- the target language to translate the string in
+    src (optional) -- the src language of the data
+    googletrans -- boolean to specify if we wanna use directly the GoogleTrans API or the deep-translation
+    wrapper
+    &#34;&#34;&#34;
+    if googletrans:
+        # if not is_googletrans_api_up():  # might speed up results if the api is not up
+        #    return None
+
+        translator = Translator()
+        if isinstance(data, str):
+            output = translator.translate(data, dest=target)
+            text_output = output.text
+            error_code = output._response.status_code
+
+        if isinstance(data, list):
+            translations = translator.translate(data, dest=target)
+            text_output = [t.text for t in translations]
+            error_code = translations[-1]._response.status_code  # the last request&#39;s code
+
+        if error_code != 429:
+            return text_output
+        else:  # it means we have already sent too many requests
+            return None
+    else:
+        if isinstance(data, str):
+            translated = dt.GoogleTranslator(source=src, target=target).translate(text=data)
+        if isinstance(data, list):
+            translated = dt.GoogleTranslator(source=src, target=target).translate_batch(data)
+    return translated
+
+
+def translate_df(df: pd.DataFrame, request: dict, target: str):
+    &#34;&#34;&#34;Method to automatically translate the column of a dataframe to a target language using the
+    Google Translate API
+
+    df -- a dataframe that contains the data we&#39;ll work with
+    text_col -- name of the column that contains the sentences to translate
+    src_lang_col -- name of the column that contains the detected language associated with the text
+        this parameter optimizes the amount of data sent to the API (see limitations in translate_google)
+    target -- target language to translate the sentence in.
+    &#34;&#34;&#34;
+    sents = df[request[&#39;colname&#39;][0]].values.tolist()
+
+    if &#39;src_lang&#39; in df:
+        src_lang = df[&#39;src_lang&#39;].values.tolist()
+    else:
+        # FIXME If possible
+        src_lang = [request[&#39;lang&#39;][0] for _ in range(df.shape[0])]  # list of langs based on the languages provided
+
+    indices = []  # keep track on the indices
+    sents_to_translate = []  # will contain the sentences that we wanna translate
+
+    for i in range(len(sents)):
+        if src_lang[i] != target:  # if the sentence is not already in the target language
+            indices.append(i)
+            sents_to_translate.append(sents[i])
+
+    translated = translate_google(sents_to_translate, target, googletrans=True)  # translation happens here
+
+    if translated:  # means the api request was successful
+        list_to_df = []
+        j = 0
+        for i in range(len(sents)):
+            if i in indices:
+                list_to_df.append(translated[j])
+                j += 1
+            else:
+                list_to_df.append(&#34;&#34;)
+
+        df[target + &#34;_trans&#34;] = np.asarray(list_to_df)  # and we add a column to the dataframe
+    return df
+
+
+def remove_unwanted_langs(df, column, valid_langs):
+    &#34;&#34;&#34;Checks if the data extracted is in the wanted language or not.
+
+    df -- the dataframe to process
+    column -- the column where the text is contained
+    valid_langs -- a list of admitted languages
+    &#34;&#34;&#34;
+    df = df.reset_index(drop=True)
+    data = df[column].values.tolist()  # gets the values of the specified column as list
+    valids = list(zip(*is_lang_valid(data, valid_langs)))  #  checks if the detected langs is in the valid_langs
+
+    if valids:
+        try:
+            for idx in range(len(data)):
+                if idx not in valids[0]:
+                    df = df.drop([idx])
+            df[&#39;src_lang&#39;] = valids[1]
+            return df
+
+        except IndexError:  # in the case no valid data is found, an empty dataset is returned
+            return df.iloc[0:0]
+
+    else:
+        return df.iloc[0:0]
+
+
+def translate_linguee(word, src, target):
+    if isinstance(word, str):
+        translated = dt.LingueeTranslator(source=src, target=target).translate(word)
+    if isinstance(word, list):
+        translated = dt.LingueeTranslator(source=src, target=target).translate(word)
+    return translated
+
+
+def is_valid_target_lang(lang: str):
+    &#39;&#39;&#39;Detects in the str passed as argument is a language supported by the googletrans API. If so, it returns
+    the ISO639-1 id associated with this language, otherwise, it returns False.
+
+    lang -- the string to detect
+    &#39;&#39;&#39;
+    for key, value in SUPPORTED_TARGET_LANGUAGES.items():
+        if lang == key or lang == value:
+            return key
+    return False
+
+# if __name__ == &#39;__main__&#39;:
+#     from file_reader import read_csv_to_df
+#
+#     df = read_csv_to_df(&#34;../resources/data_titanic.csv&#34;)
+#     txt = &#34; &#34;.join(df[&#39;texte&#39;].values.tolist())[:1000]
+#     result = Value(&#39;i&#39;, 0)
+#
+#     print(is_lang_valid(txt, [&#39;fr&#39;]))
+#
+#     while(True):
+#         print(str(is_api_up(is_googletrans_api_up, 5, &#34;test&#34;)))</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="src.model.translator.is_lang_valid"><code class="name flex">
+<span>def <span class="ident">is_lang_valid</span></span>(<span>data, valid_langs: list)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Detects the language of the sentences passed as arguments using the detect_language API
+and returns data based on the type of input given.
+For now, with the current key, we can get up to 1000 requests/day or 1 MB/day</p>
+<p>valid_langs &ndash; list of str that contains the admitted languages
+data can be a str, and a single boolean will be returned
+data can be a list, and a list of tuples will be returned, the first entry is the original index
+of the data, and the second one is the valid language detected for this data</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_lang_valid(data, valid_langs: list):
+    &#34;&#34;&#34;Detects the language of the sentences passed as arguments using the detect_language API
+    and returns data based on the type of input given.
+    For now, with the current key, we can get up to 1000 requests/day or 1 MB/day
+
+    valid_langs -- list of str that contains the admitted languages
+    data can be a str, and a single boolean will be returned
+    data can be a list, and a list of tuples will be returned, the first entry is the original index
+    of the data, and the second one is the valid language detected for this data
+    &#34;&#34;&#34;
+    try:
+        dt
+    except NameError:  #  if not connected to the internet
+        try:
+            import deep_translator as dt
+        except requests.exceptions.ConnectionError:
+            raise AttributeError(&#34;You are not connected to the Internet.&#34;)
+
+    try:
+        if isinstance(data, str):
+            lang = dt.single_detection(data, api_key=DETECT_LANGUAGE_KEY)
+            return lang in valid_langs
+        if isinstance(data, list):
+            langs = dt.batch_detection(data, api_key=DETECT_LANGUAGE_KEY)
+            return [(i, langs[i]) for i in range(len(data)) if langs[i] in valid_langs]
+
+    except (AttributeError, MaxRetryError, NewConnectionError, TimeoutError, ConnectionError):
+        raise AttributeError(&#34;No more API credits available for language detection today.&#34;)
+
+    #  when the dt import worked but there is still a connection issue
+    except requests.exceptions.ConnectionError:
+        raise AttributeError(&#34;You were disconnected from the Internet.&#34;)</code></pre>
+</details>
+</dd>
+<dt id="src.model.translator.is_valid_target_lang"><code class="name flex">
+<span>def <span class="ident">is_valid_target_lang</span></span>(<span>lang: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Detects in the str passed as argument is a language supported by the googletrans API. If so, it returns
+the ISO639-1 id associated with this language, otherwise, it returns False.</p>
+<p>lang &ndash; the string to detect</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_valid_target_lang(lang: str):
+    &#39;&#39;&#39;Detects in the str passed as argument is a language supported by the googletrans API. If so, it returns
+    the ISO639-1 id associated with this language, otherwise, it returns False.
+
+    lang -- the string to detect
+    &#39;&#39;&#39;
+    for key, value in SUPPORTED_TARGET_LANGUAGES.items():
+        if lang == key or lang == value:
+            return key
+    return False</code></pre>
+</details>
+</dd>
+<dt id="src.model.translator.remove_unwanted_langs"><code class="name flex">
+<span>def <span class="ident">remove_unwanted_langs</span></span>(<span>df, column, valid_langs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the data extracted is in the wanted language or not.</p>
+<p>df &ndash; the dataframe to process
+column &ndash; the column where the text is contained
+valid_langs &ndash; a list of admitted languages</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_unwanted_langs(df, column, valid_langs):
+    &#34;&#34;&#34;Checks if the data extracted is in the wanted language or not.
+
+    df -- the dataframe to process
+    column -- the column where the text is contained
+    valid_langs -- a list of admitted languages
+    &#34;&#34;&#34;
+    df = df.reset_index(drop=True)
+    data = df[column].values.tolist()  # gets the values of the specified column as list
+    valids = list(zip(*is_lang_valid(data, valid_langs)))  #  checks if the detected langs is in the valid_langs
+
+    if valids:
+        try:
+            for idx in range(len(data)):
+                if idx not in valids[0]:
+                    df = df.drop([idx])
+            df[&#39;src_lang&#39;] = valids[1]
+            return df
+
+        except IndexError:  # in the case no valid data is found, an empty dataset is returned
+            return df.iloc[0:0]
+
+    else:
+        return df.iloc[0:0]</code></pre>
+</details>
+</dd>
+<dt id="src.model.translator.translate_df"><code class="name flex">
+<span>def <span class="ident">translate_df</span></span>(<span>df: pandas.core.frame.DataFrame, request: dict, target: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Method to automatically translate the column of a dataframe to a target language using the
+Google Translate API</p>
+<p>df &ndash; a dataframe that contains the data we'll work with
+text_col &ndash; name of the column that contains the sentences to translate
+src_lang_col &ndash; name of the column that contains the detected language associated with the text
+this parameter optimizes the amount of data sent to the API (see limitations in translate_google)
+target &ndash; target language to translate the sentence in.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def translate_df(df: pd.DataFrame, request: dict, target: str):
+    &#34;&#34;&#34;Method to automatically translate the column of a dataframe to a target language using the
+    Google Translate API
+
+    df -- a dataframe that contains the data we&#39;ll work with
+    text_col -- name of the column that contains the sentences to translate
+    src_lang_col -- name of the column that contains the detected language associated with the text
+        this parameter optimizes the amount of data sent to the API (see limitations in translate_google)
+    target -- target language to translate the sentence in.
+    &#34;&#34;&#34;
+    sents = df[request[&#39;colname&#39;][0]].values.tolist()
+
+    if &#39;src_lang&#39; in df:
+        src_lang = df[&#39;src_lang&#39;].values.tolist()
+    else:
+        # FIXME If possible
+        src_lang = [request[&#39;lang&#39;][0] for _ in range(df.shape[0])]  # list of langs based on the languages provided
+
+    indices = []  # keep track on the indices
+    sents_to_translate = []  # will contain the sentences that we wanna translate
+
+    for i in range(len(sents)):
+        if src_lang[i] != target:  # if the sentence is not already in the target language
+            indices.append(i)
+            sents_to_translate.append(sents[i])
+
+    translated = translate_google(sents_to_translate, target, googletrans=True)  # translation happens here
+
+    if translated:  # means the api request was successful
+        list_to_df = []
+        j = 0
+        for i in range(len(sents)):
+            if i in indices:
+                list_to_df.append(translated[j])
+                j += 1
+            else:
+                list_to_df.append(&#34;&#34;)
+
+        df[target + &#34;_trans&#34;] = np.asarray(list_to_df)  # and we add a column to the dataframe
+    return df</code></pre>
+</details>
+</dd>
+<dt id="src.model.translator.translate_google"><code class="name flex">
+<span>def <span class="ident">translate_google</span></span>(<span>data, target, src='auto', googletrans=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wrapper for the GoogleTranslate API. Make sure a recent version is installed, as the previous
+ones are buggy (pip install googletrans==3.1.0a0 is fine).
+For now, without a key, we can get up to 1000 requests/hour, 5000 chars per request</p>
+<p>If it's not enough, we could use a proxy to augment this ceiling. Or pay for a private key.
+Concurrent requests gets you blocked if no timeout is implemented.</p>
+<p>data &ndash; either a string or a list of strings
+target &ndash; the target language to translate the string in
+src (optional) &ndash; the src language of the data
+googletrans &ndash; boolean to specify if we wanna use directly the GoogleTrans API or the deep-translation
+wrapper</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def translate_google(data, target, src=&#34;auto&#34;, googletrans=True):
+    &#34;&#34;&#34; Wrapper for the GoogleTranslate API. Make sure a recent version is installed, as the previous
+    ones are buggy (pip install googletrans==3.1.0a0 is fine).
+    For now, without a key, we can get up to 1000 requests/hour, 5000 chars per request
+
+    If it&#39;s not enough, we could use a proxy to augment this ceiling. Or pay for a private key.
+    Concurrent requests gets you blocked if no timeout is implemented.
+
+    data -- either a string or a list of strings
+    target -- the target language to translate the string in
+    src (optional) -- the src language of the data
+    googletrans -- boolean to specify if we wanna use directly the GoogleTrans API or the deep-translation
+    wrapper
+    &#34;&#34;&#34;
+    if googletrans:
+        # if not is_googletrans_api_up():  # might speed up results if the api is not up
+        #    return None
+
+        translator = Translator()
+        if isinstance(data, str):
+            output = translator.translate(data, dest=target)
+            text_output = output.text
+            error_code = output._response.status_code
+
+        if isinstance(data, list):
+            translations = translator.translate(data, dest=target)
+            text_output = [t.text for t in translations]
+            error_code = translations[-1]._response.status_code  # the last request&#39;s code
+
+        if error_code != 429:
+            return text_output
+        else:  # it means we have already sent too many requests
+            return None
+    else:
+        if isinstance(data, str):
+            translated = dt.GoogleTranslator(source=src, target=target).translate(text=data)
+        if isinstance(data, list):
+            translated = dt.GoogleTranslator(source=src, target=target).translate_batch(data)
+    return translated</code></pre>
+</details>
+</dd>
+<dt id="src.model.translator.translate_linguee"><code class="name flex">
+<span>def <span class="ident">translate_linguee</span></span>(<span>word, src, target)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def translate_linguee(word, src, target):
+    if isinstance(word, str):
+        translated = dt.LingueeTranslator(source=src, target=target).translate(word)
+    if isinstance(word, list):
+        translated = dt.LingueeTranslator(source=src, target=target).translate(word)
+    return translated</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src.model" href="index.html">src.model</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="src.model.translator.is_lang_valid" href="#src.model.translator.is_lang_valid">is_lang_valid</a></code></li>
+<li><code><a title="src.model.translator.is_valid_target_lang" href="#src.model.translator.is_valid_target_lang">is_valid_target_lang</a></code></li>
+<li><code><a title="src.model.translator.remove_unwanted_langs" href="#src.model.translator.remove_unwanted_langs">remove_unwanted_langs</a></code></li>
+<li><code><a title="src.model.translator.translate_df" href="#src.model.translator.translate_df">translate_df</a></code></li>
+<li><code><a title="src.model.translator.translate_google" href="#src.model.translator.translate_google">translate_google</a></code></li>
+<li><code><a title="src.model.translator.translate_linguee" href="#src.model.translator.translate_linguee">translate_linguee</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

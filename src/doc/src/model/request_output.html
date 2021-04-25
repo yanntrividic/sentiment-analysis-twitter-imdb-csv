@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>src.model.request_output API documentation</title>
+<meta name="description" content="Created on Apr 8, 2021 …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.model.request_output</code></h1>
+</header>
+<section id="section-intro">
+<p>Created on Apr 8, 2021</p>
+<p>@author: yann</p>
+<p>Module that contains the RequestOutput class.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+Created on Apr 8, 2021
+
+@author: yann
+
+Module that contains the RequestOutput class.
+&#39;&#39;&#39;
+
+import re
+
+from nlp_utils import tokenize_and_remove_stopwords
+import nltk
+from nltk.tokenize import RegexpTokenizer
+import pandas as pd
+
+DATES_PATTERN = r&#39;^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$&#39;  # will match yyyy-mm-dd and also yyyy-m-d
+
+
+class RequestOutput():
+    &#39;&#39;&#39;Class used to stored a review of a request and its results
+    &#39;&#39;&#39;
+
+    def __init__(self, str_request: str, interpreted_request: dict, raw_data: pd.DataFrame, pol_col: str):
+        &#39;&#39;&#39;Constructor of the class
+        &#39;&#39;&#39;
+        self.str_request = str_request
+        self.interpreted_request = interpreted_request
+        self.raw_data = raw_data
+        self.pol_col = pol_col
+        self.statistics = self.__compute_statistics()
+
+    def __repr__(self):
+        s = &#34;\nRequestOutput:\n&#34;
+        s += &#34;\t* Raw request: \&#34;&#34; + self.str_request + &#34;\&#34;\n&#34;
+        s += &#34;\t* Interpreted request: &#34; + str(self.interpreted_request) + &#34;\n&#34;
+        s += &#34;\t* Raw data head:\n&#34; + str(self.raw_data.head(10)) + &#34;\n&#34;
+        s += &#34;\t* Statistics:&#34;
+
+        for k in self.statistics.keys():
+            s += &#34;\n\n&#34; + k + &#34;: &#34; + str(self.statistics[k])
+
+        return s
+
+    def get_colnames(self, as_list=True):
+        &#39;&#39;&#39;Returns the names of the columns of the dataframe.
+
+        as_list -- boolean, returns the value as a list by default, otherwise, it will be an Index object.
+        &#39;&#39;&#39;
+        if as_list:
+            return self.raw_data.columns.values.tolist()
+        else:
+            return self.raw_data.columns
+
+    def get_polarity_data(self, as_list=True):
+        &#39;&#39;&#39;Returns the polarity data of the dataframe.
+
+        as_list -- boolean, returns the value as a list by default, otherwise, it will be a pandas&#39; Dataframe.
+        &#39;&#39;&#39;
+        if as_list:
+            return self.raw_data[self.pol_col].values.tolist()
+        else:
+            return self.raw_data[self.pol_col]
+
+    def get_textual_data(self, as_list=True):
+        &#39;&#39;&#39;Returns the textual data of the dataframe.
+
+        as_list -- boolean, returns the value as a list by default, otherwise, it will be a pandas&#39; Dataframe.
+        &#39;&#39;&#39;
+        if as_list:
+            return self.raw_data[self.get_textual_data_colname()].values.tolist()
+        else:
+            return self.raw_data[self.get_textual_data_colname()]
+
+    def get_src_langs(self, as_list=True):
+        &#39;&#39;&#39;Returns the source languages of the dataframe if it exists. Returns None otherwise
+
+        as_list -- boolean, returns the value as a list by default, otherwise, it will be a pandas&#39; Dataframe.
+        &#39;&#39;&#39;
+        if &#39;src_lang&#39; in self.raw_data:
+            if as_list:
+                return self.raw_data[&#39;src_lang&#39;].values.tolist()
+            else:
+                return self.raw_data[&#39;src_lang&#39;]
+        else:
+            return None
+
+    def get_polarity_colname(self):
+        &#39;&#39;&#39;Returns the polarity column name
+        &#39;&#39;&#39;
+        return self.pol_col
+
+    def get_textual_data_colname(self):
+        &#39;&#39;&#39;Returns the textual data column name of the dataframe as a str.
+        &#39;&#39;&#39;
+        return self.interpreted_request[&#39;colname&#39;][0]
+
+    def __compute_statistics(self):
+        stats = {}
+        stats[&#39;word_frequencies&#39;] = self.__compute_words_frequencies()
+
+        try:
+            stats[&#39;pol_data_per_day&#39;] = self.__compute_pol_data_per_period(&#39;day&#39;)
+            stats[&#39;pol_data_per_month&#39;] = self.__compute_pol_data_per_period(&#39;month&#39;)
+            stats[&#39;pol_data_per_year&#39;] = self.__compute_pol_data_per_period(&#39;year&#39;)
+
+        except ValueError as e:  #  in the event there is no date column
+            # FIXME: treat this possibily more elegantly
+            print(str(e))
+
+        return stats
+
+    def __compute_words_frequencies(self):
+        &#39;&#39;&#39;Returns the most common words with their frequency without the &#39;excluded&#39; words
+
+        excluded -- a list of words to forget exclude from the results
+        sentences -- a list of sentences in which we want to count occurrences
+        &#39;&#39;&#39;
+
+        excluded = self.interpreted_request[&#39;search&#39;] + self.interpreted_request[&#39;hashtag&#39;]
+        sentences = self.get_textual_data()
+        langs = self.get_src_langs()
+
+        # if we don&#39;t have data about the source language, we use the first language specified by the user
+        if langs is None:
+            langs = [self.interpreted_request[&#39;lang&#39;][0] for _ in range(len(sentences))]
+
+        tokenizer = RegexpTokenizer(r&#39;\w+&#39;)  # will remove punctuation
+        all_words = []
+
+        for idx, sent in enumerate(sentences):
+            tmp = tokenize_and_remove_stopwords(sent.lower(), langs[idx])
+            for word in tmp:
+                tok = tokenizer.tokenize(word)
+                if tok:
+                    if len(tok[0]) &gt; 2:  # only adds &#34;big&#34; words
+                        all_words += tok
+
+        freqs = nltk.FreqDist(all_words)
+
+        for key in list(freqs.keys()):
+            if key in excluded:
+                del freqs[key]
+
+        return freqs
+
+    def __compute_pol_data_per_period(self, period):
+        if period not in [&#39;day&#39;, &#39;month&#39;, &#39;year&#39;]:
+            raise AttributeError(&#34;The period you asked for is invalid.&#34;)
+
+        date_col = None
+
+        dates_possible_colname = [&#39;date&#39;, &#39;dates&#39;, &#39;datetime&#39;, &#39;time&#39;]
+        for s in dates_possible_colname:
+            if s in self.get_colnames(True):
+                date_col = s
+
+        # FIXME: do more test and add regex patterns
+        if not date_col:
+            # FIXME: see discord&#39;s error trace
+            date_col = search_column(self.raw_data, regex=DATES_PATTERN)
+
+        results = {}
+
+        if date_col:
+            dates = self.raw_data[[date_col, self.pol_col]]
+
+            regex = re.compile(DATES_PATTERN)
+
+            for _, row in dates.iterrows():
+                if re.match(regex, row[&#39;date&#39;]):
+
+                    if period == &#39;day&#39;:
+                        d = row[&#39;date&#39;]
+                    if period == &#39;month&#39;:
+                        tmp = row[&#39;date&#39;].split(&#39;-&#39;)
+                        d = &#34;-&#34;.join(tmp[:2])
+                    if period == &#39;year&#39;:
+                        d = row[&#39;date&#39;].split(&#39;-&#39;)[0]
+
+                    if d not in results:
+                        results[d] = [(&#34;pos&#34;, 0), (&#34;neu&#34;, 0), (&#34;neg&#34;, 0)]
+                    for idx, tuple in enumerate(results[d]):
+                        key, value = tuple
+                        if row[self.pol_col] == key:
+                            results[d][idx] = (key, value + 1)
+
+        return results
+
+    def get_comprehensive_request_summary(self):
+        &#39;&#39;&#39;Function to get a comprehensive summmary of the user&#39;s search out of the interpreted request
+        &#39;&#39;&#39;
+        request = self.interpreted_request
+
+        summary = &#34;&#34;
+        summary += &#34; &#34;.join(request[&#39;search&#39;])
+        if request[&#39;film&#39;]:
+            summary += (&#34; &#34; if summary else &#34;&#34;) + &#34; &#34;.join(request[&#39;film&#39;])
+
+        if request[&#39;id&#39;]:
+            summary += (&#34; tt&#34; if summary else &#34;&#34;) + &#34; tt&#34;.join(request[&#39;id&#39;])
+
+        if request[&#39;year&#39;]:
+            summary += (&#34; &#34; if summary else &#34;&#34;) + &#34; &#34;.join(request[&#39;year&#39;])
+
+        if request[&#39;hashtag&#39;]:
+            summary += &#34;#&#34; + &#34; #&#34;.join(request[&#39;hashtag&#39;]) + (&#34; &#34; if summary else &#34;&#34;)
+
+        if request[&#39;user&#39;]:
+            summary += &#34;@&#34; + &#34; @&#34;.join(request[&#39;user&#39;]) + (&#34; &#34; if summary else &#34;&#34;)
+
+        if request[&#39;colname&#39;] and &#39;local&#39; in request[&#39;src&#39;]:
+            summary += &#34; colname:&#34; + request[&#39;colname&#39;][0]
+
+        if request[&#39;type&#39;]:
+            summary += &#34; type:&#34; + request[&#39;type&#39;]
+
+        return summary
+
+
+def search_column(data: pd.DataFrame, key=None, regex=None):
+    &#39;&#39;&#39;Function to search if a word is present or a regex pattern is matched in a dataframe column
+
+    data -- pd.DataFrame in which to look
+    key -- word to look for
+    regex -- a string pattern
+
+    returns the column name in which the key/regex pattern was found
+    &#39;&#39;&#39;
+    if (key and regex) or (not key and not regex):
+        raise ValueError(&#39;You can search for a key or a regex pattern, but not for both&#39;)
+
+    for colname in data:  # and for each column in our dataframe
+        column = data[colname]  # we extract the column
+        column = column.astype(str).str.lower()  # we make it lowercase in order to match our key
+
+        if key:
+            if not data[column.str.contains(key)].empty:  # and check if the key is somewhere in the col
+                #  request[&#39;colname&#39;] = [colname]  # if so, the column is this col.
+                return colname
+
+        if regex:
+            for _, row in data.iterrows():
+                words = re.findall(regex, str(row[colname]))
+                if words:
+                    return colname
+
+    return None</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="src.model.request_output.search_column"><code class="name flex">
+<span>def <span class="ident">search_column</span></span>(<span>data: pandas.core.frame.DataFrame, key=None, regex=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function to search if a word is present or a regex pattern is matched in a dataframe column</p>
+<p>data &ndash; pd.DataFrame in which to look
+key &ndash; word to look for
+regex &ndash; a string pattern</p>
+<p>returns the column name in which the key/regex pattern was found</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def search_column(data: pd.DataFrame, key=None, regex=None):
+    &#39;&#39;&#39;Function to search if a word is present or a regex pattern is matched in a dataframe column
+
+    data -- pd.DataFrame in which to look
+    key -- word to look for
+    regex -- a string pattern
+
+    returns the column name in which the key/regex pattern was found
+    &#39;&#39;&#39;
+    if (key and regex) or (not key and not regex):
+        raise ValueError(&#39;You can search for a key or a regex pattern, but not for both&#39;)
+
+    for colname in data:  # and for each column in our dataframe
+        column = data[colname]  # we extract the column
+        column = column.astype(str).str.lower()  # we make it lowercase in order to match our key
+
+        if key:
+            if not data[column.str.contains(key)].empty:  # and check if the key is somewhere in the col
+                #  request[&#39;colname&#39;] = [colname]  # if so, the column is this col.
+                return colname
+
+        if regex:
+            for _, row in data.iterrows():
+                words = re.findall(regex, str(row[colname]))
+                if words:
+                    return colname
+
+    return None</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="src.model.request_output.RequestOutput"><code class="flex name class">
+<span>class <span class="ident">RequestOutput</span></span>
+<span>(</span><span>str_request: str, interpreted_request: dict, raw_data: pandas.core.frame.DataFrame, pol_col: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class used to stored a review of a request and its results</p>
+<p>Constructor of the class</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RequestOutput():
+    &#39;&#39;&#39;Class used to stored a review of a request and its results
+    &#39;&#39;&#39;
+
+    def __init__(self, str_request: str, interpreted_request: dict, raw_data: pd.DataFrame, pol_col: str):
+        &#39;&#39;&#39;Constructor of the class
+        &#39;&#39;&#39;
+        self.str_request = str_request
+        self.interpreted_request = interpreted_request
+        self.raw_data = raw_data
+        self.pol_col = pol_col
+        self.statistics = self.__compute_statistics()
+
+    def __repr__(self):
+        s = &#34;\nRequestOutput:\n&#34;
+        s += &#34;\t* Raw request: \&#34;&#34; + self.str_request + &#34;\&#34;\n&#34;
+        s += &#34;\t* Interpreted request: &#34; + str(self.interpreted_request) + &#34;\n&#34;
+        s += &#34;\t* Raw data head:\n&#34; + str(self.raw_data.head(10)) + &#34;\n&#34;
+        s += &#34;\t* Statistics:&#34;
+
+        for k in self.statistics.keys():
+            s += &#34;\n\n&#34; + k + &#34;: &#34; + str(self.statistics[k])
+
+        return s
+
+    def get_colnames(self, as_list=True):
+        &#39;&#39;&#39;Returns the names of the columns of the dataframe.
+
+        as_list -- boolean, returns the value as a list by default, otherwise, it will be an Index object.
+        &#39;&#39;&#39;
+        if as_list:
+            return self.raw_data.columns.values.tolist()
+        else:
+            return self.raw_data.columns
+
+    def get_polarity_data(self, as_list=True):
+        &#39;&#39;&#39;Returns the polarity data of the dataframe.
+
+        as_list -- boolean, returns the value as a list by default, otherwise, it will be a pandas&#39; Dataframe.
+        &#39;&#39;&#39;
+        if as_list:
+            return self.raw_data[self.pol_col].values.tolist()
+        else:
+            return self.raw_data[self.pol_col]
+
+    def get_textual_data(self, as_list=True):
+        &#39;&#39;&#39;Returns the textual data of the dataframe.
+
+        as_list -- boolean, returns the value as a list by default, otherwise, it will be a pandas&#39; Dataframe.
+        &#39;&#39;&#39;
+        if as_list:
+            return self.raw_data[self.get_textual_data_colname()].values.tolist()
+        else:
+            return self.raw_data[self.get_textual_data_colname()]
+
+    def get_src_langs(self, as_list=True):
+        &#39;&#39;&#39;Returns the source languages of the dataframe if it exists. Returns None otherwise
+
+        as_list -- boolean, returns the value as a list by default, otherwise, it will be a pandas&#39; Dataframe.
+        &#39;&#39;&#39;
+        if &#39;src_lang&#39; in self.raw_data:
+            if as_list:
+                return self.raw_data[&#39;src_lang&#39;].values.tolist()
+            else:
+                return self.raw_data[&#39;src_lang&#39;]
+        else:
+            return None
+
+    def get_polarity_colname(self):
+        &#39;&#39;&#39;Returns the polarity column name
+        &#39;&#39;&#39;
+        return self.pol_col
+
+    def get_textual_data_colname(self):
+        &#39;&#39;&#39;Returns the textual data column name of the dataframe as a str.
+        &#39;&#39;&#39;
+        return self.interpreted_request[&#39;colname&#39;][0]
+
+    def __compute_statistics(self):
+        stats = {}
+        stats[&#39;word_frequencies&#39;] = self.__compute_words_frequencies()
+
+        try:
+            stats[&#39;pol_data_per_day&#39;] = self.__compute_pol_data_per_period(&#39;day&#39;)
+            stats[&#39;pol_data_per_month&#39;] = self.__compute_pol_data_per_period(&#39;month&#39;)
+            stats[&#39;pol_data_per_year&#39;] = self.__compute_pol_data_per_period(&#39;year&#39;)
+
+        except ValueError as e:  #  in the event there is no date column
+            # FIXME: treat this possibily more elegantly
+            print(str(e))
+
+        return stats
+
+    def __compute_words_frequencies(self):
+        &#39;&#39;&#39;Returns the most common words with their frequency without the &#39;excluded&#39; words
+
+        excluded -- a list of words to forget exclude from the results
+        sentences -- a list of sentences in which we want to count occurrences
+        &#39;&#39;&#39;
+
+        excluded = self.interpreted_request[&#39;search&#39;] + self.interpreted_request[&#39;hashtag&#39;]
+        sentences = self.get_textual_data()
+        langs = self.get_src_langs()
+
+        # if we don&#39;t have data about the source language, we use the first language specified by the user
+        if langs is None:
+            langs = [self.interpreted_request[&#39;lang&#39;][0] for _ in range(len(sentences))]
+
+        tokenizer = RegexpTokenizer(r&#39;\w+&#39;)  # will remove punctuation
+        all_words = []
+
+        for idx, sent in enumerate(sentences):
+            tmp = tokenize_and_remove_stopwords(sent.lower(), langs[idx])
+            for word in tmp:
+                tok = tokenizer.tokenize(word)
+                if tok:
+                    if len(tok[0]) &gt; 2:  # only adds &#34;big&#34; words
+                        all_words += tok
+
+        freqs = nltk.FreqDist(all_words)
+
+        for key in list(freqs.keys()):
+            if key in excluded:
+                del freqs[key]
+
+        return freqs
+
+    def __compute_pol_data_per_period(self, period):
+        if period not in [&#39;day&#39;, &#39;month&#39;, &#39;year&#39;]:
+            raise AttributeError(&#34;The period you asked for is invalid.&#34;)
+
+        date_col = None
+
+        dates_possible_colname = [&#39;date&#39;, &#39;dates&#39;, &#39;datetime&#39;, &#39;time&#39;]
+        for s in dates_possible_colname:
+            if s in self.get_colnames(True):
+                date_col = s
+
+        # FIXME: do more test and add regex patterns
+        if not date_col:
+            # FIXME: see discord&#39;s error trace
+            date_col = search_column(self.raw_data, regex=DATES_PATTERN)
+
+        results = {}
+
+        if date_col:
+            dates = self.raw_data[[date_col, self.pol_col]]
+
+            regex = re.compile(DATES_PATTERN)
+
+            for _, row in dates.iterrows():
+                if re.match(regex, row[&#39;date&#39;]):
+
+                    if period == &#39;day&#39;:
+                        d = row[&#39;date&#39;]
+                    if period == &#39;month&#39;:
+                        tmp = row[&#39;date&#39;].split(&#39;-&#39;)
+                        d = &#34;-&#34;.join(tmp[:2])
+                    if period == &#39;year&#39;:
+                        d = row[&#39;date&#39;].split(&#39;-&#39;)[0]
+
+                    if d not in results:
+                        results[d] = [(&#34;pos&#34;, 0), (&#34;neu&#34;, 0), (&#34;neg&#34;, 0)]
+                    for idx, tuple in enumerate(results[d]):
+                        key, value = tuple
+                        if row[self.pol_col] == key:
+                            results[d][idx] = (key, value + 1)
+
+        return results
+
+    def get_comprehensive_request_summary(self):
+        &#39;&#39;&#39;Function to get a comprehensive summmary of the user&#39;s search out of the interpreted request
+        &#39;&#39;&#39;
+        request = self.interpreted_request
+
+        summary = &#34;&#34;
+        summary += &#34; &#34;.join(request[&#39;search&#39;])
+        if request[&#39;film&#39;]:
+            summary += (&#34; &#34; if summary else &#34;&#34;) + &#34; &#34;.join(request[&#39;film&#39;])
+
+        if request[&#39;id&#39;]:
+            summary += (&#34; tt&#34; if summary else &#34;&#34;) + &#34; tt&#34;.join(request[&#39;id&#39;])
+
+        if request[&#39;year&#39;]:
+            summary += (&#34; &#34; if summary else &#34;&#34;) + &#34; &#34;.join(request[&#39;year&#39;])
+
+        if request[&#39;hashtag&#39;]:
+            summary += &#34;#&#34; + &#34; #&#34;.join(request[&#39;hashtag&#39;]) + (&#34; &#34; if summary else &#34;&#34;)
+
+        if request[&#39;user&#39;]:
+            summary += &#34;@&#34; + &#34; @&#34;.join(request[&#39;user&#39;]) + (&#34; &#34; if summary else &#34;&#34;)
+
+        if request[&#39;colname&#39;] and &#39;local&#39; in request[&#39;src&#39;]:
+            summary += &#34; colname:&#34; + request[&#39;colname&#39;][0]
+
+        if request[&#39;type&#39;]:
+            summary += &#34; type:&#34; + request[&#39;type&#39;]
+
+        return summary</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="src.model.request_output.RequestOutput.get_colnames"><code class="name flex">
+<span>def <span class="ident">get_colnames</span></span>(<span>self, as_list=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the names of the columns of the dataframe.</p>
+<p>as_list &ndash; boolean, returns the value as a list by default, otherwise, it will be an Index object.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_colnames(self, as_list=True):
+    &#39;&#39;&#39;Returns the names of the columns of the dataframe.
+
+    as_list -- boolean, returns the value as a list by default, otherwise, it will be an Index object.
+    &#39;&#39;&#39;
+    if as_list:
+        return self.raw_data.columns.values.tolist()
+    else:
+        return self.raw_data.columns</code></pre>
+</details>
+</dd>
+<dt id="src.model.request_output.RequestOutput.get_comprehensive_request_summary"><code class="name flex">
+<span>def <span class="ident">get_comprehensive_request_summary</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function to get a comprehensive summmary of the user's search out of the interpreted request</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_comprehensive_request_summary(self):
+    &#39;&#39;&#39;Function to get a comprehensive summmary of the user&#39;s search out of the interpreted request
+    &#39;&#39;&#39;
+    request = self.interpreted_request
+
+    summary = &#34;&#34;
+    summary += &#34; &#34;.join(request[&#39;search&#39;])
+    if request[&#39;film&#39;]:
+        summary += (&#34; &#34; if summary else &#34;&#34;) + &#34; &#34;.join(request[&#39;film&#39;])
+
+    if request[&#39;id&#39;]:
+        summary += (&#34; tt&#34; if summary else &#34;&#34;) + &#34; tt&#34;.join(request[&#39;id&#39;])
+
+    if request[&#39;year&#39;]:
+        summary += (&#34; &#34; if summary else &#34;&#34;) + &#34; &#34;.join(request[&#39;year&#39;])
+
+    if request[&#39;hashtag&#39;]:
+        summary += &#34;#&#34; + &#34; #&#34;.join(request[&#39;hashtag&#39;]) + (&#34; &#34; if summary else &#34;&#34;)
+
+    if request[&#39;user&#39;]:
+        summary += &#34;@&#34; + &#34; @&#34;.join(request[&#39;user&#39;]) + (&#34; &#34; if summary else &#34;&#34;)
+
+    if request[&#39;colname&#39;] and &#39;local&#39; in request[&#39;src&#39;]:
+        summary += &#34; colname:&#34; + request[&#39;colname&#39;][0]
+
+    if request[&#39;type&#39;]:
+        summary += &#34; type:&#34; + request[&#39;type&#39;]
+
+    return summary</code></pre>
+</details>
+</dd>
+<dt id="src.model.request_output.RequestOutput.get_polarity_colname"><code class="name flex">
+<span>def <span class="ident">get_polarity_colname</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the polarity column name</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_polarity_colname(self):
+    &#39;&#39;&#39;Returns the polarity column name
+    &#39;&#39;&#39;
+    return self.pol_col</code></pre>
+</details>
+</dd>
+<dt id="src.model.request_output.RequestOutput.get_polarity_data"><code class="name flex">
+<span>def <span class="ident">get_polarity_data</span></span>(<span>self, as_list=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the polarity data of the dataframe.</p>
+<p>as_list &ndash; boolean, returns the value as a list by default, otherwise, it will be a pandas' Dataframe.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_polarity_data(self, as_list=True):
+    &#39;&#39;&#39;Returns the polarity data of the dataframe.
+
+    as_list -- boolean, returns the value as a list by default, otherwise, it will be a pandas&#39; Dataframe.
+    &#39;&#39;&#39;
+    if as_list:
+        return self.raw_data[self.pol_col].values.tolist()
+    else:
+        return self.raw_data[self.pol_col]</code></pre>
+</details>
+</dd>
+<dt id="src.model.request_output.RequestOutput.get_src_langs"><code class="name flex">
+<span>def <span class="ident">get_src_langs</span></span>(<span>self, as_list=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the source languages of the dataframe if it exists. Returns None otherwise</p>
+<p>as_list &ndash; boolean, returns the value as a list by default, otherwise, it will be a pandas' Dataframe.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_src_langs(self, as_list=True):
+    &#39;&#39;&#39;Returns the source languages of the dataframe if it exists. Returns None otherwise
+
+    as_list -- boolean, returns the value as a list by default, otherwise, it will be a pandas&#39; Dataframe.
+    &#39;&#39;&#39;
+    if &#39;src_lang&#39; in self.raw_data:
+        if as_list:
+            return self.raw_data[&#39;src_lang&#39;].values.tolist()
+        else:
+            return self.raw_data[&#39;src_lang&#39;]
+    else:
+        return None</code></pre>
+</details>
+</dd>
+<dt id="src.model.request_output.RequestOutput.get_textual_data"><code class="name flex">
+<span>def <span class="ident">get_textual_data</span></span>(<span>self, as_list=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the textual data of the dataframe.</p>
+<p>as_list &ndash; boolean, returns the value as a list by default, otherwise, it will be a pandas' Dataframe.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_textual_data(self, as_list=True):
+    &#39;&#39;&#39;Returns the textual data of the dataframe.
+
+    as_list -- boolean, returns the value as a list by default, otherwise, it will be a pandas&#39; Dataframe.
+    &#39;&#39;&#39;
+    if as_list:
+        return self.raw_data[self.get_textual_data_colname()].values.tolist()
+    else:
+        return self.raw_data[self.get_textual_data_colname()]</code></pre>
+</details>
+</dd>
+<dt id="src.model.request_output.RequestOutput.get_textual_data_colname"><code class="name flex">
+<span>def <span class="ident">get_textual_data_colname</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the textual data column name of the dataframe as a str.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_textual_data_colname(self):
+    &#39;&#39;&#39;Returns the textual data column name of the dataframe as a str.
+    &#39;&#39;&#39;
+    return self.interpreted_request[&#39;colname&#39;][0]</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src.model" href="index.html">src.model</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="src.model.request_output.search_column" href="#src.model.request_output.search_column">search_column</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="src.model.request_output.RequestOutput" href="#src.model.request_output.RequestOutput">RequestOutput</a></code></h4>
+<ul class="">
+<li><code><a title="src.model.request_output.RequestOutput.get_colnames" href="#src.model.request_output.RequestOutput.get_colnames">get_colnames</a></code></li>
+<li><code><a title="src.model.request_output.RequestOutput.get_comprehensive_request_summary" href="#src.model.request_output.RequestOutput.get_comprehensive_request_summary">get_comprehensive_request_summary</a></code></li>
+<li><code><a title="src.model.request_output.RequestOutput.get_polarity_colname" href="#src.model.request_output.RequestOutput.get_polarity_colname">get_polarity_colname</a></code></li>
+<li><code><a title="src.model.request_output.RequestOutput.get_polarity_data" href="#src.model.request_output.RequestOutput.get_polarity_data">get_polarity_data</a></code></li>
+<li><code><a title="src.model.request_output.RequestOutput.get_src_langs" href="#src.model.request_output.RequestOutput.get_src_langs">get_src_langs</a></code></li>
+<li><code><a title="src.model.request_output.RequestOutput.get_textual_data" href="#src.model.request_output.RequestOutput.get_textual_data">get_textual_data</a></code></li>
+<li><code><a title="src.model.request_output.RequestOutput.get_textual_data_colname" href="#src.model.request_output.RequestOutput.get_textual_data_colname">get_textual_data_colname</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

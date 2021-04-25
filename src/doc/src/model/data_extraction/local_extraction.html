@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>src.model.data_extraction.local_extraction API documentation</title>
+<meta name="description" content="Created on Mar 5, 2021 …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.model.data_extraction.local_extraction</code></h1>
+</header>
+<section id="section-intro">
+<p>Created on Mar 5, 2021</p>
+<p>@author: yann</p>
+<p>Module that contains the LocalImporter class (implements the DataExtractor class).</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+Created on Mar 5, 2021
+
+@author: yann
+
+Module that contains the LocalImporter class (implements the DataExtractor class).
+&#39;&#39;&#39;
+
+import re
+
+from extractor import DataExtractor
+from file_reader import read_csv_to_df
+from translator import remove_unwanted_langs
+
+import pandas as pd
+
+
+class LocalImporter(DataExtractor):
+    &#39;&#39;&#39;This class is the bridge between the Classifier and the RequestsHandler relative to imported data contained
+    in CSV files. In order to analyze imported data, the user has to load a CSV file and initialize this class
+    with its content.
+    &#39;&#39;&#39;
+
+    def __init__(self, path):
+        &#39;&#39;&#39;
+        Constructor
+        &#39;&#39;&#39;
+
+        if not(isinstance(path, str)):  # is a str
+            raise ValueError(&#34;The path is expected to be a str.&#34;)
+        else:
+            self.path = path
+            self.data = read_csv_to_df(self.path)
+
+        self.request = {}
+
+    def extract_data(self, request):
+        &#39;&#39;&#39;From the request passed as argument is returned a dataframe that contains the data wanted by the user
+
+        request -- a valid dict according to the syntax and semantics described in requests_handler.py
+        returns a dataframe that contains the extracted rows to classify
+        raises a ValueError if no row was found
+        &#39;&#39;&#39;
+
+        temp = pd.DataFrame
+
+        if request[&#39;search&#39;]:
+            detected_col = False
+
+            if not request[&#39;colname&#39;]:  # otherwise, we iterate through the df to look for the specified keyword
+                detected_col = self.__search_colname(request)
+                if not detected_col:
+                    raise ValueError(&#34;The submitted request didn&#39;t result in the extraction of any data.&#34;)
+
+            colname = request[&#39;colname&#39;][0]
+            extracted_rows_index = []
+
+            for idx, row in self.data.iterrows():
+                words = re.findall(r&#39;\w+&#39;, row[colname].lower())
+                if set(request[&#39;search&#39;]).issubset(words):
+                    extracted_rows_index.append(idx)
+
+            if not extracted_rows_index and detected_col:
+                raise ValueError(&#34;We detected an occurrence of your search in the &#39;&#34; + colname + &#34;&#39; column though no &#34; +
+                                 &#34;data could be extracted. Try to specify the column to search with the &#39;colname&#39; keyword.&#34;)
+
+            if extracted_rows_index:
+                temp = self.data.loc[extracted_rows_index]
+
+        else:  # it means a colname was specified and the classifier will know where to look
+            temp = self.data  # change this
+
+        if not temp.empty:
+            temp = self.__subset_data_maxentries(request, temp)
+            result = self.__add_src_lang_col(request, temp)
+
+            if not result.empty:
+                maxentries = result.shape[0] if request[&#39;maxentries&#39;][0] &gt; result.shape[0] else request[&#39;maxentries&#39;][0]
+                # print(maxentries, result.shape[0])
+                return result.sample(maxentries).sort_index()
+
+        raise ValueError(&#34;The submitted request didn&#39;t result in the extraction of any data.&#34;)
+
+    def __subset_data_maxentries(self, request: dict, temp: pd.DataFrame):
+        &#34;&#34;&#34;Method to limit the amount of data sent to detect_lang and save API credits.
+        &#34;&#34;&#34;
+        req_maxentries = int(request[&#39;maxentries&#39;][0])
+        request[&#39;foundentries&#39;] = [temp.shape[0]]
+        real_maxentries = request[&#39;foundentries&#39;][0] if req_maxentries &gt; request[&#39;foundentries&#39;][0] else req_maxentries
+
+        if request[&#39;foundentries&#39;][0] &gt; real_maxentries * 2:
+            nb_entries_before_lang_detect = real_maxentries * 2
+        elif request[&#39;foundentries&#39;][0] &gt; req_maxentries:
+            nb_entries_before_lang_detect = request[&#39;foundentries&#39;][0]
+        else:
+            nb_entries_before_lang_detect = real_maxentries
+
+        return temp.sample(nb_entries_before_lang_detect)
+        # the factor 2 is here to make sure we will have more
+
+    def __add_src_lang_col(self, request: dict, temp: pd.DataFrame):
+        &#34;&#34;&#34;If we have enough credits, the language will be added. Otherwise an AttributeError will be raised.
+        &#34;&#34;&#34;
+        try:
+            # on regarde la langue avant de filtrer avec maxentries, il faudrait faire dans l&#39;autre sens
+            return remove_unwanted_langs(temp, request[&#39;colname&#39;][0], request[&#39;lang&#39;])
+        except AttributeError:  # when we reach the daily limit of detection with detectlanguage
+            return temp
+
+    def __search_colname(self, request: dict):
+        &#39;&#39;&#39;Method that detects the column in which we want to search for the data
+        The user should be warned that the wrong column could be found, and that if he wants to be sure that
+        the right column is found, he has to use the &#39;colname&#39; keyword in its request.
+
+        request -- a dict that respects the request syntax defined by the requests_handler module.
+
+        Returns True if a column was found. In that case, a new value is given to the &#39;colname&#39; key of request.
+        Otherwise, returns False.
+        &#39;&#39;&#39;
+        for key in request[&#39;search&#39;]:  # for each word in search
+            for colname in self.data:  # and for each column in our dataframe
+                column = self.data[colname]  # we extract the column
+                column = column.astype(str).str.lower()  # we make it lowercase in order to match our key
+                if not self.data[column.str.contains(key)].empty:  # and check if the key is somewhere in the col
+                    request[&#39;colname&#39;] = [colname]  # if so, the column is this col.
+                    return True
+        return False</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="src.model.data_extraction.local_extraction.LocalImporter"><code class="flex name class">
+<span>class <span class="ident">LocalImporter</span></span>
+<span>(</span><span>path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This class is the bridge between the Classifier and the RequestsHandler relative to imported data contained
+in CSV files. In order to analyze imported data, the user has to load a CSV file and initialize this class
+with its content.</p>
+<p>Constructor</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LocalImporter(DataExtractor):
+    &#39;&#39;&#39;This class is the bridge between the Classifier and the RequestsHandler relative to imported data contained
+    in CSV files. In order to analyze imported data, the user has to load a CSV file and initialize this class
+    with its content.
+    &#39;&#39;&#39;
+
+    def __init__(self, path):
+        &#39;&#39;&#39;
+        Constructor
+        &#39;&#39;&#39;
+
+        if not(isinstance(path, str)):  # is a str
+            raise ValueError(&#34;The path is expected to be a str.&#34;)
+        else:
+            self.path = path
+            self.data = read_csv_to_df(self.path)
+
+        self.request = {}
+
+    def extract_data(self, request):
+        &#39;&#39;&#39;From the request passed as argument is returned a dataframe that contains the data wanted by the user
+
+        request -- a valid dict according to the syntax and semantics described in requests_handler.py
+        returns a dataframe that contains the extracted rows to classify
+        raises a ValueError if no row was found
+        &#39;&#39;&#39;
+
+        temp = pd.DataFrame
+
+        if request[&#39;search&#39;]:
+            detected_col = False
+
+            if not request[&#39;colname&#39;]:  # otherwise, we iterate through the df to look for the specified keyword
+                detected_col = self.__search_colname(request)
+                if not detected_col:
+                    raise ValueError(&#34;The submitted request didn&#39;t result in the extraction of any data.&#34;)
+
+            colname = request[&#39;colname&#39;][0]
+            extracted_rows_index = []
+
+            for idx, row in self.data.iterrows():
+                words = re.findall(r&#39;\w+&#39;, row[colname].lower())
+                if set(request[&#39;search&#39;]).issubset(words):
+                    extracted_rows_index.append(idx)
+
+            if not extracted_rows_index and detected_col:
+                raise ValueError(&#34;We detected an occurrence of your search in the &#39;&#34; + colname + &#34;&#39; column though no &#34; +
+                                 &#34;data could be extracted. Try to specify the column to search with the &#39;colname&#39; keyword.&#34;)
+
+            if extracted_rows_index:
+                temp = self.data.loc[extracted_rows_index]
+
+        else:  # it means a colname was specified and the classifier will know where to look
+            temp = self.data  # change this
+
+        if not temp.empty:
+            temp = self.__subset_data_maxentries(request, temp)
+            result = self.__add_src_lang_col(request, temp)
+
+            if not result.empty:
+                maxentries = result.shape[0] if request[&#39;maxentries&#39;][0] &gt; result.shape[0] else request[&#39;maxentries&#39;][0]
+                # print(maxentries, result.shape[0])
+                return result.sample(maxentries).sort_index()
+
+        raise ValueError(&#34;The submitted request didn&#39;t result in the extraction of any data.&#34;)
+
+    def __subset_data_maxentries(self, request: dict, temp: pd.DataFrame):
+        &#34;&#34;&#34;Method to limit the amount of data sent to detect_lang and save API credits.
+        &#34;&#34;&#34;
+        req_maxentries = int(request[&#39;maxentries&#39;][0])
+        request[&#39;foundentries&#39;] = [temp.shape[0]]
+        real_maxentries = request[&#39;foundentries&#39;][0] if req_maxentries &gt; request[&#39;foundentries&#39;][0] else req_maxentries
+
+        if request[&#39;foundentries&#39;][0] &gt; real_maxentries * 2:
+            nb_entries_before_lang_detect = real_maxentries * 2
+        elif request[&#39;foundentries&#39;][0] &gt; req_maxentries:
+            nb_entries_before_lang_detect = request[&#39;foundentries&#39;][0]
+        else:
+            nb_entries_before_lang_detect = real_maxentries
+
+        return temp.sample(nb_entries_before_lang_detect)
+        # the factor 2 is here to make sure we will have more
+
+    def __add_src_lang_col(self, request: dict, temp: pd.DataFrame):
+        &#34;&#34;&#34;If we have enough credits, the language will be added. Otherwise an AttributeError will be raised.
+        &#34;&#34;&#34;
+        try:
+            # on regarde la langue avant de filtrer avec maxentries, il faudrait faire dans l&#39;autre sens
+            return remove_unwanted_langs(temp, request[&#39;colname&#39;][0], request[&#39;lang&#39;])
+        except AttributeError:  # when we reach the daily limit of detection with detectlanguage
+            return temp
+
+    def __search_colname(self, request: dict):
+        &#39;&#39;&#39;Method that detects the column in which we want to search for the data
+        The user should be warned that the wrong column could be found, and that if he wants to be sure that
+        the right column is found, he has to use the &#39;colname&#39; keyword in its request.
+
+        request -- a dict that respects the request syntax defined by the requests_handler module.
+
+        Returns True if a column was found. In that case, a new value is given to the &#39;colname&#39; key of request.
+        Otherwise, returns False.
+        &#39;&#39;&#39;
+        for key in request[&#39;search&#39;]:  # for each word in search
+            for colname in self.data:  # and for each column in our dataframe
+                column = self.data[colname]  # we extract the column
+                column = column.astype(str).str.lower()  # we make it lowercase in order to match our key
+                if not self.data[column.str.contains(key)].empty:  # and check if the key is somewhere in the col
+                    request[&#39;colname&#39;] = [colname]  # if so, the column is this col.
+                    return True
+        return False</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>extractor.DataExtractor</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="src.model.data_extraction.local_extraction.LocalImporter.data"><code class="name">var <span class="ident">data</span> : pandas.core.frame.DataFrame</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="src.model.data_extraction.local_extraction.LocalImporter.request"><code class="name">var <span class="ident">request</span> : dict</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="src.model.data_extraction.local_extraction.LocalImporter.extract_data"><code class="name flex">
+<span>def <span class="ident">extract_data</span></span>(<span>self, request)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>From the request passed as argument is returned a dataframe that contains the data wanted by the user</p>
+<p>request &ndash; a valid dict according to the syntax and semantics described in requests_handler.py
+returns a dataframe that contains the extracted rows to classify
+raises a ValueError if no row was found</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_data(self, request):
+    &#39;&#39;&#39;From the request passed as argument is returned a dataframe that contains the data wanted by the user
+
+    request -- a valid dict according to the syntax and semantics described in requests_handler.py
+    returns a dataframe that contains the extracted rows to classify
+    raises a ValueError if no row was found
+    &#39;&#39;&#39;
+
+    temp = pd.DataFrame
+
+    if request[&#39;search&#39;]:
+        detected_col = False
+
+        if not request[&#39;colname&#39;]:  # otherwise, we iterate through the df to look for the specified keyword
+            detected_col = self.__search_colname(request)
+            if not detected_col:
+                raise ValueError(&#34;The submitted request didn&#39;t result in the extraction of any data.&#34;)
+
+        colname = request[&#39;colname&#39;][0]
+        extracted_rows_index = []
+
+        for idx, row in self.data.iterrows():
+            words = re.findall(r&#39;\w+&#39;, row[colname].lower())
+            if set(request[&#39;search&#39;]).issubset(words):
+                extracted_rows_index.append(idx)
+
+        if not extracted_rows_index and detected_col:
+            raise ValueError(&#34;We detected an occurrence of your search in the &#39;&#34; + colname + &#34;&#39; column though no &#34; +
+                             &#34;data could be extracted. Try to specify the column to search with the &#39;colname&#39; keyword.&#34;)
+
+        if extracted_rows_index:
+            temp = self.data.loc[extracted_rows_index]
+
+    else:  # it means a colname was specified and the classifier will know where to look
+        temp = self.data  # change this
+
+    if not temp.empty:
+        temp = self.__subset_data_maxentries(request, temp)
+        result = self.__add_src_lang_col(request, temp)
+
+        if not result.empty:
+            maxentries = result.shape[0] if request[&#39;maxentries&#39;][0] &gt; result.shape[0] else request[&#39;maxentries&#39;][0]
+            # print(maxentries, result.shape[0])
+            return result.sample(maxentries).sort_index()
+
+    raise ValueError(&#34;The submitted request didn&#39;t result in the extraction of any data.&#34;)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src.model.data_extraction" href="index.html">src.model.data_extraction</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="src.model.data_extraction.local_extraction.LocalImporter" href="#src.model.data_extraction.local_extraction.LocalImporter">LocalImporter</a></code></h4>
+<ul class="">
+<li><code><a title="src.model.data_extraction.local_extraction.LocalImporter.data" href="#src.model.data_extraction.local_extraction.LocalImporter.data">data</a></code></li>
+<li><code><a title="src.model.data_extraction.local_extraction.LocalImporter.extract_data" href="#src.model.data_extraction.local_extraction.LocalImporter.extract_data">extract_data</a></code></li>
+<li><code><a title="src.model.data_extraction.local_extraction.LocalImporter.request" href="#src.model.data_extraction.local_extraction.LocalImporter.request">request</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

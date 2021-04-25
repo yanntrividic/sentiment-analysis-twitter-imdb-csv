@@ -1,0 +1,1674 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>src.controller.control API documentation</title>
+<meta name="description" content="Created on Mar 9, 2021 …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.controller.control</code></h1>
+</header>
+<section id="section-intro">
+<p>Created on Mar 9, 2021</p>
+<p>Module that contains the Controller class, where most of the interactions between the user and the app are processed.
+@author: yann, jack</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+Created on Mar 9, 2021
+
+Module that contains the Controller class, where most of the interactions between the user and the app are processed.
+@author: yann, jack
+&#39;&#39;&#39;
+
+from PyQt5 import QtWidgets
+import os
+import sys
+import traceback
+
+from PyQt5.QtWidgets import QFileDialog
+from api_status import thread_update_api_status
+from background_work import Worker
+from credits import Ui_Dialog
+from file_writer import write_csv_to_df
+from graph_handler import graph_convert, WORDCLOUD_PNG_PATH
+from main_window import Ui_MainWindow
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from network_utils import is_connected_internet, load_driver
+from requests_handler import RequestsHandler, RequestSyntaxError
+from show_messages import show_message, show_on_mainwindow_console, update_mainwindow_console
+from table_model import TableModel, setColumnWidth, setRowHeight
+from translator import is_valid_target_lang
+
+
+class Controller:
+    &#39;&#39;&#39;Controls the various flows of data going from the interface to the model and vice versa
+    &#39;&#39;&#39;
+
+    def __init__(self):
+        &#39;&#39;&#39;
+        Constructor
+        &#39;&#39;&#39;
+        self.app = QtWidgets.QApplication(sys.argv)
+        self.main_window = QtWidgets.QMainWindow()
+        # Initialization of the window
+        self.ui = Ui_MainWindow(self.app)
+        self.ui.setupUi(self.main_window)
+        self.ui_dialog = None
+        self._connect_signals()
+        self.main_window.show()  # we show the window
+
+        self.req_thread = None
+        self.rh = RequestsHandler()
+        self.__thread_load_models()
+        self.__thread_load_imdb_webdriver()
+
+        self.canvas = None  # declaration of the canvas to prevent homebuttonclick from crashing
+        self.delete_wordcloud_img()
+
+        thread_update_api_status(self.app, self.ui, self.rh)
+
+        # FIXME: when several models have to be loaded, it cannot be done in parallel otherwise the RAM explodes.
+        # 1) verify if the folder and the files exist
+        # 2) if more than N classifiers have to be trained, forget about parallelism (and train them once all the
+        # others have been loaded?)
+
+    def _connect_signals(self):
+        &#39;&#39;&#39;Here we connect the stuff we want from the UI to trigger _send_request
+        (and the other stuff we would want to control from here)
+        &#39;&#39;&#39;
+
+        # ==Interactive features==
+
+        # =Line Edit=
+        # Whenever &#34;Enter&#34; is pressed, it will click the corresponding button
+        self.ui.lineEditDashboard.returnPressed.connect(self.ui.searchButtonDashboard.click)
+        self.ui.lineEditMainWindowIMDB.returnPressed.connect(self.ui.searchButtonMainWindowIMDB.click)
+        self.ui.lineEditMainWindowTwitter.returnPressed.connect(self.ui.searchButtonMainWindowTwitter.click)
+        self.ui.lineEditMainWindowLocal.returnPressed.connect(self.ui.searchButtonMainWindowLocal.click)
+
+        # =Search buttons=
+        # Whenenever those button are clicked, it will register user&#39;s entry
+        self.ui.searchButtonDashboard.clicked.connect(self.lineEditDashboard_click)
+        self.ui.searchButtonMainWindowIMDB.clicked.connect(self.lineEditMainWindowIMDB_click)
+        self.ui.searchButtonMainWindowTwitter.clicked.connect(self.lineEditMainWindowTwitter_click)
+        self.ui.searchButtonMainWindowLocal.clicked.connect(self.lineEditMainWindowLocal_click)
+
+        # =Home button=
+        # Whenever clicked, will close the results tabs and clear the line entries
+        self.ui.homeButton.clicked.connect(self.homeButton_click)
+
+        # =Import button=
+        # Whenever clicked, will open file explorer and show the search bar for local
+        self.ui.importButton.clicked.connect(self.importButton_click)
+
+        # =Import button=
+        # Whenever clicked, will open file explorer and show the search bar for local
+        self.ui.exportButton.clicked.connect(self.exportButton_click)
+
+        # =About button=
+        # Whenever clicked, a credits dialog will show up
+        self.ui.about.clicked.connect(self.show_credits)
+
+        # =Radio buttons=
+        # It should switch between search engines
+        self.ui.radioButtonIMDB.clicked.connect(self.radioButtonIMDB_click)
+        self.ui.radioButtonTwitter.clicked.connect(self.radioButtonTwitter_click)
+
+        # =Check Boxes=
+        # It should switch between search engines
+        self.ui.checkBoxEnglish.clicked.connect(self.checkBoxEnglish_click)
+        self.ui.checkBoxFrench.clicked.connect(self.checkBoxFrench_click)
+
+        # =ComboBox=
+        self.ui.comboBoxTargetLanguage.currentTextChanged.connect(self.checkComboBox_change)
+
+        #  =TableView=
+        # self.ui.tableView.itemEntered.connect(handleItemEnteredTableView)
+        # self.ui.tableView.itemExited.connect(handleItemExitedTableView)
+
+    # == EVERYTHING ABOUT REQUESTS HANDLING ==
+
+    def __thread_load_models(self):
+        &#39;&#39;&#39;A Worker loads the various classifiers in the RequestsHandler. This procedure is transparent, the user
+        can use the interface in parallel.
+        &#39;&#39;&#39;
+        self.loader_thread = Worker(self.rh.load_classifiers, self.app)  #  new worker instanciated
+        self.loader_thread.signals.result.connect(self.show_finished_model_loading)  #  and send the results to the display_results method
+        self.loader_thread.start()
+
+    def show_finished_model_loading(self):
+        &#39;&#39;&#39;One the models have been loaded, we display a message to the user
+        &#39;&#39;&#39;
+        self.ui.displayed_message_location = &#34;dashboard&#34;  #  will be displayed in the dashboard
+
+        internet_connexion = is_connected_internet()
+        no_co_message = &#34; but you are not connected to Internet&#34;  #  in the case there is no internet connection
+
+        show_message(self.ui, &#34;All the models were successfully loaded&#34; +
+                     (no_co_message if not internet_connexion else &#34;&#34;) + &#34;!&#34;, error=not internet_connexion)
+
+        print(self.rh)  # debugging
+
+    def __thread_load_imdb_webdriver(self):
+        &#39;&#39;&#39;A Worker loads the various classifiers in the RequestsHandler. This procedure is transparent, the user
+        can use the interface in parallel.
+        &#39;&#39;&#39;
+        self.webdriver_thread = Worker(load_driver, self.app)
+        self.webdriver_thread.signals.result.connect(self.assign_webdriver)  #  and send the results to the display_results method
+        self.webdriver_thread.signals.error.connect(self.error_webdriver_loading)
+        self.webdriver_thread.signals.error.connect(self.finished_webdriver_loading)
+        self.webdriver_thread.start()
+
+    def assign_webdriver(self, result):
+        &#39;&#39;&#39;Value assigned to the webdriver after loading
+        &#39;&#39;&#39;
+        self.rh.imdb_webdriver = result
+
+    def finished_webdriver_loading(self):
+        &#39;&#39;&#39;Debugging
+        &#39;&#39;&#39;
+        print(&#34;Webdriver loading finished&#34;)
+
+    def error_webdriver_loading(self, tuple):
+        &#39;&#39;&#39; In the case an error is raised by the webdriver&#39;s loading a message is displayed
+        &#39;&#39;&#39;
+        _, value, _ = tuple
+        if isinstance(value, ValueError):
+            self.ui.lineEditMainWindowIMDB.setPlaceholderText(str(value))
+
+    def request_builder(self):
+        &#39;&#39;&#39;
+        Function converting UI&#39;s variable to a long String
+        &#39;&#39;&#39;
+        request = &#34;&#34;
+        request += &#34;src:&#34; + self.ui.get_search_engine() + &#34; &#34;  # We add to the request the search engine desired
+
+        if self.ui.get_english():  # If English is checked
+            request += &#34;lang:en &#34;
+        if self.ui.get_french():  # If French is checked
+            request += &#34;lang:fr &#34;
+
+        if len(self.ui.comboBoxTargetLanguage.currentText()) &gt; 0:
+            lang = is_valid_target_lang(self.ui.comboBoxTargetLanguage.currentText())  #  gets the iso norm for the concerned language
+            if lang:
+                request += &#34;target:&#34; + lang + &#34; &#34;
+            else:
+                show_message(self.ui, &#34;One of the specified target languages is not&#34; +
+                             &#34; supported and won&#39;t be used for translation.&#34;, error=True)
+
+        request += self.ui.get_user_entry()  # We add to the search the actual user entry
+        return request
+
+    def _send_request(self):
+        &#39;&#39;&#39;This method is connected to the various search bars/buttons. When such a widget is used,
+        a request is built from the various user entries and passed to the RequestsHandler in a loader_thread.
+
+        The processed data is sent to the display_results method
+        &#39;&#39;&#39;
+        self.delete_wordcloud_img()
+        self.ui.Analytics.removeWidget(self.canvas)  #  removes the current canvas to make room for the upcoming one
+        self.ui.labelErrorDashboard.hide()
+        self.ui.labelErrorMainmenu.hide()
+
+        #  Here, we must get the data from the UI to the rh
+        req = self.request_builder()  # we register in &#34;req&#34; the data from the interface
+        show_on_mainwindow_console(self.ui, req)
+
+        if self.rh:  # if the rh was correctly instanciated
+            if self.req_thread is None:  # in the case no request is being processing in the background
+                self.req_thread = Worker(self.rh.handle_request, self.app, req)  # we start a new loader_thread to handle the request
+                self.loading_on()
+
+                # we connect the signals
+                self.req_thread.signals.result.connect(self.display_results)  #  and send the results to the display_results method
+                self.req_thread.signals.error.connect(self.show_req_error)
+                self.req_thread.signals.finished.connect(self.__reset_req_thread)  # and we reset the worker to make it available
+
+                self.req_thread.start()
+            else:
+                show_message(self.ui, &#34;Requests can only be submitted at once.&#34;, error=True)
+        else:
+            show_message(self.ui, &#34;The RequestsHandler has not been loaded yet.&#34;, error=True)
+
+    def show_req_error(self, tuple):
+        &#39;&#39;&#39;Wrapper method to receive the signal sent by the Worker and preprocess it for the show_message method
+        &#39;&#39;&#39;
+        _, value, _ = tuple
+        if isinstance(value, RequestSyntaxError):
+            show_message(self.ui, str(value), error=True)  # displays the error
+
+    def __reset_req_thread(self, check_api_status=True):
+        &#39;&#39;&#39;Resets the request thread, for example when the user wants to cancel its request or when a error is raised
+        &#39;&#39;&#39;
+        self.req_thread = None
+        self.loading_off()  #  removes the GIF to put back the lens
+        if check_api_status:
+            thread_update_api_status(self.app, self.ui, self.rh)
+
+    def display_results(self, data):
+        self.ro = data[0]  # instanciate a new attribute, the RequestOutput
+
+        try:
+            self.figure = graph_convert(self.ro)
+            self.canvas = FigureCanvas(self.figure)
+            self.ui.Analytics.addWidget(self.canvas)
+
+            # sets the tabs to the analytics&#39; tab
+            self.ui.tabResults.setCurrentWidget(self.ui.tabResults.findChild(QtWidgets.QWidget, &#34;tabAnalytics&#34;))
+
+        except IndexError:
+            traceback.print_exc()
+            self.ui.displayed_message_location = &#34;dashboard&#34;
+            show_message(self.ui, &#34;Not enough data could be extracted to produce any visualization.&#34;, error=True)
+
+        except Exception:  #  if an error occurs while we generate the graph, we adopt a clean behavior
+            traceback.print_exc()
+            self.ui.displayed_message_location = &#34;dashboard&#34;
+            show_message(self.ui, &#34;An unexpected error occurred while we tried to plot your graphics.&#34;, error=True)
+            self.ui.tabResults.setCurrentWidget(self.ui.tabResults.findChild(QtWidgets.QWidget, &#34;tabCharts&#34;))
+
+        #  instantiation of a new TableModel with the extracted data, it will be the data of the table in Charts
+        model = TableModel(self.ro)
+        self.ui.tableView.setModel(model)  #  and the model is set to the QTableView object
+        setColumnWidth(self.ui.tableView, self.ro)  #  the width of the columns is fit to the QTableView object width
+        setRowHeight(self.ui.tableView, self.ro)  #  resets the row height
+        # FIXME: reset the position of the scrollbar
+
+        self.ui.frameTabResult.show()  #  we display the two tabs
+
+    def delete_wordcloud_img(self):
+        if os.path.exists(WORDCLOUD_PNG_PATH):
+            os.remove(WORDCLOUD_PNG_PATH)
+    # == EVERYTHING ABOUT BUTTONS AND USER ENTRIES
+
+    def homeButton_click(self):
+        &#39;&#39;&#39;
+        Function for the home button in the dashboard
+        &#39;&#39;&#39;
+        self.loading_off()  # not sure why yet, but this line is needed otherwise the program crashes
+
+        self.ui.lineEditDashboard.clear()
+        self.ui.lineEditMainWindowTwitter.clear()
+        self.ui.lineEditMainWindowIMDB.clear()
+        self.ui.lineEditMainWindowLocal.clear()
+
+        self.ui.labelErrorDashboard.hide()
+        self.ui.labelErrorMainmenu.hide()
+
+        self.ui.frameTabResult.hide()
+        self.delete_wordcloud_img()
+        self.ui.comboBoxTargetLanguage.setCurrentIndex(-1)
+        self.ui.user_entry = &#34;&#34;
+
+        thread_update_api_status(self.app, self.ui, self.rh)
+
+        # we force the request thread to exit
+        if self.req_thread is not None:
+            if self.req_thread.isRunning():
+                print(&#34;req_thread terminated by force.&#34;)
+                self.req_thread.terminate()  # properly ends the thread
+            self.__reset_req_thread(check_api_status=False)
+
+        show_on_mainwindow_console(self.ui, &#34;Environment cleared&#34;)
+
+        # TODO: clean the Graphics window, otherwise graphs appear on each other
+
+    def importButton_click(self):  # Bouton import en cours de dev
+        &#39;&#39;&#39;
+        Function for the import button in the main window
+        &#39;&#39;&#39;
+        title = &#34;CSV file import&#34;  # title of the window
+        filter = &#34;CSV files (*.csv)&#34;  #  valid syntax to only display CSV files
+
+        # Sometimes, on Ubuntu, the following warning is met at this point:
+        # Gtk-Message: 17:32:27.820: GtkDialog mapped without a transient parent. This is discouraged.
+        # Apparently, this warning can&#39;t be hidden but is harmless, so no worries...
+        csv_path = QFileDialog.getOpenFileName(caption=title, filter=filter)  # displays dialog
+        self.ui.displayed_message_location = &#34;mainmenu&#34;
+
+        if csv_path[0]:  #  if the return path is not None
+            try:
+                self.rh.import_local_data(csv_path[0])
+                print(&#34;Imported file: &#34; + csv_path[0])
+                self.ui.lineEditMainWindowLocal.show()
+                # Display of the name of the loaded file in the placeholder
+                self.ui.lineEditMainWindowLocal.setPlaceholderText(&#34;Search &#34; + csv_path[0].split(&#34;/&#34;)[-1])
+                self.ui.lineEditMainWindowLocal.clear()
+                self.ui.searchButtonMainWindowLocal.show()
+                self.ui.labelErrorMainmenu.hide()
+            except FileNotFoundError as fnfe:
+                show_message(self.ui, str(fnfe))
+            except Exception:
+                traceback.print_exc()
+                show_message(self.ui, &#34;Your file could not be read. Please consult our User Manual for more information.&#34;, error=True)
+
+    def exportButton_click(self):
+        &#39;&#39;&#39;
+        Function for the export button in the charts tab
+        &#39;&#39;&#39;
+        title = &#34;CSV file export&#34;  # title of the window
+        filter = &#34;CSV files (*.csv)&#34;  #  valid syntax to only display CSV files
+
+        # Same warning as importButton_click
+
+        csv_path = QFileDialog.getSaveFileName(caption=title, filter=filter)  # displays dialog
+        self.ui.displayed_message_location = &#34;mainmenu&#34;
+
+        csv_path = csv_path[0]
+
+        if csv_path.split(&#34;.&#34;)[-1].lower() != &#34;csv&#34; and csv_path:  #  we had the extension if it isn&#39;t here
+            csv_path += &#34;.csv&#34;
+
+        if csv_path:  # in the case the user has entered something
+            self.ui.displayed_message_location = &#34;dashboard&#34;
+            try:
+                write_csv_to_df(self.ro.raw_data, csv_path)
+                show_message(self.ui, csv_path.split(&#34;/&#34;)[-1] + &#34; was successfully saved.&#34;)
+            except Exception:
+                show_message(self.ui, &#34;There has been an error while trying to save &#34; +
+                             csv_path.split(&#34;/&#34;)[-1] + &#34;.&#34;, error=True)
+
+    def lineEditDashboard_click(self):
+        &#39;&#39;&#39;
+        Function for the user entry in the dashboard
+        &#39;&#39;&#39;
+        self.ui.user_entry = self.ui.lineEditDashboard.text()
+        self.ui.Analytics.removeWidget(self.canvas)
+        self.ui.pos_click = &#34;dashboard&#34;  #  for the loading gif
+
+        if self.ui.radioButtonTwitter.isChecked():
+            self.ui.search_engine = &#34;Twitter&#34;
+        else:
+            self.ui.search_engine = &#34;IMDb&#34;
+
+        self.ui.displayed_message_location = &#34;dashboard&#34;
+        update_mainwindow_console(self.ui)
+        self._send_request()
+
+    def lineEditMainWindowTwitter_click(self):
+        &#39;&#39;&#39;
+        Function for the Twitter user entry in the homepage
+        &#39;&#39;&#39;
+        self.ui.user_entry = self.ui.lineEditMainWindowTwitter.text()
+        self.ui.pos_click = &#34;Twitter&#34;
+        self.ui.search_engine = &#34;Twitter&#34;
+        self.ui.displayed_message_location = &#34;mainmenu&#34;
+        update_mainwindow_console(self.ui)
+        self._send_request()
+
+    def lineEditMainWindowIMDB_click(self):
+        &#39;&#39;&#39;
+        Function for the IMDb user entry in the homepage
+        &#39;&#39;&#39;
+        self.ui.user_entry = self.ui.lineEditMainWindowIMDB.text()
+        self.ui.pos_click = &#34;IMDb&#34;
+        self.ui.search_engine = &#34;IMDb&#34;
+        self.ui.displayed_message_location = &#34;mainmenu&#34;
+        update_mainwindow_console(self.ui)
+        self._send_request()
+
+    def lineEditMainWindowLocal_click(self):
+        &#39;&#39;&#39;
+        Function for the local user entry in the homepage
+        &#39;&#39;&#39;
+        self.ui.user_entry = self.ui.lineEditMainWindowLocal.text()
+        self.ui.pos_click = &#34;Local&#34;
+        self.ui.search_engine = &#34;Local&#34;
+        self.ui.displayed_message_location = &#34;mainmenu&#34;
+        update_mainwindow_console(self.ui)
+        self._send_request()
+
+    def radioButtonIMDB_click(self):
+        &#39;&#39;&#39;
+        Function for the IMDb radio button in the dashboard
+        &#39;&#39;&#39;
+        self.ui.search_engine = &#34;IMDb&#34;
+        update_mainwindow_console(self.ui)
+
+    def radioButtonTwitter_click(self):
+        &#39;&#39;&#39;
+        Function for the Twitter radio button in the dashboard
+        &#39;&#39;&#39;
+        self.ui.search_engine = &#34;Twitter&#34;
+        update_mainwindow_console(self.ui)
+
+    def checkBoxEnglish_click(self):
+        &#39;&#39;&#39;
+        Function for the English checkbox in the dashboard
+        &#39;&#39;&#39;
+        self.ui.english = self.ui.checkBoxEnglish.isChecked()
+        self.check_checkbox()
+        update_mainwindow_console(self.ui)
+
+    def checkBoxFrench_click(self):
+        &#39;&#39;&#39;
+        Function for the French checkbox in the dashboard
+        &#39;&#39;&#39;
+        self.ui.french = self.ui.checkBoxFrench.isChecked()
+        self.check_checkbox()
+        update_mainwindow_console(self.ui)
+
+    def check_checkbox(self):
+        &#39;&#39;&#39;
+        Function for display an error if no languages are checked
+        &#39;&#39;&#39;
+        if not self.ui.get_english() and not self.ui.get_french():
+            self.ui.displayed_message_location = &#34;dashboard&#34;
+            show_message(self.ui, &#34;If no language is selected, the default language will be english.&#34;, error=True)
+        elif self.ui.get_english() or self.ui.get_french():
+            self.ui.labelErrorDashboard.hide()
+
+    def checkComboBox_change(self):
+        update_mainwindow_console(self.ui)
+
+    def show_credits(self):
+        &#39;&#39;&#39;
+        Function for opening the credits dialog, this dialog can be opened only if it is not already opened
+        &#39;&#39;&#39;
+        if self.ui_dialog is None:  # None means no window is opened atm
+            self.dialog = QtWidgets.QDialog()
+            self.ui_dialog = Ui_Dialog()
+            self.ui_dialog.setupUi(self.dialog)
+
+            # the two events are connected to the clean exit of the window
+            self.ui_dialog.pushButton.clicked.connect(self.__exit_credits)
+            self.dialog.finished.connect(self.__exit_credits)
+
+            self.dialog.show()
+            self.dialog.exec_()
+
+    def __exit_credits(self):
+        self.dialog.close()
+        self.ui_dialog = None
+
+    def loading_on(self):
+        &#39;&#39;&#39;
+        Function for replacing lens icon with animated gif
+        &#39;&#39;&#39;
+        self.loading_off()
+        if self.ui.get_pos_click() == &#34;dashboard&#34;:
+            self.ui.searchButtonDashboard.hide()
+            self.ui.loading_icon_dashboard.raise_()
+            self.ui.loading_icon_dashboard.show()
+            self.ui.loading_icon_dashboard.setMovie(self.ui.loading)
+        elif self.ui.get_pos_click() == &#34;Twitter&#34;:
+            self.ui.searchButtonMainWindowTwitter.hide()
+            self.ui.loading_icon_twitter.raise_()
+            self.ui.loading_icon_twitter.show()
+            self.ui.loading_icon_twitter.setMovie(self.ui.loading)
+        elif self.ui.get_pos_click() == &#34;IMDb&#34;:
+            self.ui.searchButtonMainWindowIMDB.hide()
+            self.ui.loading_icon_IMDB.raise_()
+            self.ui.loading_icon_IMDB.show()
+            self.ui.loading_icon_IMDB.setMovie(self.ui.loading)
+        elif self.ui.get_pos_click() == &#34;Local&#34;:
+            self.ui.searchButtonMainWindowLocal.hide()
+            self.ui.loading_icon_local.raise_()
+            self.ui.loading_icon_local.show()
+            self.ui.loading_icon_local.setMovie(self.ui.loading)
+        self.ui.loading.start()
+
+    def loading_off(self):
+        &#39;&#39;&#39;
+        Function for stoping loading animation
+        &#39;&#39;&#39;
+        self.ui.loading.stop()
+        self.ui.loading_icon_dashboard.hide()
+        self.ui.loading_icon_twitter.hide()
+        self.ui.loading_icon_IMDB.hide()
+        self.ui.loading_icon_local.hide()
+        self.ui.searchButtonDashboard.show()
+        self.ui.searchButtonMainWindowTwitter.show()
+        self.ui.searchButtonMainWindowIMDB.show()
+        if self.rh.local_data:
+            self.ui.searchButtonMainWindowLocal.show()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="src.controller.control.Controller"><code class="flex name class">
+<span>class <span class="ident">Controller</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Controls the various flows of data going from the interface to the model and vice versa</p>
+<p>Constructor</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Controller:
+    &#39;&#39;&#39;Controls the various flows of data going from the interface to the model and vice versa
+    &#39;&#39;&#39;
+
+    def __init__(self):
+        &#39;&#39;&#39;
+        Constructor
+        &#39;&#39;&#39;
+        self.app = QtWidgets.QApplication(sys.argv)
+        self.main_window = QtWidgets.QMainWindow()
+        # Initialization of the window
+        self.ui = Ui_MainWindow(self.app)
+        self.ui.setupUi(self.main_window)
+        self.ui_dialog = None
+        self._connect_signals()
+        self.main_window.show()  # we show the window
+
+        self.req_thread = None
+        self.rh = RequestsHandler()
+        self.__thread_load_models()
+        self.__thread_load_imdb_webdriver()
+
+        self.canvas = None  # declaration of the canvas to prevent homebuttonclick from crashing
+        self.delete_wordcloud_img()
+
+        thread_update_api_status(self.app, self.ui, self.rh)
+
+        # FIXME: when several models have to be loaded, it cannot be done in parallel otherwise the RAM explodes.
+        # 1) verify if the folder and the files exist
+        # 2) if more than N classifiers have to be trained, forget about parallelism (and train them once all the
+        # others have been loaded?)
+
+    def _connect_signals(self):
+        &#39;&#39;&#39;Here we connect the stuff we want from the UI to trigger _send_request
+        (and the other stuff we would want to control from here)
+        &#39;&#39;&#39;
+
+        # ==Interactive features==
+
+        # =Line Edit=
+        # Whenever &#34;Enter&#34; is pressed, it will click the corresponding button
+        self.ui.lineEditDashboard.returnPressed.connect(self.ui.searchButtonDashboard.click)
+        self.ui.lineEditMainWindowIMDB.returnPressed.connect(self.ui.searchButtonMainWindowIMDB.click)
+        self.ui.lineEditMainWindowTwitter.returnPressed.connect(self.ui.searchButtonMainWindowTwitter.click)
+        self.ui.lineEditMainWindowLocal.returnPressed.connect(self.ui.searchButtonMainWindowLocal.click)
+
+        # =Search buttons=
+        # Whenenever those button are clicked, it will register user&#39;s entry
+        self.ui.searchButtonDashboard.clicked.connect(self.lineEditDashboard_click)
+        self.ui.searchButtonMainWindowIMDB.clicked.connect(self.lineEditMainWindowIMDB_click)
+        self.ui.searchButtonMainWindowTwitter.clicked.connect(self.lineEditMainWindowTwitter_click)
+        self.ui.searchButtonMainWindowLocal.clicked.connect(self.lineEditMainWindowLocal_click)
+
+        # =Home button=
+        # Whenever clicked, will close the results tabs and clear the line entries
+        self.ui.homeButton.clicked.connect(self.homeButton_click)
+
+        # =Import button=
+        # Whenever clicked, will open file explorer and show the search bar for local
+        self.ui.importButton.clicked.connect(self.importButton_click)
+
+        # =Import button=
+        # Whenever clicked, will open file explorer and show the search bar for local
+        self.ui.exportButton.clicked.connect(self.exportButton_click)
+
+        # =About button=
+        # Whenever clicked, a credits dialog will show up
+        self.ui.about.clicked.connect(self.show_credits)
+
+        # =Radio buttons=
+        # It should switch between search engines
+        self.ui.radioButtonIMDB.clicked.connect(self.radioButtonIMDB_click)
+        self.ui.radioButtonTwitter.clicked.connect(self.radioButtonTwitter_click)
+
+        # =Check Boxes=
+        # It should switch between search engines
+        self.ui.checkBoxEnglish.clicked.connect(self.checkBoxEnglish_click)
+        self.ui.checkBoxFrench.clicked.connect(self.checkBoxFrench_click)
+
+        # =ComboBox=
+        self.ui.comboBoxTargetLanguage.currentTextChanged.connect(self.checkComboBox_change)
+
+        #  =TableView=
+        # self.ui.tableView.itemEntered.connect(handleItemEnteredTableView)
+        # self.ui.tableView.itemExited.connect(handleItemExitedTableView)
+
+    # == EVERYTHING ABOUT REQUESTS HANDLING ==
+
+    def __thread_load_models(self):
+        &#39;&#39;&#39;A Worker loads the various classifiers in the RequestsHandler. This procedure is transparent, the user
+        can use the interface in parallel.
+        &#39;&#39;&#39;
+        self.loader_thread = Worker(self.rh.load_classifiers, self.app)  #  new worker instanciated
+        self.loader_thread.signals.result.connect(self.show_finished_model_loading)  #  and send the results to the display_results method
+        self.loader_thread.start()
+
+    def show_finished_model_loading(self):
+        &#39;&#39;&#39;One the models have been loaded, we display a message to the user
+        &#39;&#39;&#39;
+        self.ui.displayed_message_location = &#34;dashboard&#34;  #  will be displayed in the dashboard
+
+        internet_connexion = is_connected_internet()
+        no_co_message = &#34; but you are not connected to Internet&#34;  #  in the case there is no internet connection
+
+        show_message(self.ui, &#34;All the models were successfully loaded&#34; +
+                     (no_co_message if not internet_connexion else &#34;&#34;) + &#34;!&#34;, error=not internet_connexion)
+
+        print(self.rh)  # debugging
+
+    def __thread_load_imdb_webdriver(self):
+        &#39;&#39;&#39;A Worker loads the various classifiers in the RequestsHandler. This procedure is transparent, the user
+        can use the interface in parallel.
+        &#39;&#39;&#39;
+        self.webdriver_thread = Worker(load_driver, self.app)
+        self.webdriver_thread.signals.result.connect(self.assign_webdriver)  #  and send the results to the display_results method
+        self.webdriver_thread.signals.error.connect(self.error_webdriver_loading)
+        self.webdriver_thread.signals.error.connect(self.finished_webdriver_loading)
+        self.webdriver_thread.start()
+
+    def assign_webdriver(self, result):
+        &#39;&#39;&#39;Value assigned to the webdriver after loading
+        &#39;&#39;&#39;
+        self.rh.imdb_webdriver = result
+
+    def finished_webdriver_loading(self):
+        &#39;&#39;&#39;Debugging
+        &#39;&#39;&#39;
+        print(&#34;Webdriver loading finished&#34;)
+
+    def error_webdriver_loading(self, tuple):
+        &#39;&#39;&#39; In the case an error is raised by the webdriver&#39;s loading a message is displayed
+        &#39;&#39;&#39;
+        _, value, _ = tuple
+        if isinstance(value, ValueError):
+            self.ui.lineEditMainWindowIMDB.setPlaceholderText(str(value))
+
+    def request_builder(self):
+        &#39;&#39;&#39;
+        Function converting UI&#39;s variable to a long String
+        &#39;&#39;&#39;
+        request = &#34;&#34;
+        request += &#34;src:&#34; + self.ui.get_search_engine() + &#34; &#34;  # We add to the request the search engine desired
+
+        if self.ui.get_english():  # If English is checked
+            request += &#34;lang:en &#34;
+        if self.ui.get_french():  # If French is checked
+            request += &#34;lang:fr &#34;
+
+        if len(self.ui.comboBoxTargetLanguage.currentText()) &gt; 0:
+            lang = is_valid_target_lang(self.ui.comboBoxTargetLanguage.currentText())  #  gets the iso norm for the concerned language
+            if lang:
+                request += &#34;target:&#34; + lang + &#34; &#34;
+            else:
+                show_message(self.ui, &#34;One of the specified target languages is not&#34; +
+                             &#34; supported and won&#39;t be used for translation.&#34;, error=True)
+
+        request += self.ui.get_user_entry()  # We add to the search the actual user entry
+        return request
+
+    def _send_request(self):
+        &#39;&#39;&#39;This method is connected to the various search bars/buttons. When such a widget is used,
+        a request is built from the various user entries and passed to the RequestsHandler in a loader_thread.
+
+        The processed data is sent to the display_results method
+        &#39;&#39;&#39;
+        self.delete_wordcloud_img()
+        self.ui.Analytics.removeWidget(self.canvas)  #  removes the current canvas to make room for the upcoming one
+        self.ui.labelErrorDashboard.hide()
+        self.ui.labelErrorMainmenu.hide()
+
+        #  Here, we must get the data from the UI to the rh
+        req = self.request_builder()  # we register in &#34;req&#34; the data from the interface
+        show_on_mainwindow_console(self.ui, req)
+
+        if self.rh:  # if the rh was correctly instanciated
+            if self.req_thread is None:  # in the case no request is being processing in the background
+                self.req_thread = Worker(self.rh.handle_request, self.app, req)  # we start a new loader_thread to handle the request
+                self.loading_on()
+
+                # we connect the signals
+                self.req_thread.signals.result.connect(self.display_results)  #  and send the results to the display_results method
+                self.req_thread.signals.error.connect(self.show_req_error)
+                self.req_thread.signals.finished.connect(self.__reset_req_thread)  # and we reset the worker to make it available
+
+                self.req_thread.start()
+            else:
+                show_message(self.ui, &#34;Requests can only be submitted at once.&#34;, error=True)
+        else:
+            show_message(self.ui, &#34;The RequestsHandler has not been loaded yet.&#34;, error=True)
+
+    def show_req_error(self, tuple):
+        &#39;&#39;&#39;Wrapper method to receive the signal sent by the Worker and preprocess it for the show_message method
+        &#39;&#39;&#39;
+        _, value, _ = tuple
+        if isinstance(value, RequestSyntaxError):
+            show_message(self.ui, str(value), error=True)  # displays the error
+
+    def __reset_req_thread(self, check_api_status=True):
+        &#39;&#39;&#39;Resets the request thread, for example when the user wants to cancel its request or when a error is raised
+        &#39;&#39;&#39;
+        self.req_thread = None
+        self.loading_off()  #  removes the GIF to put back the lens
+        if check_api_status:
+            thread_update_api_status(self.app, self.ui, self.rh)
+
+    def display_results(self, data):
+        self.ro = data[0]  # instanciate a new attribute, the RequestOutput
+
+        try:
+            self.figure = graph_convert(self.ro)
+            self.canvas = FigureCanvas(self.figure)
+            self.ui.Analytics.addWidget(self.canvas)
+
+            # sets the tabs to the analytics&#39; tab
+            self.ui.tabResults.setCurrentWidget(self.ui.tabResults.findChild(QtWidgets.QWidget, &#34;tabAnalytics&#34;))
+
+        except IndexError:
+            traceback.print_exc()
+            self.ui.displayed_message_location = &#34;dashboard&#34;
+            show_message(self.ui, &#34;Not enough data could be extracted to produce any visualization.&#34;, error=True)
+
+        except Exception:  #  if an error occurs while we generate the graph, we adopt a clean behavior
+            traceback.print_exc()
+            self.ui.displayed_message_location = &#34;dashboard&#34;
+            show_message(self.ui, &#34;An unexpected error occurred while we tried to plot your graphics.&#34;, error=True)
+            self.ui.tabResults.setCurrentWidget(self.ui.tabResults.findChild(QtWidgets.QWidget, &#34;tabCharts&#34;))
+
+        #  instantiation of a new TableModel with the extracted data, it will be the data of the table in Charts
+        model = TableModel(self.ro)
+        self.ui.tableView.setModel(model)  #  and the model is set to the QTableView object
+        setColumnWidth(self.ui.tableView, self.ro)  #  the width of the columns is fit to the QTableView object width
+        setRowHeight(self.ui.tableView, self.ro)  #  resets the row height
+        # FIXME: reset the position of the scrollbar
+
+        self.ui.frameTabResult.show()  #  we display the two tabs
+
+    def delete_wordcloud_img(self):
+        if os.path.exists(WORDCLOUD_PNG_PATH):
+            os.remove(WORDCLOUD_PNG_PATH)
+    # == EVERYTHING ABOUT BUTTONS AND USER ENTRIES
+
+    def homeButton_click(self):
+        &#39;&#39;&#39;
+        Function for the home button in the dashboard
+        &#39;&#39;&#39;
+        self.loading_off()  # not sure why yet, but this line is needed otherwise the program crashes
+
+        self.ui.lineEditDashboard.clear()
+        self.ui.lineEditMainWindowTwitter.clear()
+        self.ui.lineEditMainWindowIMDB.clear()
+        self.ui.lineEditMainWindowLocal.clear()
+
+        self.ui.labelErrorDashboard.hide()
+        self.ui.labelErrorMainmenu.hide()
+
+        self.ui.frameTabResult.hide()
+        self.delete_wordcloud_img()
+        self.ui.comboBoxTargetLanguage.setCurrentIndex(-1)
+        self.ui.user_entry = &#34;&#34;
+
+        thread_update_api_status(self.app, self.ui, self.rh)
+
+        # we force the request thread to exit
+        if self.req_thread is not None:
+            if self.req_thread.isRunning():
+                print(&#34;req_thread terminated by force.&#34;)
+                self.req_thread.terminate()  # properly ends the thread
+            self.__reset_req_thread(check_api_status=False)
+
+        show_on_mainwindow_console(self.ui, &#34;Environment cleared&#34;)
+
+        # TODO: clean the Graphics window, otherwise graphs appear on each other
+
+    def importButton_click(self):  # Bouton import en cours de dev
+        &#39;&#39;&#39;
+        Function for the import button in the main window
+        &#39;&#39;&#39;
+        title = &#34;CSV file import&#34;  # title of the window
+        filter = &#34;CSV files (*.csv)&#34;  #  valid syntax to only display CSV files
+
+        # Sometimes, on Ubuntu, the following warning is met at this point:
+        # Gtk-Message: 17:32:27.820: GtkDialog mapped without a transient parent. This is discouraged.
+        # Apparently, this warning can&#39;t be hidden but is harmless, so no worries...
+        csv_path = QFileDialog.getOpenFileName(caption=title, filter=filter)  # displays dialog
+        self.ui.displayed_message_location = &#34;mainmenu&#34;
+
+        if csv_path[0]:  #  if the return path is not None
+            try:
+                self.rh.import_local_data(csv_path[0])
+                print(&#34;Imported file: &#34; + csv_path[0])
+                self.ui.lineEditMainWindowLocal.show()
+                # Display of the name of the loaded file in the placeholder
+                self.ui.lineEditMainWindowLocal.setPlaceholderText(&#34;Search &#34; + csv_path[0].split(&#34;/&#34;)[-1])
+                self.ui.lineEditMainWindowLocal.clear()
+                self.ui.searchButtonMainWindowLocal.show()
+                self.ui.labelErrorMainmenu.hide()
+            except FileNotFoundError as fnfe:
+                show_message(self.ui, str(fnfe))
+            except Exception:
+                traceback.print_exc()
+                show_message(self.ui, &#34;Your file could not be read. Please consult our User Manual for more information.&#34;, error=True)
+
+    def exportButton_click(self):
+        &#39;&#39;&#39;
+        Function for the export button in the charts tab
+        &#39;&#39;&#39;
+        title = &#34;CSV file export&#34;  # title of the window
+        filter = &#34;CSV files (*.csv)&#34;  #  valid syntax to only display CSV files
+
+        # Same warning as importButton_click
+
+        csv_path = QFileDialog.getSaveFileName(caption=title, filter=filter)  # displays dialog
+        self.ui.displayed_message_location = &#34;mainmenu&#34;
+
+        csv_path = csv_path[0]
+
+        if csv_path.split(&#34;.&#34;)[-1].lower() != &#34;csv&#34; and csv_path:  #  we had the extension if it isn&#39;t here
+            csv_path += &#34;.csv&#34;
+
+        if csv_path:  # in the case the user has entered something
+            self.ui.displayed_message_location = &#34;dashboard&#34;
+            try:
+                write_csv_to_df(self.ro.raw_data, csv_path)
+                show_message(self.ui, csv_path.split(&#34;/&#34;)[-1] + &#34; was successfully saved.&#34;)
+            except Exception:
+                show_message(self.ui, &#34;There has been an error while trying to save &#34; +
+                             csv_path.split(&#34;/&#34;)[-1] + &#34;.&#34;, error=True)
+
+    def lineEditDashboard_click(self):
+        &#39;&#39;&#39;
+        Function for the user entry in the dashboard
+        &#39;&#39;&#39;
+        self.ui.user_entry = self.ui.lineEditDashboard.text()
+        self.ui.Analytics.removeWidget(self.canvas)
+        self.ui.pos_click = &#34;dashboard&#34;  #  for the loading gif
+
+        if self.ui.radioButtonTwitter.isChecked():
+            self.ui.search_engine = &#34;Twitter&#34;
+        else:
+            self.ui.search_engine = &#34;IMDb&#34;
+
+        self.ui.displayed_message_location = &#34;dashboard&#34;
+        update_mainwindow_console(self.ui)
+        self._send_request()
+
+    def lineEditMainWindowTwitter_click(self):
+        &#39;&#39;&#39;
+        Function for the Twitter user entry in the homepage
+        &#39;&#39;&#39;
+        self.ui.user_entry = self.ui.lineEditMainWindowTwitter.text()
+        self.ui.pos_click = &#34;Twitter&#34;
+        self.ui.search_engine = &#34;Twitter&#34;
+        self.ui.displayed_message_location = &#34;mainmenu&#34;
+        update_mainwindow_console(self.ui)
+        self._send_request()
+
+    def lineEditMainWindowIMDB_click(self):
+        &#39;&#39;&#39;
+        Function for the IMDb user entry in the homepage
+        &#39;&#39;&#39;
+        self.ui.user_entry = self.ui.lineEditMainWindowIMDB.text()
+        self.ui.pos_click = &#34;IMDb&#34;
+        self.ui.search_engine = &#34;IMDb&#34;
+        self.ui.displayed_message_location = &#34;mainmenu&#34;
+        update_mainwindow_console(self.ui)
+        self._send_request()
+
+    def lineEditMainWindowLocal_click(self):
+        &#39;&#39;&#39;
+        Function for the local user entry in the homepage
+        &#39;&#39;&#39;
+        self.ui.user_entry = self.ui.lineEditMainWindowLocal.text()
+        self.ui.pos_click = &#34;Local&#34;
+        self.ui.search_engine = &#34;Local&#34;
+        self.ui.displayed_message_location = &#34;mainmenu&#34;
+        update_mainwindow_console(self.ui)
+        self._send_request()
+
+    def radioButtonIMDB_click(self):
+        &#39;&#39;&#39;
+        Function for the IMDb radio button in the dashboard
+        &#39;&#39;&#39;
+        self.ui.search_engine = &#34;IMDb&#34;
+        update_mainwindow_console(self.ui)
+
+    def radioButtonTwitter_click(self):
+        &#39;&#39;&#39;
+        Function for the Twitter radio button in the dashboard
+        &#39;&#39;&#39;
+        self.ui.search_engine = &#34;Twitter&#34;
+        update_mainwindow_console(self.ui)
+
+    def checkBoxEnglish_click(self):
+        &#39;&#39;&#39;
+        Function for the English checkbox in the dashboard
+        &#39;&#39;&#39;
+        self.ui.english = self.ui.checkBoxEnglish.isChecked()
+        self.check_checkbox()
+        update_mainwindow_console(self.ui)
+
+    def checkBoxFrench_click(self):
+        &#39;&#39;&#39;
+        Function for the French checkbox in the dashboard
+        &#39;&#39;&#39;
+        self.ui.french = self.ui.checkBoxFrench.isChecked()
+        self.check_checkbox()
+        update_mainwindow_console(self.ui)
+
+    def check_checkbox(self):
+        &#39;&#39;&#39;
+        Function for display an error if no languages are checked
+        &#39;&#39;&#39;
+        if not self.ui.get_english() and not self.ui.get_french():
+            self.ui.displayed_message_location = &#34;dashboard&#34;
+            show_message(self.ui, &#34;If no language is selected, the default language will be english.&#34;, error=True)
+        elif self.ui.get_english() or self.ui.get_french():
+            self.ui.labelErrorDashboard.hide()
+
+    def checkComboBox_change(self):
+        update_mainwindow_console(self.ui)
+
+    def show_credits(self):
+        &#39;&#39;&#39;
+        Function for opening the credits dialog, this dialog can be opened only if it is not already opened
+        &#39;&#39;&#39;
+        if self.ui_dialog is None:  # None means no window is opened atm
+            self.dialog = QtWidgets.QDialog()
+            self.ui_dialog = Ui_Dialog()
+            self.ui_dialog.setupUi(self.dialog)
+
+            # the two events are connected to the clean exit of the window
+            self.ui_dialog.pushButton.clicked.connect(self.__exit_credits)
+            self.dialog.finished.connect(self.__exit_credits)
+
+            self.dialog.show()
+            self.dialog.exec_()
+
+    def __exit_credits(self):
+        self.dialog.close()
+        self.ui_dialog = None
+
+    def loading_on(self):
+        &#39;&#39;&#39;
+        Function for replacing lens icon with animated gif
+        &#39;&#39;&#39;
+        self.loading_off()
+        if self.ui.get_pos_click() == &#34;dashboard&#34;:
+            self.ui.searchButtonDashboard.hide()
+            self.ui.loading_icon_dashboard.raise_()
+            self.ui.loading_icon_dashboard.show()
+            self.ui.loading_icon_dashboard.setMovie(self.ui.loading)
+        elif self.ui.get_pos_click() == &#34;Twitter&#34;:
+            self.ui.searchButtonMainWindowTwitter.hide()
+            self.ui.loading_icon_twitter.raise_()
+            self.ui.loading_icon_twitter.show()
+            self.ui.loading_icon_twitter.setMovie(self.ui.loading)
+        elif self.ui.get_pos_click() == &#34;IMDb&#34;:
+            self.ui.searchButtonMainWindowIMDB.hide()
+            self.ui.loading_icon_IMDB.raise_()
+            self.ui.loading_icon_IMDB.show()
+            self.ui.loading_icon_IMDB.setMovie(self.ui.loading)
+        elif self.ui.get_pos_click() == &#34;Local&#34;:
+            self.ui.searchButtonMainWindowLocal.hide()
+            self.ui.loading_icon_local.raise_()
+            self.ui.loading_icon_local.show()
+            self.ui.loading_icon_local.setMovie(self.ui.loading)
+        self.ui.loading.start()
+
+    def loading_off(self):
+        &#39;&#39;&#39;
+        Function for stoping loading animation
+        &#39;&#39;&#39;
+        self.ui.loading.stop()
+        self.ui.loading_icon_dashboard.hide()
+        self.ui.loading_icon_twitter.hide()
+        self.ui.loading_icon_IMDB.hide()
+        self.ui.loading_icon_local.hide()
+        self.ui.searchButtonDashboard.show()
+        self.ui.searchButtonMainWindowTwitter.show()
+        self.ui.searchButtonMainWindowIMDB.show()
+        if self.rh.local_data:
+            self.ui.searchButtonMainWindowLocal.show()</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="src.controller.control.Controller.assign_webdriver"><code class="name flex">
+<span>def <span class="ident">assign_webdriver</span></span>(<span>self, result)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Value assigned to the webdriver after loading</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def assign_webdriver(self, result):
+    &#39;&#39;&#39;Value assigned to the webdriver after loading
+    &#39;&#39;&#39;
+    self.rh.imdb_webdriver = result</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.checkBoxEnglish_click"><code class="name flex">
+<span>def <span class="ident">checkBoxEnglish_click</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for the English checkbox in the dashboard</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def checkBoxEnglish_click(self):
+    &#39;&#39;&#39;
+    Function for the English checkbox in the dashboard
+    &#39;&#39;&#39;
+    self.ui.english = self.ui.checkBoxEnglish.isChecked()
+    self.check_checkbox()
+    update_mainwindow_console(self.ui)</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.checkBoxFrench_click"><code class="name flex">
+<span>def <span class="ident">checkBoxFrench_click</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for the French checkbox in the dashboard</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def checkBoxFrench_click(self):
+    &#39;&#39;&#39;
+    Function for the French checkbox in the dashboard
+    &#39;&#39;&#39;
+    self.ui.french = self.ui.checkBoxFrench.isChecked()
+    self.check_checkbox()
+    update_mainwindow_console(self.ui)</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.checkComboBox_change"><code class="name flex">
+<span>def <span class="ident">checkComboBox_change</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def checkComboBox_change(self):
+    update_mainwindow_console(self.ui)</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.check_checkbox"><code class="name flex">
+<span>def <span class="ident">check_checkbox</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for display an error if no languages are checked</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_checkbox(self):
+    &#39;&#39;&#39;
+    Function for display an error if no languages are checked
+    &#39;&#39;&#39;
+    if not self.ui.get_english() and not self.ui.get_french():
+        self.ui.displayed_message_location = &#34;dashboard&#34;
+        show_message(self.ui, &#34;If no language is selected, the default language will be english.&#34;, error=True)
+    elif self.ui.get_english() or self.ui.get_french():
+        self.ui.labelErrorDashboard.hide()</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.delete_wordcloud_img"><code class="name flex">
+<span>def <span class="ident">delete_wordcloud_img</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete_wordcloud_img(self):
+    if os.path.exists(WORDCLOUD_PNG_PATH):
+        os.remove(WORDCLOUD_PNG_PATH)</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.display_results"><code class="name flex">
+<span>def <span class="ident">display_results</span></span>(<span>self, data)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def display_results(self, data):
+    self.ro = data[0]  # instanciate a new attribute, the RequestOutput
+
+    try:
+        self.figure = graph_convert(self.ro)
+        self.canvas = FigureCanvas(self.figure)
+        self.ui.Analytics.addWidget(self.canvas)
+
+        # sets the tabs to the analytics&#39; tab
+        self.ui.tabResults.setCurrentWidget(self.ui.tabResults.findChild(QtWidgets.QWidget, &#34;tabAnalytics&#34;))
+
+    except IndexError:
+        traceback.print_exc()
+        self.ui.displayed_message_location = &#34;dashboard&#34;
+        show_message(self.ui, &#34;Not enough data could be extracted to produce any visualization.&#34;, error=True)
+
+    except Exception:  #  if an error occurs while we generate the graph, we adopt a clean behavior
+        traceback.print_exc()
+        self.ui.displayed_message_location = &#34;dashboard&#34;
+        show_message(self.ui, &#34;An unexpected error occurred while we tried to plot your graphics.&#34;, error=True)
+        self.ui.tabResults.setCurrentWidget(self.ui.tabResults.findChild(QtWidgets.QWidget, &#34;tabCharts&#34;))
+
+    #  instantiation of a new TableModel with the extracted data, it will be the data of the table in Charts
+    model = TableModel(self.ro)
+    self.ui.tableView.setModel(model)  #  and the model is set to the QTableView object
+    setColumnWidth(self.ui.tableView, self.ro)  #  the width of the columns is fit to the QTableView object width
+    setRowHeight(self.ui.tableView, self.ro)  #  resets the row height
+    # FIXME: reset the position of the scrollbar
+
+    self.ui.frameTabResult.show()  #  we display the two tabs</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.error_webdriver_loading"><code class="name flex">
+<span>def <span class="ident">error_webdriver_loading</span></span>(<span>self, tuple)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>In the case an error is raised by the webdriver's loading a message is displayed</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def error_webdriver_loading(self, tuple):
+    &#39;&#39;&#39; In the case an error is raised by the webdriver&#39;s loading a message is displayed
+    &#39;&#39;&#39;
+    _, value, _ = tuple
+    if isinstance(value, ValueError):
+        self.ui.lineEditMainWindowIMDB.setPlaceholderText(str(value))</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.exportButton_click"><code class="name flex">
+<span>def <span class="ident">exportButton_click</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for the export button in the charts tab</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exportButton_click(self):
+    &#39;&#39;&#39;
+    Function for the export button in the charts tab
+    &#39;&#39;&#39;
+    title = &#34;CSV file export&#34;  # title of the window
+    filter = &#34;CSV files (*.csv)&#34;  #  valid syntax to only display CSV files
+
+    # Same warning as importButton_click
+
+    csv_path = QFileDialog.getSaveFileName(caption=title, filter=filter)  # displays dialog
+    self.ui.displayed_message_location = &#34;mainmenu&#34;
+
+    csv_path = csv_path[0]
+
+    if csv_path.split(&#34;.&#34;)[-1].lower() != &#34;csv&#34; and csv_path:  #  we had the extension if it isn&#39;t here
+        csv_path += &#34;.csv&#34;
+
+    if csv_path:  # in the case the user has entered something
+        self.ui.displayed_message_location = &#34;dashboard&#34;
+        try:
+            write_csv_to_df(self.ro.raw_data, csv_path)
+            show_message(self.ui, csv_path.split(&#34;/&#34;)[-1] + &#34; was successfully saved.&#34;)
+        except Exception:
+            show_message(self.ui, &#34;There has been an error while trying to save &#34; +
+                         csv_path.split(&#34;/&#34;)[-1] + &#34;.&#34;, error=True)</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.finished_webdriver_loading"><code class="name flex">
+<span>def <span class="ident">finished_webdriver_loading</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Debugging</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def finished_webdriver_loading(self):
+    &#39;&#39;&#39;Debugging
+    &#39;&#39;&#39;
+    print(&#34;Webdriver loading finished&#34;)</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.homeButton_click"><code class="name flex">
+<span>def <span class="ident">homeButton_click</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for the home button in the dashboard</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def homeButton_click(self):
+    &#39;&#39;&#39;
+    Function for the home button in the dashboard
+    &#39;&#39;&#39;
+    self.loading_off()  # not sure why yet, but this line is needed otherwise the program crashes
+
+    self.ui.lineEditDashboard.clear()
+    self.ui.lineEditMainWindowTwitter.clear()
+    self.ui.lineEditMainWindowIMDB.clear()
+    self.ui.lineEditMainWindowLocal.clear()
+
+    self.ui.labelErrorDashboard.hide()
+    self.ui.labelErrorMainmenu.hide()
+
+    self.ui.frameTabResult.hide()
+    self.delete_wordcloud_img()
+    self.ui.comboBoxTargetLanguage.setCurrentIndex(-1)
+    self.ui.user_entry = &#34;&#34;
+
+    thread_update_api_status(self.app, self.ui, self.rh)
+
+    # we force the request thread to exit
+    if self.req_thread is not None:
+        if self.req_thread.isRunning():
+            print(&#34;req_thread terminated by force.&#34;)
+            self.req_thread.terminate()  # properly ends the thread
+        self.__reset_req_thread(check_api_status=False)
+
+    show_on_mainwindow_console(self.ui, &#34;Environment cleared&#34;)</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.importButton_click"><code class="name flex">
+<span>def <span class="ident">importButton_click</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for the import button in the main window</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def importButton_click(self):  # Bouton import en cours de dev
+    &#39;&#39;&#39;
+    Function for the import button in the main window
+    &#39;&#39;&#39;
+    title = &#34;CSV file import&#34;  # title of the window
+    filter = &#34;CSV files (*.csv)&#34;  #  valid syntax to only display CSV files
+
+    # Sometimes, on Ubuntu, the following warning is met at this point:
+    # Gtk-Message: 17:32:27.820: GtkDialog mapped without a transient parent. This is discouraged.
+    # Apparently, this warning can&#39;t be hidden but is harmless, so no worries...
+    csv_path = QFileDialog.getOpenFileName(caption=title, filter=filter)  # displays dialog
+    self.ui.displayed_message_location = &#34;mainmenu&#34;
+
+    if csv_path[0]:  #  if the return path is not None
+        try:
+            self.rh.import_local_data(csv_path[0])
+            print(&#34;Imported file: &#34; + csv_path[0])
+            self.ui.lineEditMainWindowLocal.show()
+            # Display of the name of the loaded file in the placeholder
+            self.ui.lineEditMainWindowLocal.setPlaceholderText(&#34;Search &#34; + csv_path[0].split(&#34;/&#34;)[-1])
+            self.ui.lineEditMainWindowLocal.clear()
+            self.ui.searchButtonMainWindowLocal.show()
+            self.ui.labelErrorMainmenu.hide()
+        except FileNotFoundError as fnfe:
+            show_message(self.ui, str(fnfe))
+        except Exception:
+            traceback.print_exc()
+            show_message(self.ui, &#34;Your file could not be read. Please consult our User Manual for more information.&#34;, error=True)</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.lineEditDashboard_click"><code class="name flex">
+<span>def <span class="ident">lineEditDashboard_click</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for the user entry in the dashboard</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def lineEditDashboard_click(self):
+    &#39;&#39;&#39;
+    Function for the user entry in the dashboard
+    &#39;&#39;&#39;
+    self.ui.user_entry = self.ui.lineEditDashboard.text()
+    self.ui.Analytics.removeWidget(self.canvas)
+    self.ui.pos_click = &#34;dashboard&#34;  #  for the loading gif
+
+    if self.ui.radioButtonTwitter.isChecked():
+        self.ui.search_engine = &#34;Twitter&#34;
+    else:
+        self.ui.search_engine = &#34;IMDb&#34;
+
+    self.ui.displayed_message_location = &#34;dashboard&#34;
+    update_mainwindow_console(self.ui)
+    self._send_request()</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.lineEditMainWindowIMDB_click"><code class="name flex">
+<span>def <span class="ident">lineEditMainWindowIMDB_click</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for the IMDb user entry in the homepage</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def lineEditMainWindowIMDB_click(self):
+    &#39;&#39;&#39;
+    Function for the IMDb user entry in the homepage
+    &#39;&#39;&#39;
+    self.ui.user_entry = self.ui.lineEditMainWindowIMDB.text()
+    self.ui.pos_click = &#34;IMDb&#34;
+    self.ui.search_engine = &#34;IMDb&#34;
+    self.ui.displayed_message_location = &#34;mainmenu&#34;
+    update_mainwindow_console(self.ui)
+    self._send_request()</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.lineEditMainWindowLocal_click"><code class="name flex">
+<span>def <span class="ident">lineEditMainWindowLocal_click</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for the local user entry in the homepage</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def lineEditMainWindowLocal_click(self):
+    &#39;&#39;&#39;
+    Function for the local user entry in the homepage
+    &#39;&#39;&#39;
+    self.ui.user_entry = self.ui.lineEditMainWindowLocal.text()
+    self.ui.pos_click = &#34;Local&#34;
+    self.ui.search_engine = &#34;Local&#34;
+    self.ui.displayed_message_location = &#34;mainmenu&#34;
+    update_mainwindow_console(self.ui)
+    self._send_request()</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.lineEditMainWindowTwitter_click"><code class="name flex">
+<span>def <span class="ident">lineEditMainWindowTwitter_click</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for the Twitter user entry in the homepage</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def lineEditMainWindowTwitter_click(self):
+    &#39;&#39;&#39;
+    Function for the Twitter user entry in the homepage
+    &#39;&#39;&#39;
+    self.ui.user_entry = self.ui.lineEditMainWindowTwitter.text()
+    self.ui.pos_click = &#34;Twitter&#34;
+    self.ui.search_engine = &#34;Twitter&#34;
+    self.ui.displayed_message_location = &#34;mainmenu&#34;
+    update_mainwindow_console(self.ui)
+    self._send_request()</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.loading_off"><code class="name flex">
+<span>def <span class="ident">loading_off</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for stoping loading animation</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def loading_off(self):
+    &#39;&#39;&#39;
+    Function for stoping loading animation
+    &#39;&#39;&#39;
+    self.ui.loading.stop()
+    self.ui.loading_icon_dashboard.hide()
+    self.ui.loading_icon_twitter.hide()
+    self.ui.loading_icon_IMDB.hide()
+    self.ui.loading_icon_local.hide()
+    self.ui.searchButtonDashboard.show()
+    self.ui.searchButtonMainWindowTwitter.show()
+    self.ui.searchButtonMainWindowIMDB.show()
+    if self.rh.local_data:
+        self.ui.searchButtonMainWindowLocal.show()</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.loading_on"><code class="name flex">
+<span>def <span class="ident">loading_on</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for replacing lens icon with animated gif</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def loading_on(self):
+    &#39;&#39;&#39;
+    Function for replacing lens icon with animated gif
+    &#39;&#39;&#39;
+    self.loading_off()
+    if self.ui.get_pos_click() == &#34;dashboard&#34;:
+        self.ui.searchButtonDashboard.hide()
+        self.ui.loading_icon_dashboard.raise_()
+        self.ui.loading_icon_dashboard.show()
+        self.ui.loading_icon_dashboard.setMovie(self.ui.loading)
+    elif self.ui.get_pos_click() == &#34;Twitter&#34;:
+        self.ui.searchButtonMainWindowTwitter.hide()
+        self.ui.loading_icon_twitter.raise_()
+        self.ui.loading_icon_twitter.show()
+        self.ui.loading_icon_twitter.setMovie(self.ui.loading)
+    elif self.ui.get_pos_click() == &#34;IMDb&#34;:
+        self.ui.searchButtonMainWindowIMDB.hide()
+        self.ui.loading_icon_IMDB.raise_()
+        self.ui.loading_icon_IMDB.show()
+        self.ui.loading_icon_IMDB.setMovie(self.ui.loading)
+    elif self.ui.get_pos_click() == &#34;Local&#34;:
+        self.ui.searchButtonMainWindowLocal.hide()
+        self.ui.loading_icon_local.raise_()
+        self.ui.loading_icon_local.show()
+        self.ui.loading_icon_local.setMovie(self.ui.loading)
+    self.ui.loading.start()</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.radioButtonIMDB_click"><code class="name flex">
+<span>def <span class="ident">radioButtonIMDB_click</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for the IMDb radio button in the dashboard</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def radioButtonIMDB_click(self):
+    &#39;&#39;&#39;
+    Function for the IMDb radio button in the dashboard
+    &#39;&#39;&#39;
+    self.ui.search_engine = &#34;IMDb&#34;
+    update_mainwindow_console(self.ui)</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.radioButtonTwitter_click"><code class="name flex">
+<span>def <span class="ident">radioButtonTwitter_click</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for the Twitter radio button in the dashboard</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def radioButtonTwitter_click(self):
+    &#39;&#39;&#39;
+    Function for the Twitter radio button in the dashboard
+    &#39;&#39;&#39;
+    self.ui.search_engine = &#34;Twitter&#34;
+    update_mainwindow_console(self.ui)</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.request_builder"><code class="name flex">
+<span>def <span class="ident">request_builder</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function converting UI's variable to a long String</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def request_builder(self):
+    &#39;&#39;&#39;
+    Function converting UI&#39;s variable to a long String
+    &#39;&#39;&#39;
+    request = &#34;&#34;
+    request += &#34;src:&#34; + self.ui.get_search_engine() + &#34; &#34;  # We add to the request the search engine desired
+
+    if self.ui.get_english():  # If English is checked
+        request += &#34;lang:en &#34;
+    if self.ui.get_french():  # If French is checked
+        request += &#34;lang:fr &#34;
+
+    if len(self.ui.comboBoxTargetLanguage.currentText()) &gt; 0:
+        lang = is_valid_target_lang(self.ui.comboBoxTargetLanguage.currentText())  #  gets the iso norm for the concerned language
+        if lang:
+            request += &#34;target:&#34; + lang + &#34; &#34;
+        else:
+            show_message(self.ui, &#34;One of the specified target languages is not&#34; +
+                         &#34; supported and won&#39;t be used for translation.&#34;, error=True)
+
+    request += self.ui.get_user_entry()  # We add to the search the actual user entry
+    return request</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.show_credits"><code class="name flex">
+<span>def <span class="ident">show_credits</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for opening the credits dialog, this dialog can be opened only if it is not already opened</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def show_credits(self):
+    &#39;&#39;&#39;
+    Function for opening the credits dialog, this dialog can be opened only if it is not already opened
+    &#39;&#39;&#39;
+    if self.ui_dialog is None:  # None means no window is opened atm
+        self.dialog = QtWidgets.QDialog()
+        self.ui_dialog = Ui_Dialog()
+        self.ui_dialog.setupUi(self.dialog)
+
+        # the two events are connected to the clean exit of the window
+        self.ui_dialog.pushButton.clicked.connect(self.__exit_credits)
+        self.dialog.finished.connect(self.__exit_credits)
+
+        self.dialog.show()
+        self.dialog.exec_()</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.show_finished_model_loading"><code class="name flex">
+<span>def <span class="ident">show_finished_model_loading</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>One the models have been loaded, we display a message to the user</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def show_finished_model_loading(self):
+    &#39;&#39;&#39;One the models have been loaded, we display a message to the user
+    &#39;&#39;&#39;
+    self.ui.displayed_message_location = &#34;dashboard&#34;  #  will be displayed in the dashboard
+
+    internet_connexion = is_connected_internet()
+    no_co_message = &#34; but you are not connected to Internet&#34;  #  in the case there is no internet connection
+
+    show_message(self.ui, &#34;All the models were successfully loaded&#34; +
+                 (no_co_message if not internet_connexion else &#34;&#34;) + &#34;!&#34;, error=not internet_connexion)
+
+    print(self.rh)  # debugging</code></pre>
+</details>
+</dd>
+<dt id="src.controller.control.Controller.show_req_error"><code class="name flex">
+<span>def <span class="ident">show_req_error</span></span>(<span>self, tuple)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Wrapper method to receive the signal sent by the Worker and preprocess it for the show_message method</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def show_req_error(self, tuple):
+    &#39;&#39;&#39;Wrapper method to receive the signal sent by the Worker and preprocess it for the show_message method
+    &#39;&#39;&#39;
+    _, value, _ = tuple
+    if isinstance(value, RequestSyntaxError):
+        show_message(self.ui, str(value), error=True)  # displays the error</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src.controller" href="index.html">src.controller</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="src.controller.control.Controller" href="#src.controller.control.Controller">Controller</a></code></h4>
+<ul class="">
+<li><code><a title="src.controller.control.Controller.assign_webdriver" href="#src.controller.control.Controller.assign_webdriver">assign_webdriver</a></code></li>
+<li><code><a title="src.controller.control.Controller.checkBoxEnglish_click" href="#src.controller.control.Controller.checkBoxEnglish_click">checkBoxEnglish_click</a></code></li>
+<li><code><a title="src.controller.control.Controller.checkBoxFrench_click" href="#src.controller.control.Controller.checkBoxFrench_click">checkBoxFrench_click</a></code></li>
+<li><code><a title="src.controller.control.Controller.checkComboBox_change" href="#src.controller.control.Controller.checkComboBox_change">checkComboBox_change</a></code></li>
+<li><code><a title="src.controller.control.Controller.check_checkbox" href="#src.controller.control.Controller.check_checkbox">check_checkbox</a></code></li>
+<li><code><a title="src.controller.control.Controller.delete_wordcloud_img" href="#src.controller.control.Controller.delete_wordcloud_img">delete_wordcloud_img</a></code></li>
+<li><code><a title="src.controller.control.Controller.display_results" href="#src.controller.control.Controller.display_results">display_results</a></code></li>
+<li><code><a title="src.controller.control.Controller.error_webdriver_loading" href="#src.controller.control.Controller.error_webdriver_loading">error_webdriver_loading</a></code></li>
+<li><code><a title="src.controller.control.Controller.exportButton_click" href="#src.controller.control.Controller.exportButton_click">exportButton_click</a></code></li>
+<li><code><a title="src.controller.control.Controller.finished_webdriver_loading" href="#src.controller.control.Controller.finished_webdriver_loading">finished_webdriver_loading</a></code></li>
+<li><code><a title="src.controller.control.Controller.homeButton_click" href="#src.controller.control.Controller.homeButton_click">homeButton_click</a></code></li>
+<li><code><a title="src.controller.control.Controller.importButton_click" href="#src.controller.control.Controller.importButton_click">importButton_click</a></code></li>
+<li><code><a title="src.controller.control.Controller.lineEditDashboard_click" href="#src.controller.control.Controller.lineEditDashboard_click">lineEditDashboard_click</a></code></li>
+<li><code><a title="src.controller.control.Controller.lineEditMainWindowIMDB_click" href="#src.controller.control.Controller.lineEditMainWindowIMDB_click">lineEditMainWindowIMDB_click</a></code></li>
+<li><code><a title="src.controller.control.Controller.lineEditMainWindowLocal_click" href="#src.controller.control.Controller.lineEditMainWindowLocal_click">lineEditMainWindowLocal_click</a></code></li>
+<li><code><a title="src.controller.control.Controller.lineEditMainWindowTwitter_click" href="#src.controller.control.Controller.lineEditMainWindowTwitter_click">lineEditMainWindowTwitter_click</a></code></li>
+<li><code><a title="src.controller.control.Controller.loading_off" href="#src.controller.control.Controller.loading_off">loading_off</a></code></li>
+<li><code><a title="src.controller.control.Controller.loading_on" href="#src.controller.control.Controller.loading_on">loading_on</a></code></li>
+<li><code><a title="src.controller.control.Controller.radioButtonIMDB_click" href="#src.controller.control.Controller.radioButtonIMDB_click">radioButtonIMDB_click</a></code></li>
+<li><code><a title="src.controller.control.Controller.radioButtonTwitter_click" href="#src.controller.control.Controller.radioButtonTwitter_click">radioButtonTwitter_click</a></code></li>
+<li><code><a title="src.controller.control.Controller.request_builder" href="#src.controller.control.Controller.request_builder">request_builder</a></code></li>
+<li><code><a title="src.controller.control.Controller.show_credits" href="#src.controller.control.Controller.show_credits">show_credits</a></code></li>
+<li><code><a title="src.controller.control.Controller.show_finished_model_loading" href="#src.controller.control.Controller.show_finished_model_loading">show_finished_model_loading</a></code></li>
+<li><code><a title="src.controller.control.Controller.show_req_error" href="#src.controller.control.Controller.show_req_error">show_req_error</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

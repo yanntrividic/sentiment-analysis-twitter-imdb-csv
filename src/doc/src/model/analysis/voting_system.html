@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>src.model.analysis.voting_system API documentation</title>
+<meta name="description" content="Created on Mar 10, 2021 …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.model.analysis.voting_system</code></h1>
+</header>
+<section id="section-intro">
+<p>Created on Mar 10, 2021</p>
+<p>Module that contains the VoteClassifier class.</p>
+<p>This module is based on the work of Harrison Kinsley. You can find the original code by visiting the following link:
+<a href="https://pythonprogramming.net/combine-classifier-algorithms-nltk-tutorial/?completed=/sklearn-scikit-learn-nltk-tutorial/">https://pythonprogramming.net/combine-classifier-algorithms-nltk-tutorial/?completed=/sklearn-scikit-learn-nltk-tutorial/</a>
+@author: yann</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+Created on Mar 10, 2021
+
+Module that contains the VoteClassifier class.
+
+This module is based on the work of Harrison Kinsley. You can find the original code by visiting the following link:
+https://pythonprogramming.net/combine-classifier-algorithms-nltk-tutorial/?completed=/sklearn-scikit-learn-nltk-tutorial/
+@author: yann
+&#39;&#39;&#39;
+
+import concurrent.futures
+import gc
+from os.path import sep
+from statistics import mode
+import time
+
+from classify import Classifier
+from nltk import NaiveBayesClassifier
+from nltk.classify.scikitlearn import SklearnClassifier  # basically a wrapper for scikit in nltk
+from preprocessing import (_preprocess_movie_reviews_dataset, _preprocess_short_reviews_dataset,
+                           _preprocess_allocine_dataset,
+                           _preprocess_twitter_samples_dataset, _preprocess_french_tweets_dataset,
+                           _get_training_data_from_pickle)
+from sklearn.linear_model import LogisticRegression, SGDClassifier
+from sklearn.naive_bayes import MultinomialNB, BernoulliNB
+from sklearn.svm import LinearSVC  #  , NuSVC
+
+import multiprocessing as mp
+import pandas as pd
+
+PICKLE_FOLDER = &#34;model&#34; + sep + &#34;resources&#34; + sep + &#34;pickle&#34; + sep  # source folder where to store the PICKLE files
+IMDB_FOLDER = PICKLE_FOLDER + &#34;imdb&#34; + sep
+TWITTER_FOLDER = PICKLE_FOLDER + &#34;twitter&#34; + sep
+EN_FOLDER = &#34;en&#34; + sep
+FR_FOLDER = &#34;fr&#34; + sep
+
+# Each model (for each dataset and each language) has to have its own pickle file.
+WORDS_IMDB_EN_LONG = IMDB_FOLDER + &#34;words_imdb_long_en.pickle&#34;
+WORDS_FEATURES_IMDB_EN_LONG = IMDB_FOLDER + &#34;words_features_imdb_long_en.pickle&#34;
+FEATURE_SETS_IMDB_EN_LONG = IMDB_FOLDER + &#34;features_sets_imdb_long_en.pickle&#34;
+
+IMDB_NLTK_NB_EN_LONG_REVIEWS_PICKLE = IMDB_FOLDER + EN_FOLDER + &#34;imdb_nltk_nb_en_long.pickle&#34;
+IMDB_MNB_BAYES_EN_LONG_REVIEWS_PICKLE = IMDB_FOLDER + EN_FOLDER + &#34;imdb_mnb_en_long.pickle&#34;
+IMDB_BERNOULLI_EN_LONG_REVIEWS_PICKLE = IMDB_FOLDER + EN_FOLDER + &#34;imdb_bernoulli_en_long.pickle&#34;
+IMDB_LR_EN_LONG_REVIEWS_PICKLE = IMDB_FOLDER + EN_FOLDER + &#34;imdb_lr_en_long.pickle&#34;
+IMDB_SGDC_EN_LONG_REVIEWS_PICKLE = IMDB_FOLDER + EN_FOLDER + &#34;imdb_sgdc_en_long.pickle&#34;
+IMDB_LSVC_EN_LONG_REVIEWS_PICKLE = IMDB_FOLDER + EN_FOLDER + &#34;imdb_lsvc_en_long.pickle&#34;
+
+# Each model for the english language, trained on the short reviews IMDb dataset
+WORDS_IMDB_EN_SHORT = IMDB_FOLDER + EN_FOLDER + &#34;words_imdb_short_en.pickle&#34;
+WORDS_FEATURES_IMDB_EN_SHORT = IMDB_FOLDER + EN_FOLDER + &#34;words_features_imdb_short_en.pickle&#34;
+FEATURE_SETS_IMDB_EN_SHORT = IMDB_FOLDER + EN_FOLDER + &#34;features_sets_imdb_short_en.pickle&#34;
+
+IMDB_NLTK_NB_EN_SHORT_REVIEWS_PICKLE = IMDB_FOLDER + EN_FOLDER + &#34;imdb_nltk_nb_en_short.pickle&#34;
+IMDB_MNB_BAYES_EN_SHORT_REVIEWS_PICKLE = IMDB_FOLDER + EN_FOLDER + &#34;imdb_mnb_en_short.pickle&#34;
+IMDB_BERNOULLI_EN_SHORT_REVIEWS_PICKLE = IMDB_FOLDER + EN_FOLDER + &#34;imdb_bernoulli_en_short.pickle&#34;
+IMDB_LR_EN_SHORT_REVIEWS_PICKLE = IMDB_FOLDER + EN_FOLDER + &#34;imdb_lr_en_short.pickle&#34;
+IMDB_SGDC_EN_SHORT_REVIEWS_PICKLE = IMDB_FOLDER + EN_FOLDER + &#34;imdb_sgdc_en_short.pickle&#34;
+IMDB_LSVC_EN_SHORT_REVIEWS_PICKLE = IMDB_FOLDER + EN_FOLDER + &#34;imdb_lsvc_en_short.pickle&#34;
+
+# Each model for the english language, trained on the short reviews IMDb dataset
+WORDS_IMDB_FR = IMDB_FOLDER + FR_FOLDER + &#34;words_imdb_fr.pickle&#34;
+WORDS_FEATURES_IMDB_FR = IMDB_FOLDER + FR_FOLDER + &#34;words_features_imdb_fr.pickle&#34;
+FEATURE_SETS_IMDB_FR = IMDB_FOLDER + FR_FOLDER + &#34;features_sets_imdb_fr.pickle&#34;
+
+IMDB_NLTK_NB_FR_REVIEWS_PICKLE = IMDB_FOLDER + FR_FOLDER + &#34;imdb_nltk_nb_fr.pickle&#34;
+IMDB_MNB_BAYES_FR_REVIEWS_PICKLE = IMDB_FOLDER + FR_FOLDER + &#34;imdb_mnb_fr.pickle&#34;
+IMDB_BERNOULLI_FR_REVIEWS_PICKLE = IMDB_FOLDER + FR_FOLDER + &#34;imdb_bernoulli_fr.pickle&#34;
+IMDB_LR_FR_REVIEWS_PICKLE = IMDB_FOLDER + FR_FOLDER + &#34;imdb_lr_fr.pickle&#34;
+IMDB_SGDC_FR_REVIEWS_PICKLE = IMDB_FOLDER + FR_FOLDER + &#34;imdb_sgdc_fr.pickle&#34;
+IMDB_LSVC_FR_REVIEWS_PICKLE = IMDB_FOLDER + FR_FOLDER + &#34;imdb_lsvc_fr.pickle&#34;
+
+# Each model for the english language, trained on the twitter_samples dataset
+WORDS_TWITTER_EN = TWITTER_FOLDER + EN_FOLDER + &#34;words_twitter_en.pickle&#34;
+WORDS_FEATURES_TWITTER_EN = TWITTER_FOLDER + EN_FOLDER + &#34;words_features_twitter_en.pickle&#34;
+FEATURE_SETS_TWITTER_EN = TWITTER_FOLDER + EN_FOLDER + &#34;features_sets_twitter_en.pickle&#34;
+
+TWITTER_NLTK_NB_EN_PICKLE = TWITTER_FOLDER + EN_FOLDER + &#34;twitter_nltk_nb_en.pickle&#34;
+TWITTER_MNB_BAYES_EN_PICKLE = TWITTER_FOLDER + EN_FOLDER + &#34;twitter_mnb_en.pickle&#34;
+TWITTER_BERNOULLI_EN_PICKLE = TWITTER_FOLDER + EN_FOLDER + &#34;twitter_bernoulli_en.pickle&#34;
+TWITTER_LR_EN_PICKLE = TWITTER_FOLDER + EN_FOLDER + &#34;twitter_lr_en.pickle&#34;
+TWITTER_SGDC_EN_PICKLE = TWITTER_FOLDER + EN_FOLDER + &#34;twitter_sgdc_en.pickle&#34;
+TWITTER_LSVC_EN_PICKLE = TWITTER_FOLDER + EN_FOLDER + &#34;twitter_lsvc_en.pickle&#34;
+
+# Each model for the french language, trained on the twitter_samples dataset
+WORDS_TWITTER_FR = TWITTER_FOLDER + FR_FOLDER + &#34;words_twitter_fr.pickle&#34;
+WORDS_FEATURES_TWITTER_FR = TWITTER_FOLDER + FR_FOLDER + &#34;words_features_twitter_fr.pickle&#34;
+FEATURE_SETS_TWITTER_FR = TWITTER_FOLDER + FR_FOLDER + &#34;features_sets_twitter_fr.pickle&#34;
+
+TWITTER_NLTK_NB_FR_PICKLE = TWITTER_FOLDER + FR_FOLDER + &#34;twitter_nltk_nb_fr.pickle&#34;
+TWITTER_MNB_BAYES_FR_PICKLE = TWITTER_FOLDER + FR_FOLDER + &#34;twitter_mnb_fr.pickle&#34;
+TWITTER_BERNOULLI_FR_PICKLE = TWITTER_FOLDER + FR_FOLDER + &#34;twitter_bernoulli_fr.pickle&#34;
+TWITTER_LR_FR_PICKLE = TWITTER_FOLDER + FR_FOLDER + &#34;twitter_lr_fr.pickle&#34;
+TWITTER_SGDC_FR_PICKLE = TWITTER_FOLDER + FR_FOLDER + &#34;twitter_sgdc_fr.pickle&#34;
+TWITTER_LSVC_FR_PICKLE = TWITTER_FOLDER + FR_FOLDER + &#34;twitter_lsvc_fr.pickle&#34;
+
+
+class VoteClassifier:
+    &#39;&#39;&#39;This class takes only one attribute : a list of trained Classifiers. Those classifiers will then be used
+    to classify validedata and the VoteClassifier will concatenate those vote to pick the most voted result. From this poll,
+    we can extract a confidence factor.
+    &#39;&#39;&#39;
+
+    def __init__(self, name):
+        &#39;&#39;&#39;
+        Constructor
+
+        classifiers - list of Classifiers, can be empty but the classifiers have to be added later
+        &#39;&#39;&#39;
+        self.__name__ = name
+        self._classifiers = []
+
+    def get_nb_classifiers(self):
+        return len(self._classifiers)
+
+    def classify(self, features, colname=&#34;&#34;, pos_max_thresh=0.5, neg_max_thresh=0.5, multiprocessing=True, verbose=False):
+        &#39;&#39;&#39;Classifies features and returns the mode of the different votes generated by each classifier
+
+        features -- str or pd.DataFrame, contains the data to process
+        returns the most voted value, will be either &#34;pos&#34; or &#34;neg&#34;
+        &#39;&#39;&#39;
+
+        if (pos_max_thresh + neg_max_thresh) &gt; 1:
+            raise ValueError(&#34;The thresholds can&#39;t add up to more than 1.&#34;)
+
+        if not self._classifiers:
+            raise AttributeError(&#34;There is no loaded classifier in the &#34; + __name__ + &#34; VoteClassifier&#34;)
+
+        if isinstance(features, pd.DataFrame):
+            if verbose:
+                print(&#34;Beginning of classification with &#34; + self.__name__)
+            results = []
+            if multiprocessing:  # if we choose to run the classifications in parallel
+                pool = mp.Pool(mp.cpu_count())
+                sentences = features[colname].values.tolist()
+
+                result_objects = [pool.apply_async(self.classify, (sent, colname)) for sent in sentences]
+                results = [r.get() for r in result_objects]
+
+                pool.close()
+                pool.join()  # postpones the execution of next line of code until all processes in the queue are
+
+            else:  # a simpler way to do it without parallelism
+                col = features[colname].values.tolist()
+                for sentence in col:
+                    results.append(self.classify(sentence, col))  # if call this function recursively with the str contained
+
+        if isinstance(features, str):  # if this is a string
+            votes = []
+            for c in self._classifiers:  # for each classifier
+                v = c.classify(features)  # take a vote
+                votes.append(v)
+
+            # here we decide, based on the various thresholds decided, if it&#39;s pos, neg or neu
+            if (votes.count(&#34;pos&#34;) / len(votes)) &gt; pos_max_thresh:
+                results = &#34;pos&#34;
+            elif (votes.count(&#34;neg&#34;) / len(votes)) &gt; neg_max_thresh:
+                results = &#34;neg&#34;
+            else:
+                results = &#34;neu&#34;
+
+        if verbose and isinstance(features, str):
+            print(results + &#34; - &#34; + features)
+
+        return results
+
+    def confidence(self, features):
+        &#39;&#39;&#39;Returns the confidence factor of the classification
+        &#39;&#39;&#39;
+        votes = []  # will only contain &#39;neg&#39; and &#39;pos&#39; several occurrences
+        for c in self._classifiers:
+            v = c.classify(features)
+            votes.append(v)
+
+        choice_votes = votes.count(mode(votes))  #  we count the number of time the most commun vote was mentioned
+        conf = choice_votes / len(votes)  # and we divide by the number de classifiers
+        return conf
+
+
+def get_imdb_long_reviews_vc(vc):
+    &#39;&#39;&#39;Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding
+    the movie_reviews dataset.
+    &#39;&#39;&#39;
+    __instantiate_vc(vc, &#39;en&#39;, _preprocess_movie_reviews_dataset, WORDS_IMDB_EN_LONG, WORDS_FEATURES_IMDB_EN_LONG,
+                     FEATURE_SETS_IMDB_EN_LONG,
+                     IMDB_NLTK_NB_EN_LONG_REVIEWS_PICKLE, IMDB_MNB_BAYES_EN_LONG_REVIEWS_PICKLE,
+                     IMDB_BERNOULLI_EN_LONG_REVIEWS_PICKLE, IMDB_LR_EN_LONG_REVIEWS_PICKLE,
+                     IMDB_SGDC_EN_LONG_REVIEWS_PICKLE, IMDB_LSVC_EN_LONG_REVIEWS_PICKLE)
+
+
+def get_imdb_short_reviews_vc(vc):
+    &#39;&#39;&#39;Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding
+    the short reviews dataset.
+    &#39;&#39;&#39;
+    __instantiate_vc(vc, &#39;en&#39;, _preprocess_short_reviews_dataset, WORDS_IMDB_EN_SHORT, WORDS_FEATURES_IMDB_EN_SHORT,
+                     FEATURE_SETS_IMDB_EN_SHORT,
+                     IMDB_NLTK_NB_EN_SHORT_REVIEWS_PICKLE, IMDB_MNB_BAYES_EN_SHORT_REVIEWS_PICKLE,
+                     IMDB_BERNOULLI_EN_SHORT_REVIEWS_PICKLE, IMDB_LR_EN_SHORT_REVIEWS_PICKLE,
+                     IMDB_SGDC_EN_SHORT_REVIEWS_PICKLE, IMDB_LSVC_EN_SHORT_REVIEWS_PICKLE)
+
+
+def get_imdb_allocine_vc(vc):
+    &#39;&#39;&#39;Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding the
+    allocine dataset.
+    &#39;&#39;&#39;
+    __instantiate_vc(vc, &#39;fr&#39;, _preprocess_allocine_dataset, WORDS_IMDB_FR, WORDS_FEATURES_IMDB_FR,
+                     FEATURE_SETS_IMDB_FR,
+                     IMDB_NLTK_NB_FR_REVIEWS_PICKLE, IMDB_MNB_BAYES_FR_REVIEWS_PICKLE,
+                     IMDB_BERNOULLI_FR_REVIEWS_PICKLE, IMDB_LR_FR_REVIEWS_PICKLE,
+                     IMDB_SGDC_FR_REVIEWS_PICKLE, IMDB_LSVC_FR_REVIEWS_PICKLE)
+
+
+def get_twitter_en_vc(vc):
+    &#39;&#39;&#39;Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding
+    the twitter_samples dataset.
+    A first estimation using the Condorcet Jury&#39;s theorem states that this model will predict with a ~89.6 %
+    accuracy the sentiment related to a sentence.
+    &#39;&#39;&#39;
+    __instantiate_vc(vc, &#39;en&#39;, _preprocess_twitter_samples_dataset, WORDS_TWITTER_EN, WORDS_FEATURES_TWITTER_EN,
+                     FEATURE_SETS_TWITTER_EN,
+                     TWITTER_NLTK_NB_EN_PICKLE, TWITTER_MNB_BAYES_EN_PICKLE, TWITTER_BERNOULLI_EN_PICKLE,
+                     TWITTER_LR_EN_PICKLE, TWITTER_SGDC_EN_PICKLE, TWITTER_LSVC_EN_PICKLE)
+
+
+def get_twitter_fr_vc(vc):
+    &#39;&#39;&#39;Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding the
+    french tweets dataset.
+    &#39;&#39;&#39;
+    __instantiate_vc(vc, &#39;fr&#39;, _preprocess_french_tweets_dataset, WORDS_TWITTER_FR, WORDS_FEATURES_TWITTER_FR,
+                     FEATURE_SETS_TWITTER_FR,
+                     TWITTER_NLTK_NB_FR_PICKLE, TWITTER_MNB_BAYES_FR_PICKLE, TWITTER_BERNOULLI_FR_PICKLE,
+                     TWITTER_LR_FR_PICKLE, TWITTER_SGDC_FR_PICKLE, TWITTER_LSVC_FR_PICKLE)
+
+
+def __instantiate_vc(vc, lang, preprocess, words_pickle, words_features_pickle, feature_sets_pickle,
+                     nltk_naive_bayes=None, mnb=None, bernoulli=None, logistic_regression=None,
+                     sgdc=None, linear_svc=None, verbose=True, multithreading=True):
+    &#39;&#39;&#39;Method that instantiates a new VoteClassifier. Ideally, this model just does the file loading, but
+    if no file was found, it can load files and train new models.
+    &#39;&#39;&#39;
+
+    start = time.perf_counter()
+
+    # Then we declare all the classifiers that will go in the VoteClassifier below
+
+    # retrieves the words data
+    words, _, _ = _get_training_data_from_pickle(preprocess, words_pickle=words_pickle)
+    gc.collect(2)
+
+    args = [
+        [&#34;NLTK_NaiveBayes_classifier&#34;, NaiveBayesClassifier, nltk_naive_bayes],
+        [&#34;MNB_classifier&#34;, SklearnClassifier(MultinomialNB()), mnb],
+        [&#34;BernoulliNB_classifier&#34;, SklearnClassifier(BernoulliNB()), bernoulli],
+        [&#34;LogisticRegression_classifier&#34;, SklearnClassifier(LogisticRegression(max_iter=150)), logistic_regression],
+        [&#34;SGDClassifier_classifier&#34;, SklearnClassifier(SGDClassifier()), sgdc],
+        [&#34;LinearSVC_classifier&#34;, SklearnClassifier(LinearSVC()), linear_svc]]
+
+    for arg in args:
+        # arg += [words, word_features, feature_sets, preprocess]
+        arg += [lang, words, words_features_pickle, feature_sets_pickle, preprocess]
+
+    # multithreading goes here
+    if multithreading:
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            futures = [executor.submit(__proxy_instantiate_model, arg) for arg in args]
+
+            for f in concurrent.futures.as_completed(futures):
+                vc._classifiers.append(f.result())
+
+    else:  # if we don&#39;t want multithread computing
+        for arg in args:
+            # if verbose:
+            #    print(&#34;Dealing with &#34; + arg[0] + &#34; for &#34; + vc.__name__ + &#34;.&#34;)
+            vc._classifiers.append(__proxy_instantiate_model(arg))
+
+    finish = time.perf_counter()
+
+    if verbose:
+        # print(vc.__name__, vc._classifiers)
+        print(f&#39;All {vc.__name__} models were loaded correctly ({vc.get_nb_classifiers()} models in {round(finish-start, 2)} second(s)).&#39;)
+
+
+def __proxy_instantiate_model(args):  # this proxy is just to bundle the different arguments needed
+    return __instantiate_model(*args)
+
+
+def __instantiate_model(name, algorithm, model_pickle, lang, words, words_features, feature_sets, preprocess, verbose=False):
+    start = time.perf_counter()
+    trained_model = Classifier(name, algorithm, model_pickle, lang, words, words_features, feature_sets, preprocess)
+    gc.collect(2)
+    finish = time.perf_counter()
+    if verbose:
+        print(f&#39;Loading of {name} finished in {round(finish-start, 2)} second(s)&#39;)
+    return trained_model</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="src.model.analysis.voting_system.get_imdb_allocine_vc"><code class="name flex">
+<span>def <span class="ident">get_imdb_allocine_vc</span></span>(<span>vc)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding the
+allocine dataset.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_imdb_allocine_vc(vc):
+    &#39;&#39;&#39;Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding the
+    allocine dataset.
+    &#39;&#39;&#39;
+    __instantiate_vc(vc, &#39;fr&#39;, _preprocess_allocine_dataset, WORDS_IMDB_FR, WORDS_FEATURES_IMDB_FR,
+                     FEATURE_SETS_IMDB_FR,
+                     IMDB_NLTK_NB_FR_REVIEWS_PICKLE, IMDB_MNB_BAYES_FR_REVIEWS_PICKLE,
+                     IMDB_BERNOULLI_FR_REVIEWS_PICKLE, IMDB_LR_FR_REVIEWS_PICKLE,
+                     IMDB_SGDC_FR_REVIEWS_PICKLE, IMDB_LSVC_FR_REVIEWS_PICKLE)</code></pre>
+</details>
+</dd>
+<dt id="src.model.analysis.voting_system.get_imdb_long_reviews_vc"><code class="name flex">
+<span>def <span class="ident">get_imdb_long_reviews_vc</span></span>(<span>vc)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding
+the movie_reviews dataset.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_imdb_long_reviews_vc(vc):
+    &#39;&#39;&#39;Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding
+    the movie_reviews dataset.
+    &#39;&#39;&#39;
+    __instantiate_vc(vc, &#39;en&#39;, _preprocess_movie_reviews_dataset, WORDS_IMDB_EN_LONG, WORDS_FEATURES_IMDB_EN_LONG,
+                     FEATURE_SETS_IMDB_EN_LONG,
+                     IMDB_NLTK_NB_EN_LONG_REVIEWS_PICKLE, IMDB_MNB_BAYES_EN_LONG_REVIEWS_PICKLE,
+                     IMDB_BERNOULLI_EN_LONG_REVIEWS_PICKLE, IMDB_LR_EN_LONG_REVIEWS_PICKLE,
+                     IMDB_SGDC_EN_LONG_REVIEWS_PICKLE, IMDB_LSVC_EN_LONG_REVIEWS_PICKLE)</code></pre>
+</details>
+</dd>
+<dt id="src.model.analysis.voting_system.get_imdb_short_reviews_vc"><code class="name flex">
+<span>def <span class="ident">get_imdb_short_reviews_vc</span></span>(<span>vc)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding
+the short reviews dataset.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_imdb_short_reviews_vc(vc):
+    &#39;&#39;&#39;Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding
+    the short reviews dataset.
+    &#39;&#39;&#39;
+    __instantiate_vc(vc, &#39;en&#39;, _preprocess_short_reviews_dataset, WORDS_IMDB_EN_SHORT, WORDS_FEATURES_IMDB_EN_SHORT,
+                     FEATURE_SETS_IMDB_EN_SHORT,
+                     IMDB_NLTK_NB_EN_SHORT_REVIEWS_PICKLE, IMDB_MNB_BAYES_EN_SHORT_REVIEWS_PICKLE,
+                     IMDB_BERNOULLI_EN_SHORT_REVIEWS_PICKLE, IMDB_LR_EN_SHORT_REVIEWS_PICKLE,
+                     IMDB_SGDC_EN_SHORT_REVIEWS_PICKLE, IMDB_LSVC_EN_SHORT_REVIEWS_PICKLE)</code></pre>
+</details>
+</dd>
+<dt id="src.model.analysis.voting_system.get_twitter_en_vc"><code class="name flex">
+<span>def <span class="ident">get_twitter_en_vc</span></span>(<span>vc)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding
+the twitter_samples dataset.
+A first estimation using the Condorcet Jury's theorem states that this model will predict with a ~89.6 %
+accuracy the sentiment related to a sentence.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_twitter_en_vc(vc):
+    &#39;&#39;&#39;Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding
+    the twitter_samples dataset.
+    A first estimation using the Condorcet Jury&#39;s theorem states that this model will predict with a ~89.6 %
+    accuracy the sentiment related to a sentence.
+    &#39;&#39;&#39;
+    __instantiate_vc(vc, &#39;en&#39;, _preprocess_twitter_samples_dataset, WORDS_TWITTER_EN, WORDS_FEATURES_TWITTER_EN,
+                     FEATURE_SETS_TWITTER_EN,
+                     TWITTER_NLTK_NB_EN_PICKLE, TWITTER_MNB_BAYES_EN_PICKLE, TWITTER_BERNOULLI_EN_PICKLE,
+                     TWITTER_LR_EN_PICKLE, TWITTER_SGDC_EN_PICKLE, TWITTER_LSVC_EN_PICKLE)</code></pre>
+</details>
+</dd>
+<dt id="src.model.analysis.voting_system.get_twitter_fr_vc"><code class="name flex">
+<span>def <span class="ident">get_twitter_fr_vc</span></span>(<span>vc)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding the
+french tweets dataset.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_twitter_fr_vc(vc):
+    &#39;&#39;&#39;Function that instantiates a new VoteClassifier out of the pretrained pickle files found regarding the
+    french tweets dataset.
+    &#39;&#39;&#39;
+    __instantiate_vc(vc, &#39;fr&#39;, _preprocess_french_tweets_dataset, WORDS_TWITTER_FR, WORDS_FEATURES_TWITTER_FR,
+                     FEATURE_SETS_TWITTER_FR,
+                     TWITTER_NLTK_NB_FR_PICKLE, TWITTER_MNB_BAYES_FR_PICKLE, TWITTER_BERNOULLI_FR_PICKLE,
+                     TWITTER_LR_FR_PICKLE, TWITTER_SGDC_FR_PICKLE, TWITTER_LSVC_FR_PICKLE)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="src.model.analysis.voting_system.VoteClassifier"><code class="flex name class">
+<span>class <span class="ident">VoteClassifier</span></span>
+<span>(</span><span>name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This class takes only one attribute : a list of trained Classifiers. Those classifiers will then be used
+to classify validedata and the VoteClassifier will concatenate those vote to pick the most voted result. From this poll,
+we can extract a confidence factor.</p>
+<p>Constructor</p>
+<p>classifiers - list of Classifiers, can be empty but the classifiers have to be added later</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class VoteClassifier:
+    &#39;&#39;&#39;This class takes only one attribute : a list of trained Classifiers. Those classifiers will then be used
+    to classify validedata and the VoteClassifier will concatenate those vote to pick the most voted result. From this poll,
+    we can extract a confidence factor.
+    &#39;&#39;&#39;
+
+    def __init__(self, name):
+        &#39;&#39;&#39;
+        Constructor
+
+        classifiers - list of Classifiers, can be empty but the classifiers have to be added later
+        &#39;&#39;&#39;
+        self.__name__ = name
+        self._classifiers = []
+
+    def get_nb_classifiers(self):
+        return len(self._classifiers)
+
+    def classify(self, features, colname=&#34;&#34;, pos_max_thresh=0.5, neg_max_thresh=0.5, multiprocessing=True, verbose=False):
+        &#39;&#39;&#39;Classifies features and returns the mode of the different votes generated by each classifier
+
+        features -- str or pd.DataFrame, contains the data to process
+        returns the most voted value, will be either &#34;pos&#34; or &#34;neg&#34;
+        &#39;&#39;&#39;
+
+        if (pos_max_thresh + neg_max_thresh) &gt; 1:
+            raise ValueError(&#34;The thresholds can&#39;t add up to more than 1.&#34;)
+
+        if not self._classifiers:
+            raise AttributeError(&#34;There is no loaded classifier in the &#34; + __name__ + &#34; VoteClassifier&#34;)
+
+        if isinstance(features, pd.DataFrame):
+            if verbose:
+                print(&#34;Beginning of classification with &#34; + self.__name__)
+            results = []
+            if multiprocessing:  # if we choose to run the classifications in parallel
+                pool = mp.Pool(mp.cpu_count())
+                sentences = features[colname].values.tolist()
+
+                result_objects = [pool.apply_async(self.classify, (sent, colname)) for sent in sentences]
+                results = [r.get() for r in result_objects]
+
+                pool.close()
+                pool.join()  # postpones the execution of next line of code until all processes in the queue are
+
+            else:  # a simpler way to do it without parallelism
+                col = features[colname].values.tolist()
+                for sentence in col:
+                    results.append(self.classify(sentence, col))  # if call this function recursively with the str contained
+
+        if isinstance(features, str):  # if this is a string
+            votes = []
+            for c in self._classifiers:  # for each classifier
+                v = c.classify(features)  # take a vote
+                votes.append(v)
+
+            # here we decide, based on the various thresholds decided, if it&#39;s pos, neg or neu
+            if (votes.count(&#34;pos&#34;) / len(votes)) &gt; pos_max_thresh:
+                results = &#34;pos&#34;
+            elif (votes.count(&#34;neg&#34;) / len(votes)) &gt; neg_max_thresh:
+                results = &#34;neg&#34;
+            else:
+                results = &#34;neu&#34;
+
+        if verbose and isinstance(features, str):
+            print(results + &#34; - &#34; + features)
+
+        return results
+
+    def confidence(self, features):
+        &#39;&#39;&#39;Returns the confidence factor of the classification
+        &#39;&#39;&#39;
+        votes = []  # will only contain &#39;neg&#39; and &#39;pos&#39; several occurrences
+        for c in self._classifiers:
+            v = c.classify(features)
+            votes.append(v)
+
+        choice_votes = votes.count(mode(votes))  #  we count the number of time the most commun vote was mentioned
+        conf = choice_votes / len(votes)  # and we divide by the number de classifiers
+        return conf</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="src.model.analysis.voting_system.VoteClassifier.classify"><code class="name flex">
+<span>def <span class="ident">classify</span></span>(<span>self, features, colname='', pos_max_thresh=0.5, neg_max_thresh=0.5, multiprocessing=True, verbose=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Classifies features and returns the mode of the different votes generated by each classifier</p>
+<p>features &ndash; str or pd.DataFrame, contains the data to process
+returns the most voted value, will be either "pos" or "neg"</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def classify(self, features, colname=&#34;&#34;, pos_max_thresh=0.5, neg_max_thresh=0.5, multiprocessing=True, verbose=False):
+    &#39;&#39;&#39;Classifies features and returns the mode of the different votes generated by each classifier
+
+    features -- str or pd.DataFrame, contains the data to process
+    returns the most voted value, will be either &#34;pos&#34; or &#34;neg&#34;
+    &#39;&#39;&#39;
+
+    if (pos_max_thresh + neg_max_thresh) &gt; 1:
+        raise ValueError(&#34;The thresholds can&#39;t add up to more than 1.&#34;)
+
+    if not self._classifiers:
+        raise AttributeError(&#34;There is no loaded classifier in the &#34; + __name__ + &#34; VoteClassifier&#34;)
+
+    if isinstance(features, pd.DataFrame):
+        if verbose:
+            print(&#34;Beginning of classification with &#34; + self.__name__)
+        results = []
+        if multiprocessing:  # if we choose to run the classifications in parallel
+            pool = mp.Pool(mp.cpu_count())
+            sentences = features[colname].values.tolist()
+
+            result_objects = [pool.apply_async(self.classify, (sent, colname)) for sent in sentences]
+            results = [r.get() for r in result_objects]
+
+            pool.close()
+            pool.join()  # postpones the execution of next line of code until all processes in the queue are
+
+        else:  # a simpler way to do it without parallelism
+            col = features[colname].values.tolist()
+            for sentence in col:
+                results.append(self.classify(sentence, col))  # if call this function recursively with the str contained
+
+    if isinstance(features, str):  # if this is a string
+        votes = []
+        for c in self._classifiers:  # for each classifier
+            v = c.classify(features)  # take a vote
+            votes.append(v)
+
+        # here we decide, based on the various thresholds decided, if it&#39;s pos, neg or neu
+        if (votes.count(&#34;pos&#34;) / len(votes)) &gt; pos_max_thresh:
+            results = &#34;pos&#34;
+        elif (votes.count(&#34;neg&#34;) / len(votes)) &gt; neg_max_thresh:
+            results = &#34;neg&#34;
+        else:
+            results = &#34;neu&#34;
+
+    if verbose and isinstance(features, str):
+        print(results + &#34; - &#34; + features)
+
+    return results</code></pre>
+</details>
+</dd>
+<dt id="src.model.analysis.voting_system.VoteClassifier.confidence"><code class="name flex">
+<span>def <span class="ident">confidence</span></span>(<span>self, features)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the confidence factor of the classification</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def confidence(self, features):
+    &#39;&#39;&#39;Returns the confidence factor of the classification
+    &#39;&#39;&#39;
+    votes = []  # will only contain &#39;neg&#39; and &#39;pos&#39; several occurrences
+    for c in self._classifiers:
+        v = c.classify(features)
+        votes.append(v)
+
+    choice_votes = votes.count(mode(votes))  #  we count the number of time the most commun vote was mentioned
+    conf = choice_votes / len(votes)  # and we divide by the number de classifiers
+    return conf</code></pre>
+</details>
+</dd>
+<dt id="src.model.analysis.voting_system.VoteClassifier.get_nb_classifiers"><code class="name flex">
+<span>def <span class="ident">get_nb_classifiers</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_nb_classifiers(self):
+    return len(self._classifiers)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src.model.analysis" href="index.html">src.model.analysis</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="src.model.analysis.voting_system.get_imdb_allocine_vc" href="#src.model.analysis.voting_system.get_imdb_allocine_vc">get_imdb_allocine_vc</a></code></li>
+<li><code><a title="src.model.analysis.voting_system.get_imdb_long_reviews_vc" href="#src.model.analysis.voting_system.get_imdb_long_reviews_vc">get_imdb_long_reviews_vc</a></code></li>
+<li><code><a title="src.model.analysis.voting_system.get_imdb_short_reviews_vc" href="#src.model.analysis.voting_system.get_imdb_short_reviews_vc">get_imdb_short_reviews_vc</a></code></li>
+<li><code><a title="src.model.analysis.voting_system.get_twitter_en_vc" href="#src.model.analysis.voting_system.get_twitter_en_vc">get_twitter_en_vc</a></code></li>
+<li><code><a title="src.model.analysis.voting_system.get_twitter_fr_vc" href="#src.model.analysis.voting_system.get_twitter_fr_vc">get_twitter_fr_vc</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="src.model.analysis.voting_system.VoteClassifier" href="#src.model.analysis.voting_system.VoteClassifier">VoteClassifier</a></code></h4>
+<ul class="">
+<li><code><a title="src.model.analysis.voting_system.VoteClassifier.classify" href="#src.model.analysis.voting_system.VoteClassifier.classify">classify</a></code></li>
+<li><code><a title="src.model.analysis.voting_system.VoteClassifier.confidence" href="#src.model.analysis.voting_system.VoteClassifier.confidence">confidence</a></code></li>
+<li><code><a title="src.model.analysis.voting_system.VoteClassifier.get_nb_classifiers" href="#src.model.analysis.voting_system.VoteClassifier.get_nb_classifiers">get_nb_classifiers</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
