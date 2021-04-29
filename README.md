@@ -7,7 +7,7 @@ L3AA1 is a program run in Python that provides sentiment analysis for corpuses o
 ## Installation
 
 For the installation process, please refer to the document *Manuel d'installation* provided with the source code (in french).
-We don't provide any API keys for the service the app uses. Please use your own by changing the content of the `setup/config.py` module.
+We don't provide any API keys for the services the app uses (Twitter and detect-language). Please use your own keys by changing the content of the `setup/config.py` module.
 
 ## Usage
 
