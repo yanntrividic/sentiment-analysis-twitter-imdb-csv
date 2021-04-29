@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>src.view.credits API documentation</title>
+<meta name="description" content="Created on Mar 2, 2021 …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.view.credits</code></h1>
+</header>
+<section id="section-intro">
+<p>Created on Mar 2, 2021</p>
+<p>Module that contains the Ui_Dialog class.
+@author: jack</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+Created on Mar 2, 2021
+
+Module that contains the Ui_Dialog class.
+@author: jack
+&#39;&#39;&#39;
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file &#39;.\credits.ui&#39;
+#
+# Created by: PyQt5 UI code generator 5.9.2
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+from main_window import IMG_PATH, ICON_PATH
+
+LOGO_PATH = IMG_PATH + &#34;L3AA1.png&#34;
+UNIV_PATH = IMG_PATH + &#34;univ.png&#34;
+CREDITS_PATH = IMG_PATH + &#34;credits.png&#34;
+
+
+class Ui_Dialog(object):
+
+    def setupUi(self, dialog):
+        # ==Automatic code from QT Designer==
+
+        # =dialog=
+        dialog.setObjectName(&#34;dialog&#34;)
+        dialog.resize(500, 500)
+        dialog.setFixedSize(500, 500)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(ICON_PATH), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        dialog.setWindowIcon(icon)
+        dialog.setStyleSheet(&#34;background-color: rgb(255, 255, 255);&#34;)
+
+        # =About Window=
+
+        # &gt;Dialog Frame
+        self.frame = QtWidgets.QFrame(dialog)
+        self.frame.setGeometry(QtCore.QRect(0, 0, 500, 500))
+        self.frame.setStyleSheet(&#34;background-color: rgb(255, 255, 255);&#34;)
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName(&#34;frame&#34;)
+
+        # &gt;Label &#34;Wallpaper&#34;
+        self.wallpapercredits = QtWidgets.QLabel(self.frame)
+        self.wallpapercredits.setGeometry(QtCore.QRect(0, 0, 500, 500))
+        self.wallpapercredits.setText(&#34;&#34;)
+        self.wallpapercredits.setPixmap(QtGui.QPixmap(CREDITS_PATH))
+        self.wallpapercredits.setScaledContents(True)
+        self.wallpapercredits.setObjectName(&#34;Wallpapercredits&#34;)
+
+        # &gt;OK Button
+        self.pushButton = QtWidgets.QPushButton(self.frame)
+        self.pushButton.setGeometry(QtCore.QRect(200, 420, 100, 30))
+        self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton.setStyleSheet(&#34;background-color: rgb(204, 204, 204);&#34;)
+        self.pushButton.setObjectName(&#34;pushButton&#34;)
+
+        # &gt;Label &#34;L3AA1&#34;
+        self.L3AA1 = QtWidgets.QLabel(self.frame)
+        self.L3AA1.setGeometry(QtCore.QRect(200, 50, 100, 100))
+        self.L3AA1.setText(&#34;&#34;)
+        self.L3AA1.setPixmap(QtGui.QPixmap(LOGO_PATH))
+        self.L3AA1.setScaledContents(True)
+        self.L3AA1.setObjectName(&#34;L3AA1&#34;)
+        self.L3AA1.setStyleSheet(&#34;background-color: rgba(0,0,0,0%)&#34;)
+
+        # &gt;Label &#34;Team Member&#34;
+        self.team = QtWidgets.QLabel(self.frame)
+        self.team.setGeometry(QtCore.QRect(150, 160, 200, 150))
+        font = QtGui.QFont()
+        font.setFamily(&#34;Arial&#34;)
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.team.setFont(font)
+        self.team.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
+        self.team.setObjectName(&#34;Team&#34;)
+        self.team.setStyleSheet(&#34;background-color: rgba(0,0,0,0%)&#34;)
+
+        # &gt;Label &#34;Université de Paris&#34;
+        self.u_paris = QtWidgets.QLabel(self.frame)
+        self.u_paris.setGeometry(QtCore.QRect(150, 320, 200, 80))
+        self.u_paris.setText(&#34;&#34;)
+        self.u_paris.setPixmap(QtGui.QPixmap(UNIV_PATH))
+        self.u_paris.setScaledContents(True)
+        self.u_paris.setObjectName(&#34;U_Paris&#34;)
+        self.u_paris.setStyleSheet(&#34;background-color: rgba(0,0,0,0%)&#34;)
+
+        # =DISPLAY ORDER=
+        self.wallpapercredits.raise_()
+        self.L3AA1.raise_()
+        self.team.raise_()
+        self.u_paris.raise_()
+        self.pushButton.raise_()
+
+        self.retranslateUi(dialog)
+        QtCore.QMetaObject.connectSlotsByName(dialog)
+
+    def retranslateUi(self, dialog):
+        _translate = QtCore.QCoreApplication.translate
+        dialog.setWindowTitle(_translate(&#34;dialog&#34;, &#34;About&#34;))
+        self.pushButton.setText(_translate(&#34;dialog&#34;, &#34;OK&#34;))
+        self.team.setText(_translate(&#34;dialog&#34;, &#34;Team members:\n&#34; +
+                                     &#34;\t- Laforge Johan \n&#34; +
+                                     &#34;\t- Tanriverdi Messie\n&#34; +
+                                     &#34;\t- Thay Jacky\n&#34; +
+                                     &#34;\t- Trividic Yann\n\n&#34; +
+                                     &#34;Supervisor:\n&#34; +
+                                     &#34;\t- Rogovschi Nicoleta&#34;))</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="src.view.credits.Ui_Dialog"><code class="flex name class">
+<span>class <span class="ident">Ui_Dialog</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Ui_Dialog(object):
+
+    def setupUi(self, dialog):
+        # ==Automatic code from QT Designer==
+
+        # =dialog=
+        dialog.setObjectName(&#34;dialog&#34;)
+        dialog.resize(500, 500)
+        dialog.setFixedSize(500, 500)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(ICON_PATH), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        dialog.setWindowIcon(icon)
+        dialog.setStyleSheet(&#34;background-color: rgb(255, 255, 255);&#34;)
+
+        # =About Window=
+
+        # &gt;Dialog Frame
+        self.frame = QtWidgets.QFrame(dialog)
+        self.frame.setGeometry(QtCore.QRect(0, 0, 500, 500))
+        self.frame.setStyleSheet(&#34;background-color: rgb(255, 255, 255);&#34;)
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName(&#34;frame&#34;)
+
+        # &gt;Label &#34;Wallpaper&#34;
+        self.wallpapercredits = QtWidgets.QLabel(self.frame)
+        self.wallpapercredits.setGeometry(QtCore.QRect(0, 0, 500, 500))
+        self.wallpapercredits.setText(&#34;&#34;)
+        self.wallpapercredits.setPixmap(QtGui.QPixmap(CREDITS_PATH))
+        self.wallpapercredits.setScaledContents(True)
+        self.wallpapercredits.setObjectName(&#34;Wallpapercredits&#34;)
+
+        # &gt;OK Button
+        self.pushButton = QtWidgets.QPushButton(self.frame)
+        self.pushButton.setGeometry(QtCore.QRect(200, 420, 100, 30))
+        self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton.setStyleSheet(&#34;background-color: rgb(204, 204, 204);&#34;)
+        self.pushButton.setObjectName(&#34;pushButton&#34;)
+
+        # &gt;Label &#34;L3AA1&#34;
+        self.L3AA1 = QtWidgets.QLabel(self.frame)
+        self.L3AA1.setGeometry(QtCore.QRect(200, 50, 100, 100))
+        self.L3AA1.setText(&#34;&#34;)
+        self.L3AA1.setPixmap(QtGui.QPixmap(LOGO_PATH))
+        self.L3AA1.setScaledContents(True)
+        self.L3AA1.setObjectName(&#34;L3AA1&#34;)
+        self.L3AA1.setStyleSheet(&#34;background-color: rgba(0,0,0,0%)&#34;)
+
+        # &gt;Label &#34;Team Member&#34;
+        self.team = QtWidgets.QLabel(self.frame)
+        self.team.setGeometry(QtCore.QRect(150, 160, 200, 150))
+        font = QtGui.QFont()
+        font.setFamily(&#34;Arial&#34;)
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.team.setFont(font)
+        self.team.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
+        self.team.setObjectName(&#34;Team&#34;)
+        self.team.setStyleSheet(&#34;background-color: rgba(0,0,0,0%)&#34;)
+
+        # &gt;Label &#34;Université de Paris&#34;
+        self.u_paris = QtWidgets.QLabel(self.frame)
+        self.u_paris.setGeometry(QtCore.QRect(150, 320, 200, 80))
+        self.u_paris.setText(&#34;&#34;)
+        self.u_paris.setPixmap(QtGui.QPixmap(UNIV_PATH))
+        self.u_paris.setScaledContents(True)
+        self.u_paris.setObjectName(&#34;U_Paris&#34;)
+        self.u_paris.setStyleSheet(&#34;background-color: rgba(0,0,0,0%)&#34;)
+
+        # =DISPLAY ORDER=
+        self.wallpapercredits.raise_()
+        self.L3AA1.raise_()
+        self.team.raise_()
+        self.u_paris.raise_()
+        self.pushButton.raise_()
+
+        self.retranslateUi(dialog)
+        QtCore.QMetaObject.connectSlotsByName(dialog)
+
+    def retranslateUi(self, dialog):
+        _translate = QtCore.QCoreApplication.translate
+        dialog.setWindowTitle(_translate(&#34;dialog&#34;, &#34;About&#34;))
+        self.pushButton.setText(_translate(&#34;dialog&#34;, &#34;OK&#34;))
+        self.team.setText(_translate(&#34;dialog&#34;, &#34;Team members:\n&#34; +
+                                     &#34;\t- Laforge Johan \n&#34; +
+                                     &#34;\t- Tanriverdi Messie\n&#34; +
+                                     &#34;\t- Thay Jacky\n&#34; +
+                                     &#34;\t- Trividic Yann\n\n&#34; +
+                                     &#34;Supervisor:\n&#34; +
+                                     &#34;\t- Rogovschi Nicoleta&#34;))</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="src.view.credits.Ui_Dialog.retranslateUi"><code class="name flex">
+<span>def <span class="ident">retranslateUi</span></span>(<span>self, dialog)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def retranslateUi(self, dialog):
+    _translate = QtCore.QCoreApplication.translate
+    dialog.setWindowTitle(_translate(&#34;dialog&#34;, &#34;About&#34;))
+    self.pushButton.setText(_translate(&#34;dialog&#34;, &#34;OK&#34;))
+    self.team.setText(_translate(&#34;dialog&#34;, &#34;Team members:\n&#34; +
+                                 &#34;\t- Laforge Johan \n&#34; +
+                                 &#34;\t- Tanriverdi Messie\n&#34; +
+                                 &#34;\t- Thay Jacky\n&#34; +
+                                 &#34;\t- Trividic Yann\n\n&#34; +
+                                 &#34;Supervisor:\n&#34; +
+                                 &#34;\t- Rogovschi Nicoleta&#34;))</code></pre>
+</details>
+</dd>
+<dt id="src.view.credits.Ui_Dialog.setupUi"><code class="name flex">
+<span>def <span class="ident">setupUi</span></span>(<span>self, dialog)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setupUi(self, dialog):
+    # ==Automatic code from QT Designer==
+
+    # =dialog=
+    dialog.setObjectName(&#34;dialog&#34;)
+    dialog.resize(500, 500)
+    dialog.setFixedSize(500, 500)
+    icon = QtGui.QIcon()
+    icon.addPixmap(QtGui.QPixmap(ICON_PATH), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+    dialog.setWindowIcon(icon)
+    dialog.setStyleSheet(&#34;background-color: rgb(255, 255, 255);&#34;)
+
+    # =About Window=
+
+    # &gt;Dialog Frame
+    self.frame = QtWidgets.QFrame(dialog)
+    self.frame.setGeometry(QtCore.QRect(0, 0, 500, 500))
+    self.frame.setStyleSheet(&#34;background-color: rgb(255, 255, 255);&#34;)
+    self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+    self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+    self.frame.setObjectName(&#34;frame&#34;)
+
+    # &gt;Label &#34;Wallpaper&#34;
+    self.wallpapercredits = QtWidgets.QLabel(self.frame)
+    self.wallpapercredits.setGeometry(QtCore.QRect(0, 0, 500, 500))
+    self.wallpapercredits.setText(&#34;&#34;)
+    self.wallpapercredits.setPixmap(QtGui.QPixmap(CREDITS_PATH))
+    self.wallpapercredits.setScaledContents(True)
+    self.wallpapercredits.setObjectName(&#34;Wallpapercredits&#34;)
+
+    # &gt;OK Button
+    self.pushButton = QtWidgets.QPushButton(self.frame)
+    self.pushButton.setGeometry(QtCore.QRect(200, 420, 100, 30))
+    self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+    self.pushButton.setStyleSheet(&#34;background-color: rgb(204, 204, 204);&#34;)
+    self.pushButton.setObjectName(&#34;pushButton&#34;)
+
+    # &gt;Label &#34;L3AA1&#34;
+    self.L3AA1 = QtWidgets.QLabel(self.frame)
+    self.L3AA1.setGeometry(QtCore.QRect(200, 50, 100, 100))
+    self.L3AA1.setText(&#34;&#34;)
+    self.L3AA1.setPixmap(QtGui.QPixmap(LOGO_PATH))
+    self.L3AA1.setScaledContents(True)
+    self.L3AA1.setObjectName(&#34;L3AA1&#34;)
+    self.L3AA1.setStyleSheet(&#34;background-color: rgba(0,0,0,0%)&#34;)
+
+    # &gt;Label &#34;Team Member&#34;
+    self.team = QtWidgets.QLabel(self.frame)
+    self.team.setGeometry(QtCore.QRect(150, 160, 200, 150))
+    font = QtGui.QFont()
+    font.setFamily(&#34;Arial&#34;)
+    font.setPointSize(9)
+    font.setBold(True)
+    font.setWeight(75)
+    self.team.setFont(font)
+    self.team.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
+    self.team.setObjectName(&#34;Team&#34;)
+    self.team.setStyleSheet(&#34;background-color: rgba(0,0,0,0%)&#34;)
+
+    # &gt;Label &#34;Université de Paris&#34;
+    self.u_paris = QtWidgets.QLabel(self.frame)
+    self.u_paris.setGeometry(QtCore.QRect(150, 320, 200, 80))
+    self.u_paris.setText(&#34;&#34;)
+    self.u_paris.setPixmap(QtGui.QPixmap(UNIV_PATH))
+    self.u_paris.setScaledContents(True)
+    self.u_paris.setObjectName(&#34;U_Paris&#34;)
+    self.u_paris.setStyleSheet(&#34;background-color: rgba(0,0,0,0%)&#34;)
+
+    # =DISPLAY ORDER=
+    self.wallpapercredits.raise_()
+    self.L3AA1.raise_()
+    self.team.raise_()
+    self.u_paris.raise_()
+    self.pushButton.raise_()
+
+    self.retranslateUi(dialog)
+    QtCore.QMetaObject.connectSlotsByName(dialog)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src.view" href="index.html">src.view</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="src.view.credits.Ui_Dialog" href="#src.view.credits.Ui_Dialog">Ui_Dialog</a></code></h4>
+<ul class="">
+<li><code><a title="src.view.credits.Ui_Dialog.retranslateUi" href="#src.view.credits.Ui_Dialog.retranslateUi">retranslateUi</a></code></li>
+<li><code><a title="src.view.credits.Ui_Dialog.setupUi" href="#src.view.credits.Ui_Dialog.setupUi">setupUi</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>src.model.data_extraction.imdb_extraction API documentation</title>
+<meta name="description" content="@author: messie" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.model.data_extraction.imdb_extraction</code></h1>
+</header>
+<section id="section-intro">
+<p>@author: messie</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+# coding: utf-8
+&#39;&#39;&#39;
+@author: messie
+&#39;&#39;&#39;
+
+from datetime import datetime
+import locale
+import time
+
+from imdb import IMDb
+import selenium
+
+import pandas as pd
+
+
+def requetes_imdb(requete, driver):
+    &#34;&#34;&#34; Fonction de traitement des requêtes imdb. &#34;&#34;&#34;
+
+    requete[&#39;colname&#39;] = [&#34;review&#34;]
+
+    # Recherche du film
+    if not requete[&#39;id&#39;]:
+        films = film_name_infos(requete[&#39;film&#39;][0])
+        if not requete[&#39;year&#39;]:
+            film_id = get_film_id(films)
+        else:
+            film_id = get_film_id(films, requete[&#39;year&#39;][0])
+        URL = mise_en_forme_URL(film_id)
+    else:
+        URL = mise_en_forme_URL(requete[&#39;id&#39;][0])
+
+    driver.get(URL)
+    print(&#34;URL : &#34; + URL)
+
+    try:
+        if driver.find_element_by_id(&#34;load-more-trigger&#34;).is_displayed():
+            load_more(driver, max_results=requete[&#39;maxentries&#39;][0])
+    except selenium.common.exceptions.NoSuchElementException:
+        raise ValueError(&#34;The specified ID doesn&#39;t exist in IMDb.&#34;)
+
+    # Récupération des données
+    dat = driver_extraction_date(driver)
+    aut = driver_extraction_auteur(driver)
+    com = driver_extraction_commentaire(driver)
+
+    return mise_sous_forme_data_frame(dat, aut, com)
+
+
+def film_name_infos(name):
+    &#34;&#34;&#34; Fonction qui récupère les infos d&#39;un film.
+    
+    Les films récupérés par la fonction search_movie() sont ceux ayant un nom proche de &#34;name&#34;.
+    &#34;&#34;&#34;
+
+    ia = IMDb()  # on crée une instance d&#39;imdb
+    movies = ia.search_movie(name)
+
+    # on récupère les infos des films trouvés
+    identifiant = []
+    titre = []
+    annee = []
+
+    for movie in movies:
+        if name.lower() in movie[&#39;title&#39;].lower():  # la boucle est insensible à la casse, mais sensible à l&#39;orthographe
+            identifiant.append(movie.movieID)
+            titre.append(movie[&#39;title&#39;])
+            if movie.has_key(&#39;year&#39;):
+                year = movie[&#39;year&#39;]
+                if year is None:
+                    annee.append(&#39;&#39;)
+                else:
+                    annee.append(movie[&#39;year&#39;])
+            else:
+                annee.append(&#39;&#39;)
+        # les infos sont mises dans une dataframe
+        df = pd.DataFrame(list(zip(identifiant, titre, annee)),
+                          columns=[&#39;id&#39;, &#39;titre&#39;, &#39;annee&#39;])
+        df.annee = df.annee.astype(str)
+    return df.sort_values(by=[&#39;annee&#39;], ascending=False)  # dataframe triée par ordre de sortie de film, le plus récent en haut
+
+
+def get_film_id(data, annee=&#39;&#39;):
+    &#34;&#34;&#34; Fonction qui récupère l&#39;identifiant d&#39;un film.
+    
+    Elle utilise &#34;data&#34;, qui est la dataframe créée par la fonction film_name_infos().
+    Si la requête indique une année de sortie du film, on choisit ce film. 
+    Sinon, par défaut, c&#39;est le film sorti le plus récemment qui sera choisi (premier élément de la dataframe).
+    &#34;&#34;&#34;
+
+    if annee == &#39;&#39;:
+        return data[&#39;id&#39;][0]
+    else:
+        df = data[data[&#39;annee&#39;] == annee]
+        return df[&#39;id&#39;].values[0]
+
+
+def mise_en_forme_URL(identifiant):
+    &#34;&#34;&#34; Fonction qui met en forme une URL.
+    
+    L&#39;URL formée est celle qui va être donnée au driver de Selenium.
+    Pour cela, il faut l&#39;identifiant du film.
+    Elle correspond à la page des commentaires d&#39;un film, classés par date.
+    &#34;&#34;&#34;
+
+    if &#34;tt&#34; in identifiant:
+        morceau_url_1 = &#34;https://www.imdb.com/title/&#34;
+    else:
+        morceau_url_1 = &#34;https://www.imdb.com/title/tt&#34;
+    morceau_url_2 = &#34;/reviews?sort=submissionDate&amp;dir=desc&amp;ratingFilter=0&#34;
+    return morceau_url_1 + identifiant + morceau_url_2
+
+
+def driver_quit(driver):
+    &#34;&#34;&#34; Fonction qui permet de quitter le driver. &#34;&#34;&#34;
+
+    driver.quit()
+
+
+def load_more(driver, max_results):
+    &#34;&#34;&#34; Fonction de défilement de la page du driver.
+    
+    On peut défiler à travers les commentaires d&#39;IMDb via un bouton à cliquer.
+    À chaque clic, au moins 1 et au plus 25 commentaires sont affichés en plus sur la page.
+    Certains commentaires ne consistant qu&#39;en une notation, 
+    et un clic pouvant n&#39;afficher qu&#39;un commentaire en plus,
+    le nombre de commentaires recherchés est margé à 30 de plus.
+    &#34;&#34;&#34;
+
+    is_element_present = driver.find_element_by_id(&#34;load-more-trigger&#34;).is_displayed()  # localisation du bouton clicable
+    while is_element_present and (max_results + 30) &gt; 0:
+        try:
+            button = driver.find_element_by_id(&#34;load-more-trigger&#34;)  # on trouve le bouton &#34;show more&#34;
+            button.click()
+            time.sleep(2)
+            max_results -= 25
+            is_element_present = driver.find_element_by_id(&#34;load-more-trigger&#34;).is_displayed()
+        except Exception:
+            raise ValueError(&#34;Une erreur est survenue sur la page du driver (scrolling).&#34;)
+            break
+
+
+def driver_extraction_date(driver):
+    &#34;&#34;&#34; Récupération des dates des commentaires sur la page du driver. &#34;&#34;&#34;
+
+    date_classe = &#39;review-date&#39;  # nom de la classe des dates dans le code HTML de la page
+    date = driver.find_elements_by_class_name(date_classe)
+    date_text = []
+    for dat in date:
+        date_text.append(dat.text)
+    date_text = mise_en_forme_date(date_text)
+    return date_text
+
+
+def driver_extraction_auteur(driver):
+    &#34;&#34;&#34; Récupération des noms d&#39;auteurs sur la page du driver. &#34;&#34;&#34;
+
+    auteur_classe = &#39;display-name-link&#39;  # nom de la classe des noms d&#39;auteurs dans le code HTML de la page
+    auteur = driver.find_elements_by_class_name(auteur_classe)
+    auteur_text = []
+    for aut in auteur:
+        auteur_text.append(aut.text)
+    return auteur_text
+
+
+def driver_extraction_commentaire(driver):
+    &#34;&#34;&#34; Récupération des commentaires sur la page du driver. &#34;&#34;&#34;
+
+    commentaire_classe = &#39;text.show-more__control&#39;  # nom de la classe des commentaires dans le code HTML de la page
+    commentaire = driver.find_elements_by_class_name(commentaire_classe)
+    commentaire_text = []
+    for com in commentaire:
+        commentaire_text.append(com.text)
+    return commentaire_text
+
+
+def mise_en_forme_date(liste):
+    &#34;&#34;&#34; Fonction qui met la date d&#39;un format &#34;datetime&#34; à un format du type AAAA-MM-JJ.&#34;&#34;&#34;
+
+    try:
+        locale.setlocale(locale.LC_ALL, &#39;en_US.utf8&#39;)  # matching des valeurs temporelles avec celles d&#39;IMDb
+    except locale.Error:
+        pass
+
+    new_date = []
+
+    try:
+        for d in liste:
+            d_datetime = datetime.strptime(d, &#39;%d %B %Y&#39;).date()
+            new_date.append(str(d_datetime))
+    except ValueError:
+        # in the case an error occurs because the user doesn&#39;t have the right default locale
+        # or hasn&#39;t the &#39;en_US.utf8&#39; locale installed
+        raise AttributeError(&#34;The locale installed on your machine does not match the requirements of the &#34; +
+                             &#34;program, please install the &#39;en_US.utf8&#39; locale.&#34;)
+    return new_date
+
+
+def mise_sous_forme_data_frame(d, a, t):
+    &#34;&#34;&#34; Fonction qui met sous forme de dataframe.
+    
+    Les dates, noms d&#39;auteur et commentaires récoltés sont placés dans une dataframe. &#34;&#34;&#34;
+
+    data = pd.DataFrame(list(zip(d, a, t)), columns=[&#39;date&#39;, &#39;author&#39;, &#39;review&#39;])
+    suppression_com_vide(data)
+    return data
+
+
+def suppression_com_vide(data):
+    &#34;&#34;&#34; Fonction de suppression de lignes dans une dataframe.
+    
+    Les lignes supprimées sont celles qui concernent les commentaires vides. &#34;&#34;&#34;
+
+    data[&#39;review&#39;].replace(&#39;&#39;, float(&#34;NaN&#34;), inplace=True)
+    data.dropna(subset=[&#39;review&#39;], inplace=True)
+    return data</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="src.model.data_extraction.imdb_extraction.driver_extraction_auteur"><code class="name flex">
+<span>def <span class="ident">driver_extraction_auteur</span></span>(<span>driver)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Récupération des noms d'auteurs sur la page du driver.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def driver_extraction_auteur(driver):
+    &#34;&#34;&#34; Récupération des noms d&#39;auteurs sur la page du driver. &#34;&#34;&#34;
+
+    auteur_classe = &#39;display-name-link&#39;  # nom de la classe des noms d&#39;auteurs dans le code HTML de la page
+    auteur = driver.find_elements_by_class_name(auteur_classe)
+    auteur_text = []
+    for aut in auteur:
+        auteur_text.append(aut.text)
+    return auteur_text</code></pre>
+</details>
+</dd>
+<dt id="src.model.data_extraction.imdb_extraction.driver_extraction_commentaire"><code class="name flex">
+<span>def <span class="ident">driver_extraction_commentaire</span></span>(<span>driver)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Récupération des commentaires sur la page du driver.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def driver_extraction_commentaire(driver):
+    &#34;&#34;&#34; Récupération des commentaires sur la page du driver. &#34;&#34;&#34;
+
+    commentaire_classe = &#39;text.show-more__control&#39;  # nom de la classe des commentaires dans le code HTML de la page
+    commentaire = driver.find_elements_by_class_name(commentaire_classe)
+    commentaire_text = []
+    for com in commentaire:
+        commentaire_text.append(com.text)
+    return commentaire_text</code></pre>
+</details>
+</dd>
+<dt id="src.model.data_extraction.imdb_extraction.driver_extraction_date"><code class="name flex">
+<span>def <span class="ident">driver_extraction_date</span></span>(<span>driver)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Récupération des dates des commentaires sur la page du driver.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def driver_extraction_date(driver):
+    &#34;&#34;&#34; Récupération des dates des commentaires sur la page du driver. &#34;&#34;&#34;
+
+    date_classe = &#39;review-date&#39;  # nom de la classe des dates dans le code HTML de la page
+    date = driver.find_elements_by_class_name(date_classe)
+    date_text = []
+    for dat in date:
+        date_text.append(dat.text)
+    date_text = mise_en_forme_date(date_text)
+    return date_text</code></pre>
+</details>
+</dd>
+<dt id="src.model.data_extraction.imdb_extraction.driver_quit"><code class="name flex">
+<span>def <span class="ident">driver_quit</span></span>(<span>driver)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fonction qui permet de quitter le driver.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def driver_quit(driver):
+    &#34;&#34;&#34; Fonction qui permet de quitter le driver. &#34;&#34;&#34;
+
+    driver.quit()</code></pre>
+</details>
+</dd>
+<dt id="src.model.data_extraction.imdb_extraction.film_name_infos"><code class="name flex">
+<span>def <span class="ident">film_name_infos</span></span>(<span>name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fonction qui récupère les infos d'un film.</p>
+<p>Les films récupérés par la fonction search_movie() sont ceux ayant un nom proche de "name".</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def film_name_infos(name):
+    &#34;&#34;&#34; Fonction qui récupère les infos d&#39;un film.
+    
+    Les films récupérés par la fonction search_movie() sont ceux ayant un nom proche de &#34;name&#34;.
+    &#34;&#34;&#34;
+
+    ia = IMDb()  # on crée une instance d&#39;imdb
+    movies = ia.search_movie(name)
+
+    # on récupère les infos des films trouvés
+    identifiant = []
+    titre = []
+    annee = []
+
+    for movie in movies:
+        if name.lower() in movie[&#39;title&#39;].lower():  # la boucle est insensible à la casse, mais sensible à l&#39;orthographe
+            identifiant.append(movie.movieID)
+            titre.append(movie[&#39;title&#39;])
+            if movie.has_key(&#39;year&#39;):
+                year = movie[&#39;year&#39;]
+                if year is None:
+                    annee.append(&#39;&#39;)
+                else:
+                    annee.append(movie[&#39;year&#39;])
+            else:
+                annee.append(&#39;&#39;)
+        # les infos sont mises dans une dataframe
+        df = pd.DataFrame(list(zip(identifiant, titre, annee)),
+                          columns=[&#39;id&#39;, &#39;titre&#39;, &#39;annee&#39;])
+        df.annee = df.annee.astype(str)
+    return df.sort_values(by=[&#39;annee&#39;], ascending=False)  # dataframe triée par ordre de sortie de film, le plus récent en haut</code></pre>
+</details>
+</dd>
+<dt id="src.model.data_extraction.imdb_extraction.get_film_id"><code class="name flex">
+<span>def <span class="ident">get_film_id</span></span>(<span>data, annee='')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fonction qui récupère l'identifiant d'un film.</p>
+<p>Elle utilise "data", qui est la dataframe créée par la fonction film_name_infos().
+Si la requête indique une année de sortie du film, on choisit ce film.
+Sinon, par défaut, c'est le film sorti le plus récemment qui sera choisi (premier élément de la dataframe).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_film_id(data, annee=&#39;&#39;):
+    &#34;&#34;&#34; Fonction qui récupère l&#39;identifiant d&#39;un film.
+    
+    Elle utilise &#34;data&#34;, qui est la dataframe créée par la fonction film_name_infos().
+    Si la requête indique une année de sortie du film, on choisit ce film. 
+    Sinon, par défaut, c&#39;est le film sorti le plus récemment qui sera choisi (premier élément de la dataframe).
+    &#34;&#34;&#34;
+
+    if annee == &#39;&#39;:
+        return data[&#39;id&#39;][0]
+    else:
+        df = data[data[&#39;annee&#39;] == annee]
+        return df[&#39;id&#39;].values[0]</code></pre>
+</details>
+</dd>
+<dt id="src.model.data_extraction.imdb_extraction.load_more"><code class="name flex">
+<span>def <span class="ident">load_more</span></span>(<span>driver, max_results)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fonction de défilement de la page du driver.</p>
+<p>On peut défiler à travers les commentaires d'IMDb via un bouton à cliquer.
+À chaque clic, au moins 1 et au plus 25 commentaires sont affichés en plus sur la page.
+Certains commentaires ne consistant qu'en une notation,
+et un clic pouvant n'afficher qu'un commentaire en plus,
+le nombre de commentaires recherchés est margé à 30 de plus.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_more(driver, max_results):
+    &#34;&#34;&#34; Fonction de défilement de la page du driver.
+    
+    On peut défiler à travers les commentaires d&#39;IMDb via un bouton à cliquer.
+    À chaque clic, au moins 1 et au plus 25 commentaires sont affichés en plus sur la page.
+    Certains commentaires ne consistant qu&#39;en une notation, 
+    et un clic pouvant n&#39;afficher qu&#39;un commentaire en plus,
+    le nombre de commentaires recherchés est margé à 30 de plus.
+    &#34;&#34;&#34;
+
+    is_element_present = driver.find_element_by_id(&#34;load-more-trigger&#34;).is_displayed()  # localisation du bouton clicable
+    while is_element_present and (max_results + 30) &gt; 0:
+        try:
+            button = driver.find_element_by_id(&#34;load-more-trigger&#34;)  # on trouve le bouton &#34;show more&#34;
+            button.click()
+            time.sleep(2)
+            max_results -= 25
+            is_element_present = driver.find_element_by_id(&#34;load-more-trigger&#34;).is_displayed()
+        except Exception:
+            raise ValueError(&#34;Une erreur est survenue sur la page du driver (scrolling).&#34;)
+            break</code></pre>
+</details>
+</dd>
+<dt id="src.model.data_extraction.imdb_extraction.mise_en_forme_URL"><code class="name flex">
+<span>def <span class="ident">mise_en_forme_URL</span></span>(<span>identifiant)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fonction qui met en forme une URL.</p>
+<p>L'URL formée est celle qui va être donnée au driver de Selenium.
+Pour cela, il faut l'identifiant du film.
+Elle correspond à la page des commentaires d'un film, classés par date.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mise_en_forme_URL(identifiant):
+    &#34;&#34;&#34; Fonction qui met en forme une URL.
+    
+    L&#39;URL formée est celle qui va être donnée au driver de Selenium.
+    Pour cela, il faut l&#39;identifiant du film.
+    Elle correspond à la page des commentaires d&#39;un film, classés par date.
+    &#34;&#34;&#34;
+
+    if &#34;tt&#34; in identifiant:
+        morceau_url_1 = &#34;https://www.imdb.com/title/&#34;
+    else:
+        morceau_url_1 = &#34;https://www.imdb.com/title/tt&#34;
+    morceau_url_2 = &#34;/reviews?sort=submissionDate&amp;dir=desc&amp;ratingFilter=0&#34;
+    return morceau_url_1 + identifiant + morceau_url_2</code></pre>
+</details>
+</dd>
+<dt id="src.model.data_extraction.imdb_extraction.mise_en_forme_date"><code class="name flex">
+<span>def <span class="ident">mise_en_forme_date</span></span>(<span>liste)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fonction qui met la date d'un format "datetime" à un format du type AAAA-MM-JJ.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mise_en_forme_date(liste):
+    &#34;&#34;&#34; Fonction qui met la date d&#39;un format &#34;datetime&#34; à un format du type AAAA-MM-JJ.&#34;&#34;&#34;
+
+    try:
+        locale.setlocale(locale.LC_ALL, &#39;en_US.utf8&#39;)  # matching des valeurs temporelles avec celles d&#39;IMDb
+    except locale.Error:
+        pass
+
+    new_date = []
+
+    try:
+        for d in liste:
+            d_datetime = datetime.strptime(d, &#39;%d %B %Y&#39;).date()
+            new_date.append(str(d_datetime))
+    except ValueError:
+        # in the case an error occurs because the user doesn&#39;t have the right default locale
+        # or hasn&#39;t the &#39;en_US.utf8&#39; locale installed
+        raise AttributeError(&#34;The locale installed on your machine does not match the requirements of the &#34; +
+                             &#34;program, please install the &#39;en_US.utf8&#39; locale.&#34;)
+    return new_date</code></pre>
+</details>
+</dd>
+<dt id="src.model.data_extraction.imdb_extraction.mise_sous_forme_data_frame"><code class="name flex">
+<span>def <span class="ident">mise_sous_forme_data_frame</span></span>(<span>d, a, t)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fonction qui met sous forme de dataframe.</p>
+<p>Les dates, noms d'auteur et commentaires récoltés sont placés dans une dataframe.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mise_sous_forme_data_frame(d, a, t):
+    &#34;&#34;&#34; Fonction qui met sous forme de dataframe.
+    
+    Les dates, noms d&#39;auteur et commentaires récoltés sont placés dans une dataframe. &#34;&#34;&#34;
+
+    data = pd.DataFrame(list(zip(d, a, t)), columns=[&#39;date&#39;, &#39;author&#39;, &#39;review&#39;])
+    suppression_com_vide(data)
+    return data</code></pre>
+</details>
+</dd>
+<dt id="src.model.data_extraction.imdb_extraction.requetes_imdb"><code class="name flex">
+<span>def <span class="ident">requetes_imdb</span></span>(<span>requete, driver)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fonction de traitement des requêtes imdb.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def requetes_imdb(requete, driver):
+    &#34;&#34;&#34; Fonction de traitement des requêtes imdb. &#34;&#34;&#34;
+
+    requete[&#39;colname&#39;] = [&#34;review&#34;]
+
+    # Recherche du film
+    if not requete[&#39;id&#39;]:
+        films = film_name_infos(requete[&#39;film&#39;][0])
+        if not requete[&#39;year&#39;]:
+            film_id = get_film_id(films)
+        else:
+            film_id = get_film_id(films, requete[&#39;year&#39;][0])
+        URL = mise_en_forme_URL(film_id)
+    else:
+        URL = mise_en_forme_URL(requete[&#39;id&#39;][0])
+
+    driver.get(URL)
+    print(&#34;URL : &#34; + URL)
+
+    try:
+        if driver.find_element_by_id(&#34;load-more-trigger&#34;).is_displayed():
+            load_more(driver, max_results=requete[&#39;maxentries&#39;][0])
+    except selenium.common.exceptions.NoSuchElementException:
+        raise ValueError(&#34;The specified ID doesn&#39;t exist in IMDb.&#34;)
+
+    # Récupération des données
+    dat = driver_extraction_date(driver)
+    aut = driver_extraction_auteur(driver)
+    com = driver_extraction_commentaire(driver)
+
+    return mise_sous_forme_data_frame(dat, aut, com)</code></pre>
+</details>
+</dd>
+<dt id="src.model.data_extraction.imdb_extraction.suppression_com_vide"><code class="name flex">
+<span>def <span class="ident">suppression_com_vide</span></span>(<span>data)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fonction de suppression de lignes dans une dataframe.</p>
+<p>Les lignes supprimées sont celles qui concernent les commentaires vides.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def suppression_com_vide(data):
+    &#34;&#34;&#34; Fonction de suppression de lignes dans une dataframe.
+    
+    Les lignes supprimées sont celles qui concernent les commentaires vides. &#34;&#34;&#34;
+
+    data[&#39;review&#39;].replace(&#39;&#39;, float(&#34;NaN&#34;), inplace=True)
+    data.dropna(subset=[&#39;review&#39;], inplace=True)
+    return data</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src.model.data_extraction" href="index.html">src.model.data_extraction</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="src.model.data_extraction.imdb_extraction.driver_extraction_auteur" href="#src.model.data_extraction.imdb_extraction.driver_extraction_auteur">driver_extraction_auteur</a></code></li>
+<li><code><a title="src.model.data_extraction.imdb_extraction.driver_extraction_commentaire" href="#src.model.data_extraction.imdb_extraction.driver_extraction_commentaire">driver_extraction_commentaire</a></code></li>
+<li><code><a title="src.model.data_extraction.imdb_extraction.driver_extraction_date" href="#src.model.data_extraction.imdb_extraction.driver_extraction_date">driver_extraction_date</a></code></li>
+<li><code><a title="src.model.data_extraction.imdb_extraction.driver_quit" href="#src.model.data_extraction.imdb_extraction.driver_quit">driver_quit</a></code></li>
+<li><code><a title="src.model.data_extraction.imdb_extraction.film_name_infos" href="#src.model.data_extraction.imdb_extraction.film_name_infos">film_name_infos</a></code></li>
+<li><code><a title="src.model.data_extraction.imdb_extraction.get_film_id" href="#src.model.data_extraction.imdb_extraction.get_film_id">get_film_id</a></code></li>
+<li><code><a title="src.model.data_extraction.imdb_extraction.load_more" href="#src.model.data_extraction.imdb_extraction.load_more">load_more</a></code></li>
+<li><code><a title="src.model.data_extraction.imdb_extraction.mise_en_forme_URL" href="#src.model.data_extraction.imdb_extraction.mise_en_forme_URL">mise_en_forme_URL</a></code></li>
+<li><code><a title="src.model.data_extraction.imdb_extraction.mise_en_forme_date" href="#src.model.data_extraction.imdb_extraction.mise_en_forme_date">mise_en_forme_date</a></code></li>
+<li><code><a title="src.model.data_extraction.imdb_extraction.mise_sous_forme_data_frame" href="#src.model.data_extraction.imdb_extraction.mise_sous_forme_data_frame">mise_sous_forme_data_frame</a></code></li>
+<li><code><a title="src.model.data_extraction.imdb_extraction.requetes_imdb" href="#src.model.data_extraction.imdb_extraction.requetes_imdb">requetes_imdb</a></code></li>
+<li><code><a title="src.model.data_extraction.imdb_extraction.suppression_com_vide" href="#src.model.data_extraction.imdb_extraction.suppression_com_vide">suppression_com_vide</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

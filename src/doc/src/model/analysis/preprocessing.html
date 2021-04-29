@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>src.model.analysis.preprocessing API documentation</title>
+<meta name="description" content="Created on Mar 10, 2021 …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.model.analysis.preprocessing</code></h1>
+</header>
+<section id="section-intro">
+<p>Created on Mar 10, 2021</p>
+<p>@author: yann</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+Created on Mar 10, 2021
+
+@author: yann
+&#39;&#39;&#39;
+
+from os.path import sep
+import pickle
+import random
+
+from file_reader import load_pickle, read_csv_to_df
+from file_writer import save_pickle
+from nlp_utils import tokenize_and_remove_stopwords, convert_lang_format, lemmatize_words
+import nltk
+from nltk.corpus import movie_reviews, twitter_samples
+from nltk.tokenize import word_tokenize
+
+TRAINING_DATA_FOLDER = &#34;model&#34; + sep + &#34;resources&#34; + sep + &#34;training_data&#34; + sep
+
+POS_SHORT_REVIEWS_FILEPATH = TRAINING_DATA_FOLDER + &#34;positive_imdb_reviews.txt&#34;
+NEG_SHORT_REVIEWS_FILEPATH = TRAINING_DATA_FOLDER + &#34;negative_imdb_reviews.txt&#34;
+
+NEG_FRENCH_TWEETS_FILEPATH = TRAINING_DATA_FOLDER + &#34;french_tweets_neg.csv&#34;
+POS_FRENCH_TWEETS_FILEPATH = TRAINING_DATA_FOLDER + &#34;french_tweets_pos.csv&#34;
+
+NEG_ALLOCINE_FILEPATH = TRAINING_DATA_FOLDER + &#34;french_allocine_neg.csv&#34;
+POS_ALLOCINE_FILEPATH = TRAINING_DATA_FOLDER + &#34;french_allocine_pos.csv&#34;
+
+
+def _preprocess_french_tweets_dataset():
+    &#39;&#39;&#39;Extracts data from the french_tweets.csv dataset and processes it to match the classifiers
+    The dataset used here can be found at this location: https://www.kaggle.com/hbaflast/french-twitter-sentiment-analysis/
+
+    returns :
+    words -- List of words used for the classification
+    word_features -- the first n words most used in the dataset and their frequency
+    feature_sets -- list of presence or absence of each word of word_features in a sample and the polarity of the sample
+    &#39;&#39;&#39;
+
+    neg_tweets_df = read_csv_to_df(NEG_FRENCH_TWEETS_FILEPATH)
+    pos_tweets_df = read_csv_to_df(POS_FRENCH_TWEETS_FILEPATH)
+
+    documents, tweets_pos, tweets_neg = ([] for i in range(3))  # initialization of three empty lists
+
+    for _, row in neg_tweets_df.iterrows():
+        txt = row[&#39;text&#39;]
+        documents.append((txt, &#34;neg&#34;))
+        tweets_neg += word_tokenize(txt, language=&#34;french&#34;)
+
+    for _, row in pos_tweets_df.iterrows():
+        txt = row[&#39;text&#39;]
+        documents.append((txt, &#34;pos&#34;))
+        tweets_pos += word_tokenize(txt, language=&#34;french&#34;)
+
+    return __preprocess_into_training_data(documents, tweets_pos, tweets_neg, 3000, &#34;fr&#34;)
+
+
+def _preprocess_twitter_samples_dataset():
+    &#39;&#39;&#39;Extracts data from the twitter_samples dataset and processes it to match the classifiers
+
+    returns :
+    words -- List of words used for the classification
+    word_features -- the first n words most used in the dataset and their frequency
+    feature_sets -- list of presence or absence of each word of word_features in a sample and the polarity of the sample
+    &#39;&#39;&#39;
+    documents, tweets_pos, tweets_neg = ([] for i in range(3))  # initialization of three empty lists
+
+    for t in twitter_samples.strings(&#34;positive_tweets.json&#34;):
+        documents.append((t, &#34;pos&#34;))
+        tweets_pos += lemmatize_words(tokenize_and_remove_stopwords(t, &#34;en&#34;))
+
+    for t in twitter_samples.strings(&#34;negative_tweets.json&#34;):
+        documents.append((t, &#34;neg&#34;))
+        tweets_neg += lemmatize_words(tokenize_and_remove_stopwords(t, &#34;en&#34;))
+
+    return __preprocess_into_training_data(documents, tweets_pos, tweets_neg, 5000, &#34;en&#34;)
+
+
+def _preprocess_movie_reviews_dataset():
+    &#39;&#39;&#39;Movie Reviews is the most accessible dataset about film reviews in english. This dataset is not adapted
+    to work on short reviews.
+    Here, we preprocess the data for it to be used in the classifiers.
+
+    returns :
+    words -- List of words used for the classification
+    word_features -- the first n words most used in the dataset and their frequency
+    feature_sets -- list of presence or absence of each word of word_features in a sample and the polarity of the sample
+    &#39;&#39;&#39;
+    # documents is a list of length 2 and contains the words in the dataset alongside their features
+    # at index 0 are the words contained in negative movie reviews
+    # at index 1 are the words contained in positive movie reviews
+    documents = [(list(movie_reviews.words(fileid)), category)
+                 for category in movie_reviews.categories()
+                 for fileid in movie_reviews.fileids(category)]
+
+    random.shuffle(documents)  # the data is ordered. We need to shuffle it to unbias it
+
+    all_words = []  # will contain all the words of the dataset without their associated features
+    for w in movie_reviews.words():
+        all_words.append(w.lower())  # we word_totokenize_and_remove_stopwordskenizedon&#39;t care about the case
+
+    all_words = nltk.FreqDist(all_words)  #  gets the frequency distribution of the words
+
+    word_features = list(all_words.keys())[:3000]  # we extract the most frequent words from all_words
+    # Basically, this line marks each of the 3000 most common words as present or absent in each 2000 document
+
+    feature_sets = [(__find_features(set(rev), word_features), category) for (rev, category) in documents]
+
+    return all_words, word_features, feature_sets
+
+
+def _preprocess_short_reviews_dataset():
+    &#39;&#39;&#39;The dataset used for here has been found at this link :
+    https://pythonprogramming.net/static/downloads/short_reviews
+
+    It is composed of 10600~ short movie reviews separated in two files (pos and neg).
+    Here, we preprocess the data for it to be used in the classifiers.
+
+    returns :
+    words -- List of words used for the classification
+    word_features -- the first n words most used in the dataset and their frequency
+    feature_sets -- list of presence or absence of each word of word_features in a sample and the polarity of the sample
+    &#39;&#39;&#39;
+    short_pos = open(POS_SHORT_REVIEWS_FILEPATH, &#34;r&#34;).read()
+    short_neg = open(NEG_SHORT_REVIEWS_FILEPATH, &#34;r&#34;).read()
+
+    documents = []
+
+    for r in short_pos.split(&#39;\n&#39;):
+        documents.append((r, &#34;pos&#34;))
+
+    for r in short_neg.split(&#39;\n&#39;):
+        documents.append((r, &#34;neg&#34;))
+
+    short_pos_words = lemmatize_words(tokenize_and_remove_stopwords(short_pos, &#34;en&#34;))
+    short_neg_words = lemmatize_words(tokenize_and_remove_stopwords(short_neg, &#34;en&#34;))
+
+    return __preprocess_into_training_data(documents, short_pos_words, short_neg_words, 5000, &#34;en&#34;)
+
+
+def _preprocess_allocine_dataset():
+    &#39;&#39;&#39;The dataset used for here has been found at this link :
+    https://www.kaggle.com/djilax/allocine-french-movie-reviews
+
+    It is composed of 160k~ movie reviews in french in a CSV file.
+    Here, we preprocess the data for it to be used in the classifiers.
+
+    returns :
+    words -- List of words used for the classification
+    word_features -- the first n words most used in the dataset and their frequency
+    feature_sets -- list of presence or absence of each word of word_features in a sample and the polarity of the sample
+    &#39;&#39;&#39;
+
+    neg_reviews_df = read_csv_to_df(NEG_ALLOCINE_FILEPATH)
+    pos_reviews_df = read_csv_to_df(POS_ALLOCINE_FILEPATH)
+#    print(neg_reviews_df)
+
+    documents, reviews_pos, reviews_neg = ([] for i in range(3))  # initialization of three empty lists
+
+    for _, row in neg_reviews_df.iterrows():
+        txt = row[&#39;review&#39;]
+        documents.append((txt, &#34;neg&#34;))
+        reviews_neg += word_tokenize(txt, language=&#34;french&#34;)
+    print(len(reviews_neg))
+    print(str(reviews_neg[:10]))
+
+    for _, row in pos_reviews_df.iterrows():
+        txt = row[&#39;review&#39;]
+        documents.append((txt, &#34;pos&#34;))
+        reviews_pos += word_tokenize(txt, language=&#34;french&#34;)
+    print(len(reviews_pos))
+    print(str(reviews_pos[:10]))
+
+    return __preprocess_into_training_data(documents, reviews_pos, reviews_neg, 3000, &#34;fr&#34;)
+
+
+def _get_training_data_from_pickle(preprocess, words_pickle=None, word_features_pickle=None, feature_sets_pickle=None):
+    &#39;&#39;&#39;Tries to load the PICKLE file that contains the words used by the classifiers. It it fails,
+    preprocesses the data and saves it into the words_pickle file
+
+    words_pickle -- str Path to the PICKLE file
+    preprocess -- Function used for the preprocessing of the data (used if the PICKLE file could not be loaded)
+
+    returns
+    words_pickle -- PICKLE fileList of words used for the classification
+    word_features_pickle -- the first n words most used in the dataset and their frequency
+    feature_sets_pickle -- list of presence or absence of each word of word_features in a sample and the polarity of the sample
+    &#39;&#39;&#39;
+
+    to_fill = [[None, words_pickle], [None, word_features_pickle], [None, feature_sets_pickle]]
+
+    for element in range(len(to_fill)):  # for now, we comment it and load the two other objects only when needed
+
+        if to_fill[element][1]:
+            try:
+                to_fill[element][0] = load_pickle(to_fill[element][1])
+
+            except (FileNotFoundError, EOFError, pickle.PickleError):  #  if we can&#39;t read it, then we train a new model
+                print(to_fill[element][1] + &#34; coult not be loaded. New data will be generated and saved.&#34;)
+
+                if(to_fill[element][0] is None):
+                    to_fill[0][0], to_fill[1][0], to_fill[2][0] = preprocess()
+
+                    # we save new versions of the files for it to be coherent
+                    for e in range(len(to_fill)):
+                        if to_fill[e][1]:
+                            save_pickle(to_fill[e][0], to_fill[e][1])
+                    return to_fill[0][0], to_fill[1][0], to_fill[2][0]
+
+    return to_fill[0][0], to_fill[1][0], to_fill[2][0]
+
+
+def __preprocess_into_training_data(documents, pos_words, neg_words, nb_words, lang):
+    &#39;&#39;&#39;Common preprocessing function to preprocessdocuments into training data for the models of the project
+
+    documents -- list of sentences
+    pos_words -- list of all the positive words
+    neg_words -- list of all the negative words
+    nb_words -- the maximum amount of words to process
+    lang -- the language is which the data is
+    &#39;&#39;&#39;
+    all_words = []
+    random.shuffle(documents)
+
+    for w in pos_words:
+        all_words.append(w.lower())
+
+    for w in neg_words:
+        all_words.append(w.lower())
+
+    all_words = nltk.FreqDist(all_words)
+
+    word_features = list(all_words.keys())[:nb_words]
+    # print(word_features[:10])
+    # print(all_words.most_common(20))
+
+    feature_sets = [(__find_features(word_tokenize(rev, language=convert_lang_format(lang, &#39;en_name&#39;)),
+                                     word_features), category) for (rev, category) in documents]
+
+    random.shuffle(feature_sets)
+
+    return all_words, word_features, feature_sets
+
+
+def __find_features(document, word_features):
+    &#39;&#39;&#39;Extracts all the features for a document
+    &#39;&#39;&#39;
+    words = document  # all the words contained in one document
+    features = {}
+    for w in word_features:  # for each 3000 most common words
+        features[w] = (w in words)  # we put a new dict entry in features to mark its presence or absence
+    return features</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src.model.analysis" href="index.html">src.model.analysis</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
