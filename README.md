@@ -17,9 +17,8 @@ For learning how to use the software, please refer to the document *Manuel d'uti
 
 If you are struggling with the software, contact one of our developpers and describe the issue as thoroughly as you can. Please provide the console logs of your run in your message.
 
-**Linux :** Yann Trividic ([yann.trividic@hotmail.fr](mailto:yann.trividic@hotmail.fr))  
-**macOS :** Messie Tanriverdi ([tanriverdi.messie@gmail.com](mailto:tanriverdi.messie@gmail.com))  
-**Windows :** Jacky That ([jacky.thay@yahoo.com](mailto:jacky.thay@yahoo.com))
+**Linux :** Yann Trividic ([yann.trividic@tutanota.com](mailto:yann.trividic@hotmail.fr))  
+**Windows :** Jacky Thay ([jacky.thay@yahoo.com](mailto:jacky.thay@yahoo.com))
 
 A Python problem? Reach any of the above!
 
